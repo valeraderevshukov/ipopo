@@ -1,0 +1,226 @@
+.icon-planet
+	+svg(planet,16,16)
+.icon-dia-bubble
+	+svg(dia-bubble,16,16)
+.icon-logo
+	+svg(logo,184,67)
+	+r(1200)
+		+svg(logo,174,57)
+	+r(960)
+		+svg(logo,135,48)
+.icon-cloud
+	+svg(cloud,64,50)
+.icon-cloud-smaller
+	+svg(cloud,41,32)
+.icon-gift-shine
+	+svg(gift-shine,64,64)
+.icon-love
+	+svg(love,64,64)
+.icon-love-2
+	+svg(love-2,32,32)
+.icon-cloud-star
+	+svg(cloud-star,40,36)
+.icon-cloud-list
+	+svg(cloud-list,40,36)
+.icon-cloud-list-small
+	+svg(cloud-list,32,32)
+.icon-cloud-list-2
+	+svg(cloud-list-2,32,32)
+.icon-present-white
+	+svg(present-white,14,16)
+.icon-mail-white
+	+svg(mail-white,16,12)
+.icon-card-white
+	+svg(card-white,16,12)
+.icon-facebook
+	+svg(facebook,40,40)
+
+.icon-google
+	+svg(google,40,40)
+.icon-twitter
+	+svg(twitter,40,40)
+.icon-vk
+	+svg(vk,40,40)
+.icon-star
+	+svg(star,40,40)
+.icon-gift
+	+svg(gift,40,40)
+.icon-wtf
+	+svg(wtf,40,32)	 
+.icon-clock
+	+svg(clock,40,40)
+.icon-user
+	+svg(user,37,37)
+.icon-f5
+	+svg(f5,53,53)
+	+transition(transform .2s)
+.icon-f5-2
+	+svg(f5-2,32,32)
+.icon-search
+	+svg(search,34,34)
+.icon-date
+	+svg(date,30,34)
+.icon-loc-color
+	+svg(loc-color,23,31)
+.icon-plus
+	+svg(plus,28,28)
+.icon-cloud-small
+	+svg(cloud-small,16,14)
+.icon-mail
+	+svg(mail,16,12)
+.icon-share
+	+svg(share,32,32)
+.icon-dice
+	+svg(dice,16,16)
+.icon-card
+	+svg(card,16,12)
+.icon-gift-white
+	+svg(gift-white,32,30)
+.icon-wheel
+	+svg(wheel,32,32)
+.icon-wheel-2
+	+svg(wheel-2,37,37)
+.icon-wheel-2-small
+	+svg(wheel-2,32,32)
+.icon-smb
+	+svg(smb,28,32)
+.icon-photo
+	+svg(photo,32,31)
+.icon-check
+	+svg(check,34,34)
+.icon-check-2
+	+svg(check-2,33,33)
+.icon-time
+	+svg(time,34,34)
+.icon-calc
+	+svg(calc,26,32)
+.icon-comment
+	+svg(comment,32,32)
+.icon-pen
+	+svg(pen,14,14)
+.icon-trash
+	+svg(trash,12,15)
+.icon-planet-2
+	+svg(planet-2,16,16)
+.icon-list
+	+svg(list,16,15)
+.icon-arr-bubble
+	+svg(arr-bubble,16,16)
+.icon-close-color
+	+svg(close-color,18,18)
+.icon-facebook-f
+	+svg(facebook-f,9,20)
+.icon-vk-f
+	+svg(vk-f,24,13)
+.icon-google-f
+	+svg(google-f,21,19)
+.icon-twitter-f
+	+svg(twitter-f,21,16)
+.icon-cloud-shine-small
+	+svg(cloud-shine-small,39,36)
+.icon-arr-down
+	+svg(arr-down,31,31)
+.icon-arrow-down
+	position: relative
+	width: 15px
+	height: 8px
+	&:before,
+	&:after
+		content: ""
+		position: absolute
+		width: 10px
+		height: 4px
+		border-radius: 2px
+		bottom: 0
+		background-color: $ipopo 
+	&:before
+		right: 0
+		+rotate(135)
+	&:after
+		left: 0
+		+rotate(-135)
+.icon-delete
+	+svg(delete,32,32)
+.icon-delete-big
+	+svg(delete-big,37,37)
+.icon-cat-baby
+	+svg(cat-baby,31,30)
+.icon-cat-constructor
+	+svg(cat-constructor,32,30)
+.icon-cat-firework
+	+svg(cat-firework,33,33)
+.icon-cat-gift
+	+svg(cat-gift,30,32)
+.icon-cat-home
+	+svg(cat-home,31,30)
+.icon-cat-love
+	+svg(cat-love,31,29)
+.icon-cat-rings
+	+svg(cat-rings,32,31)
+.icon-cat-symbol
+	+svg(cat-symbol,28,32)
+.icon-cat-tree
+	+svg(cat-tree,24,31)
+.icon-cat-user
+	+svg(cat-user,29,33)
+.icon-minus
+	width: 16px 
+	height: 4px
+	border-radius: 3px
+	background-color: $sky
+	display: inline-block
+	vertical-align: middle
+.icon-plus-small
+	+sr(plus)
+	display: inline-block
+	vertical-align: middle
+.icon-massage
+	+svg(massage,32,32)
+.icon-present
+	+svg(present,14,16)
+.icon-present-opened
+	+svg(present-opened,12,15)
+.icon-loc
+	+svg(loc,12,16)
+.icon-lock
+	+svg(lock,12,15)
+
+.burger
+	display: inline-block
+	vertical-align: middle
+	margin-left: 5px 
+	&__line
+		height: 8px
+		width: 30px  
+		border-radius: 4px
+		margin-top: 4px
+		background-color: #fff
+		&:first-child
+			margin-top: 0
+		&.is-lily
+			background-color: $lily
+		&.is-orangead
+			background-color: $orangead
+		&.is-sky
+			background-color: $sky
+		&.is-ipopo
+			background-color: $ipopo 
+	&_small
+		margin-left: 0
+		.burger__line
+			height: 6px
+			width: 30px 
+			margin-top: 5px
+			border-radius: 3px
+.icon-photo-big
+	+svg(photo,40,36)
+.icon-photo-plus
+	+svg(photo-plus, 40,31)
+.icon-cards
+	+svg(cards,37,37)
+.icon-speaker
+	+svg(speaker,42,36)
+		
+
+		   
+

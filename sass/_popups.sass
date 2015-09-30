@@ -1,0 +1,200 @@
+.popup
+	display: none 
+	z-index: 49
+	position: fixed
+	top: 0
+	bottom: 0
+	left: 0
+	right: 0	
+	+r(767)
+		position: absolute
+		top: 0
+		bottom: 0
+		left: 0
+		right: 0
+		height: 100%
+	&.is-active
+		display: block
+		.popup__overlay
+			opacity: 1
+	&.is-width
+		.popup__in
+			width: 804px 
+			margin-left: -402px
+			+r(1023)
+				position: absolute
+				width: 100% 
+				bottom: 0
+				top: 0px
+				margin: 0
+				left: 0
+				+vertical
+	&.is-higher
+		.popup__in
+			top: 30px
+	&.non-fixed
+		position: absolute	
+		.popup__in
+			position: absolute 
+			+r(1023)
+				position: absolute
+				width: 100% 
+				bottom: 0
+				top: 0px
+				margin: 0
+				left: 0
+				+vertical
+			+r(767)
+				padding: 14px 9px 60px 
+				height: 100%
+		.popup__overlay
+			+r(1023)
+				background: #fff
+				height: 100%
+	&__overlay
+		position: fixed
+		top: 0
+		bottom: 0
+		left: 0
+		right: 0
+		opacity: 0
+		+tr(opacity .2s)
+		background: rgba(#8d5bb4,.75)		
+		+r(767)
+			background: #fff
+			height: 100%
+	&__in
+		position: fixed
+		top: 100px
+		left: 50%
+		margin-left: -290px 
+		width: 580px
+		background-color: #fff
+		border-radius: 5px
+		padding: 49px 44px 46px 43px
+		+r(1023)
+			position: absolute
+			width: 100% 
+			bottom: 0
+			top: 0px
+			margin: 0
+			left: 0
+			+vertical
+		+r(767)
+			padding: 14px 9px 60px 
+			height: 100%
+			
+		&:before,
+		&:after
+			content: ""
+			position: absolute
+			top: 0
+			bottom: 0
+			right: 0
+			background-color: transparent
+			border-radius: 5px
+			border-width: 2px  
+			border-style: solid
+			+r(1023)	
+				display: none
+		&:before
+			z-index: 3
+			border-color: $orangead
+			+rotate(1.3)
+			left: 1px
+			+r(1023)
+				border: none
+		&:after
+			z-index: 0
+			border-color: $ipopo 
+			+rotate(-1.3)
+			left: -3px
+			right: -3px
+	&__close
+		position: absolute
+		z-index: 11
+		top: 30px 
+		right: 20px
+		+tr(top .2s)
+		&:active
+			top: 32px 
+		+r(767)
+			display: none
+	&__content
+		position: relative		
+		z-index: 4 
+		+clr
+		+r(1023)
+			vertical-align: middle
+			display: inline-block
+		+r(767)
+			display: block
+		&.with-datepicker
+			+r(1023)
+				width: 768px
+				margin: 0 auto 
+			+r(767)
+				width: 480px
+			+r(479)
+				width: 320px
+	&__foot
+		margin-top: 35px
+		+r(479)
+			text-align: center
+			.btn-simple
+				display: block
+				width: 100%
+				margin-bottom: 10px
+	&__title
+		display: none
+		+r(767)
+			display: block
+			margin: 15px 0 30px
+			text-align: center
+			span
+				display: block
+				text-transform: uppercase
+				color: $orangead
+				font-size: 24px
+				+blogger-bold 
+	&__wrap
+		margin-top: 35px 
+	.title_small
+		&.with-marg
+			margin-bottom: 25px
+	.link_back
+		margin-left: 55px 
+		+r(767)
+			margin-left: 0
+	.ui-datepicker
+		right: auto
+		left: 0
+	.input_date
+		margin-top: 30px
+		.icon-date
+			+r(1023)
+				display: none 
+		 
+			
+.popup-login
+	.input
+		margin-top: 27px
+		+r(767)
+			margin-top: 18px
+	.btn-simple
+		margin-top: 40px
+		+r(767)
+			width: 100%
+			margin-top: 32px
+			margin-bottom: 25px 
+	&__col
+		float: left 
+		text-align: left
+		+r(767)
+			float: none
+		&.with-width
+			width: 252px
+			margin-right: 40px
+			+r(767)
+				margin: 0
+				width: 100%

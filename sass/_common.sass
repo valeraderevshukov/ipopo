@@ -1,0 +1,4269 @@
+// # SHORT HOWTO
+// ## Sprites
+//     .whatever
+//          +sized-sprite($icons, coderiver) //or
+// 			+s(codedby) //gets default value for spritemap as $icons
+// ### animation example
+//     +include keyframes(rotate)
+//        from
+//           +rotate(0)
+//        to
+//           +rotate(360)
+// ## animation usage
+//     body:hover
+// 	    +animation(rotate 200s linear infinite)
+// ## animations easing, see easings.net for full list and examples, tnx @ai
+//     transition: all 1.2s ceaser($ease-in)
+// ## gradient example
+//     +background-image(linear-gradient(#232323, #5c5c5c));
+//     +g(#232323, #5c5c5c);
+//	   horizontal
+//     +gh(#232323, #5c5c5c);
+// ## making bw-images
+//     img
+//			@extend %gray
+// ## predefined media-queries: https://github.com/paranoida/sass-mediaqueries
+//     +min-screen(320)
+//			display: none
+// +max-screen(1000), +iphone5, +iphone4, +ipad-retina, +ipad, +hdpi - also available
+//
+// ## use cycles
+//     @for $i from 1 through 3
+//       .item-#{$i}
+//			width: 2em * $i;
+//     @each $s in a,b,c
+// 	    	#{$s}
+//				display: none
+// ## fonts 
+// Save fonts to /css/fonts, after that write (eot, woff, ttf):
+// +font(book, cytiapro-black-webfont)  
+// =book
+// 	font-family: "book", Arial, sans-serif 
+// insert pics into css
+// div
+// 	+pic("blabla.png")
+// span
+// 	+png(blabla)
+// p
+// 	+jpg(bla)
+$ipopo: #8d5bb4
+$orangead: #feb737
+$sky: #a6c3fd
+$lily: #e192e5
+$text: #666666
+$white-blue: #f2f6ff
+
++font(blogger_sans-bold,blogger_sans-bold)
++font(ptsans-bold,ptsans-bold)	
++font(bloggersans-medium,bloggersans-medium)  
++font(ptsans-regular,ptsans-regular)
++font(ptsans-italic,ptsans-italic)
+=blogger-bold
+	font-family: 'blogger_sans-bold', Georgia, sans-serif
+	font-weight: 700
+=blogger-med
+	font-family: 'bloggersans-medium', Georgia, sans-serif
+	font-weight: 500 
+=pt-bold
+	font-family: 'ptsans-bold', Arial, sans-serif
+	font-weight: 700
+=pt-reg
+	font-family: 'ptsans-regular', Arial, sans-serif
+	font-weight: 400  
+=pt-italic
+	font-family: 'ptsans-italic' , Arial, sans-serif
+	font-style: italic 
+body
+	+pt-reg
+	font-size: 14px 
+	line-height: 1.4
+a
+	text-decoration: none 
+button
+	background-color: transparent 
+.out
+	position: relative
+	padding-bottom: 77px
+	overflow: hidden
+	+r(768)
+		padding-bottom: 42px
+.l-center
+	margin: 0 auto
+	padding: 0 1%
+	max-width: 1200px
+	position: relative
+	z-index: 10  
+	+clr
+	&_modif
+		max-width: 1300px
+	+r(1200)
+		width: 1024px 
+		padding: 0 .5%
+	+r(1023)
+		width: 768px 
+		padding: 0 
+	+r(767)
+		width: 480px
+	+r(479)
+		width: 320px
+
+		 
+.header 
+	position: relative
+	&__top
+		background: url(../img/bg-head2.png) 0 0 repeat-x
+		background-size: 29px 40px
+		height: 40px 
+		+clr
+		position: relative
+		z-index: 20
+		+r(1200)
+			padding-right: 21px
+		+r(1023)
+			display: none
+	&__main
+		+clr
+.top-menu
+	+clr
+	float: left
+	width: auto 
+	&__item
+		float: left
+		font-size: 14px 
+		margin-top: 7px
+		border-left: 1px solid $ipopo
+		width: auto 
+		&:first-child
+			border-left: none
+		a
+			display: inline-block
+			padding: 0px 26px 0 21px 
+			color: $ipopo
+			+pt-reg 
+			vertical-align: middle
+			+transition(color .2s)
+			&:hover
+				color: lighten($ipopo, 10%)
+			&:active
+				color: darken($ipopo,10%) 
+			+r(1200)
+				padding: 0 20px
+			+r(1041)
+				padding: 0 10px 
+.sets
+	float: right
+	margin-top: 7px
+	margin-right: 2% 
+	position: relative
+	z-index: 5
+	background-color: #e9d7af
+	&__item
+		float: left
+		font-size: 14px
+		+pt-reg
+		margin-left: 30px
+		position: relative 
+		z-index: 5 
+		i
+			display: inline-block
+			margin-right: 8px
+			vertical-align: middle
+		span
+			display: inline-block
+			vertical-align: middle
+			color: $ipopo
+		a
+			display: inline-block
+			vertical-align: middle
+			color: $ipopo 
+			border-bottom: 1px dashed $ipopo
+			+transition(border-color .2s, color .2s )
+			line-height: 1
+			&.is-active
+				&:hover
+					border-color: inherit
+					color: $ipopo
+			&:hover
+				border-color: transparent
+				color: lighten($ipopo, 10%)
+			&:active
+				color: darken($ipopo,10%)
+.fall
+	position: absolute
+	top: -50%
+	visibility: hidden
+	z-index: 0
+	height: 0
+	right: -6px
+	padding: 0 0 12px 0
+	background-color: #e9d7af
+	border-radius: 0 0 7px 7px
+	margin-top: 5px
+	+transition(height .2s, top .2s, cubic-bezier(0.68, -0.55, 0.265, 1.55))
+	&.is-active
+		top: 100%
+		visibility: visible
+		height: auto
+	&_where
+		right: -30px
+	&__item
+		display: block
+		padding: 5px 12px
+		font-size: 14px
+		color: $ipopo
+		+pt-reg   
+		line-height: 1
+		+transition(background-color .2s)
+		&:hover
+			background-color: rgba(#fff,.9) 
+			span
+				border-color: $ipopo
+				color: $ipopo
+		a
+			display: block
+			border-bottom: 1px solid transparent		
+		span
+			border-bottom: 1px solid transparent
+			+transition(border-color .2s,color .2s)
+.logo
+	float: left
+	margin-top: 11px
+	margin-left: 20px
+	div
+		color: #a6c3fd
+		+blogger-med
+		font-size: 14px
+		+r(767)
+			max-width: 123px
+			text-align: center 
+	+r(1023)
+		margin: 8px
+// .btn-menu-wrap
+// 	float: right
+// 	position: fixed
+// 	position: relative
+	
+// 	margin: 0 10px
+// 	display: none
+// 	+r(960)
+// 		display: block
+.btn-menu
+	position: absolute
+	top: -12px
+	width: 145px
+	height: 70px
+	z-index: 20
+	right: 0
+	margin: 0 10px
+	display: none
+	+transition(top .4s)
+	+r(1023)
+		display: block
+	
+	&:active
+		.btn-menu__wrapper
+			height: 85px
+			background-color: darken(#804fa9,6%)
+		.btn-menu__in
+			height: 75px
+			background-color: lighten(#8d5bb4,3%)
+	&.is-active
+		top: -100%
+	&__wrapper
+		transform: translate3d(0,0,0) rotate(2deg)
+		background: #804fa9
+		border-radius: 0 0 15px 10px
+		width: 100%
+		height: 77px
+		position: relative
+		z-index: 0
+		+transition(height .2s,background-color .2s)
+	&__in
+		transform: translate3d(0,0,0) rotate(-1deg)
+		position: absolute
+		display: block
+		top: 3px
+		left: 2px
+		z-index: 1
+		width: 93%
+		height: 67px
+		border-radius: 0 0 10px 15px
+		background: #8d5bb4
+		+transition(height .2s,background-color .2s)
+	&__content
+		position: absolute
+		left: 26px
+		bottom: 8px
+		z-index: 5
+		transform: translate3d(0,0,0) rotate(2deg)
+		span
+			font-size: 18px
+			text-transform: uppercase
+			color: #FFF
+			+blogger-bold
+			vertical-align: middle
+
+.btn-close
+	position: absolute
+	top: 8px
+	right: 8px
+	width: 30px
+	height: 30px
+	background: transparent
+	+transition(top .4s)
+	&:active
+		top: 10px 
+	&__item
+		height: 8px
+		width: 30px
+		border-radius: 4px
+		background-color: #fff 
+		position: absolute
+		top: 8px
+		&.is-orangead
+			background-color: $orangead
+			transform: translate3d(0,0,0) rotate(45deg)
+		&.is-sky
+			background-color: $sky
+			transform: translate3d(0,0,0) rotate(-45deg)  
+.menu
+	position: absolute
+	background: #e9d7af 
+	top: 0
+	right: 0
+	left: 0
+	z-index: 20
+	height: auto
+	transform: translate3d(0,-110%,0)
+	+transition(transform .4s)
+	&.is-active
+		transform: translate3d(0,0,0)
+	&__wrap
+		max-width: 320px
+		margin: 0 auto 
+		&.is-country
+			padding-left: 128px
+		&.is-lang
+			padding-left: 31px 
+	&__limit
+		width: 290px
+		margin: 0 auto
+		position: relative			
+	&__arr
+		position: absolute
+		right: 10px 
+		+tr(right .2s)
+		&:before,
+		&:after
+			content: ""
+			position: absolute
+			height: 2px
+			width: 17px
+			right: 0
+			background-color: $ipopo 
+		&:before
+			top: 0
+			+rotate(45)
+		&:after
+			top: 11px
+			+rotate(-45)
+			
+	&__item
+		display: block
+		// text-align: center
+		padding: 0px 10px
+		.user
+			+tr(margin .2s)
+			&:hover
+				span
+					text-shadow: none
+		.user__name
+			margin-bottom: 0
+			span
+				font-size: 18px
+				+pt-reg
+				text-transform: none			
+		.user__info
+			margin-left: 0
+			margin-right: 20px
+			span
+				+pt-bold
+				font-size: 14px
+		+r(479)
+			text-align: left 
+		&:active
+			.menu__icon
+				margin-right: 8px
+			.user
+				margin-left: 2px
+		&.is-ipopo
+			padding-top: 13px
+			padding-bottom: 26px
+			background-color: $ipopo
+			z-index: 3 
+		&.is-lily
+			background-color: $lily
+			padding: 5px 10px
+			position: relative
+			z-index: 25
+			&:before
+				content: ""
+				background-color: $lily
+				position: absolute
+				left: 0
+				right: 0
+				top: -5px
+				height: 15px
+				transform: translate3d(0,0,0) rotate(-0.8deg) 
+				z-index: 20 
+			&:after
+				content: ""
+				background-color: $lily
+				position: absolute
+				left: 0
+				right: 0
+				bottom: -5px
+				height: 15px
+				transform: translate3d(0,0,0) rotate(0.8deg) 
+				z-index: 20
+		&.is-orangead
+			background-color: $orangead
+			padding: 13px 10px
+			z-index: 1
+		&.is-sky
+			background: $sky
+			padding: 16px 10px 
+			position: relative
+			&:before
+				content: ""
+				background-color: $sky
+				position: absolute
+				left: 0
+				right: 0
+				top: -5px
+				height: 15px
+				transform: translate3d(0,0,0) rotate(-0.8deg) 
+				z-index: 25  
+		span
+			vertical-align: middle
+			font-size: 20px
+			text-transform: uppercase
+			+blogger-bold
+			color: #FFF
+			+r(479)
+				font-size: 18px
+	&__icon
+		vertical-align: middle
+		margin-right: 6px
+		position: relative
+		z-index: 25
+		+tr(margin .2s)
+	&__out
+		background-color: $ipopo
+		text-align: center		
+		padding: 16px 0 
+		
+		&:active
+			span
+				margin-top: 2px  
+		span
+			font-size: 20px
+			display: inline-block
+			color: #FFF	
+			text-transform: none		
+			+pt-reg 
+			+tr(margin .2s)
+			+r(479)
+				font-size: 16px
+	&__element
+		margin: 0 10px
+		border-bottom: 1px solid #fff
+		padding: 15px 10px
+		// text-align: center
+		display: block
+		+tr(padding .2s)
+		&.is-hidden
+			height: 0
+			display: none
+			+tr(height .6s)
+			&.is-active
+				height: auto 
+				display: block
+		&:last-child
+			border: none
+		.is-lang
+			border: none
+		&:active
+			padding-left: 12px 
+			span
+				color: darken($ipopo,10%) 
+			.menu__arr
+				right: 8px
+		.menu__wrap
+			max-width: 300px 
+		+r(479)
+			text-align: left
+		span
+			font-size: 16px
+			color: $ipopo
+			vertical-align: middle
+			+pt-reg 
+			+tr(color .2s)
+			+r(479)
+				font-size: 16px
+		i
+			vertical-align: middle
+			margin-right:  7px
+
+		
+
+.menu-block-wrap
+	float: left
+	position: relative
+	width: 19.7%
+	height: 123px
+	margin-left: .9%
+	+r(1200)
+		width: 18%
+	+r(1023)
+		display: none
+	.user__info
+		+r(1200)
+			span
+				display: none
+	&:hover
+		.menu-block__wrapper
+			height: 113px 
+			background-color: darken(#804fa9,2%)
+		.menu-block__in
+			height: 100px
+			background-color: lighten(#8d5bb4, 2%)
+		&.is-turned
+			.menu-block__in
+				height: 110px
+		&.is-pink
+			.menu-block__wrapper
+				background-color: darken(#d87cdd,2%)
+			.menu-block__in
+				background-color: lighten(#e192e5,2%)
+		&.is-yellow
+			.menu-block__wrapper
+				background-color: darken(#fea82b,2%)
+			.menu-block__in
+				background-color: lighten(#feb737 ,2%)
+		&.is-active
+			.menu-block__wrapper
+				background-color: #e5d0a4 
+				height: 103px 
+			.menu-block__in
+				background-color: #e9d7af
+				height: 90px
+				cursor: default
+	&:active
+		.menu-block__wrapper
+			background-color: darken(#804fa9,6%)
+		.menu-block__in
+			background-color: lighten(#8d5bb4,3%)
+		.menu-block__content
+			text-shadow: 1px 2px 1px #563671
+		&.is-pink
+			.menu-block__wrapper
+				background-color: darken(#d87cdd,6%)
+			.menu-block__in
+				background-color: lighten(#e192e5,3%)
+			.menu-block__content
+				text-shadow: 1px 2px 1px #a962ad
+		&.is-yellow
+			.menu-block__wrapper
+				background-color: darken(#fea82b,6%)
+			.menu-block__in
+				background-color: lighten(#feb737 ,3%)
+			.menu-block__content
+				text-shadow: 1px 2px 1px #cc8825
+		&.is-active
+			.menu-block__wrapper
+				background-color: #e5d0a4 
+			.menu-block__in
+				background-color: #e9d7af
+			.menu-block__content
+				text-shadow: none
+	&.is-yellow
+		.menu-block__wrapper
+			background: #fea82b
+		.menu-block__in
+			background: #feb737 
+	&.is-turned
+		.menu-block
+			overflow: hidden 
+			height: 123px
+		.menu-block__content
+			transform: translate3d(0,0,0) rotate(2deg)
+		.menu-block__wrapper
+			transform: translate3d(0,0,0) rotate(-2deg)
+		.menu-block__in
+			height: 100px
+			border-radius: 0 0 10px 20px
+			transform: translate3d(0,0,0) rotate(-4deg)
+			top: -5px
+			left: 0px
+			border-radius: 0 0 15px 10px
+	&.is-pink
+		.menu-block__wrapper
+			background: #d87cdd
+		.menu-block__in
+			background: #e192e5
+	&.is-blue
+		.menu-block__wrapper
+			background: #91b2fb
+		.menu-block__in
+			background: #a6c3fc
+	&.is-active
+		.menu-block__in
+			background-color: #e9d7af
+		.menu-block__wrapper
+			background-color: #e5d0a4 
+.menu-block
+	position: absolute
+	top: -12px
+	left: 0px
+	z-index: 0
+	width: 100%
+	.user
+		transform: translate3d(0,0,0) rotate(2deg)
+		position: absolute
+		bottom: 11px
+		left: 18%
+	&__wrapper
+		transform: translate3d(0,0,0) rotate(2deg)
+		background: #804fa9
+		border-radius: 0 0 15px 10px
+		width: 100%
+		height: 103px
+		position: relative
+		z-index: 0
+		+transition(height .2s,background-color .2s)
+	&__in
+		transform: translate3d(0,0,0) rotate(-1deg)
+		position: absolute
+		display: block
+		top: 3px
+		left: 2px
+		z-index: 1
+		width: 94%
+		height: 90px
+		border-radius: 0 0 10px 15px
+		background: #8d5bb4
+		+transition(height .2s,background-color .2s)
+	&__content
+		position: absolute
+		bottom: 15px
+		left: 15%
+		transform: translate3d(0,0,0) rotate(2deg)
+		+transition(text-shadow .1s)
+		+r(1200)
+			left: 10%
+		span
+			display: inline-block
+			vertical-align: middle
+			+blogger-bold
+			font-size: 18px 
+			max-width: 40%
+			color: #FFF 
+			text-transform: uppercase 
+			+r(1200)
+				font-size: 16px
+			+r(1041)
+				font-size: 15px
+	&__icon
+		display: inline-block
+		vertical-align: middle
+	.icon-cloud
+		+r(1200)
+			+svg(cloud,57,43)
+	.icon-gift-shine
+		+r(1200)
+			+svg(gift-shine,57,57)
+	.icon-love
+		+r(1200)
+			+svg(love,57,57)
+.img-bodys
+	background-image: url(../img/bodys.png) 
+	position: absolute
+	bottom: -10px
+	right: -12px
+	width: 145px
+	height: 65px
+	transform: translate3d(0,0,0) rotate(3deg)
+.user	
+	+clr
+	&__info
+		float: left
+		margin-left: 20px
+		&:first-child
+			margin-left: 0
+		+r(1200)
+			margin-left: 20px
+	&__name
+		font-size: 14px
+		+pt-reg
+		color: #FFF 
+		margin-bottom: 5px
+		text-shadow: .6px .9px transparent
+		+transition(text-shadow .2s)
+		&:hover
+			text-shadow: 1px 2px 1px #7a95d2
+		&:active
+			text-shadow: -1px -2px 1px #7a95d2
+	&__link
+		display: block
+		text-shadow: .6px .9px transparent
+		+transition(text-shadow .2s)
+		&:hover
+			text-shadow: 1px 2px 1px #7a95d2
+		&:active
+			text-shadow: -1px -2px 1px #7a95d2
+		span
+			font-size: 14px
+			color: #FFF
+			+blogger-bold 
+			vertical-align: middle
+			
+	&__icon
+		display: inline-block
+		vertical-align: middle
+		margin-right: 3px 
+	&__out
+		display: inline-block
+		font-size: 14px
+		+pt-reg
+		vertical-align: middle 
+		color: $ipopo
+		+transition(color .2s)
+		&:hover
+			color: lighten($ipopo,10%)
+		&:active
+			color: darken($ipopo,10%)
+
+.breadcrumbs
+	margin: 60px 0 12px 20px
+	+r(767)
+		display: none
+	&__link
+		display: inline-block
+		font-size: 16px
+		position: relative
+		padding-left: 20px
+		margin-right: 10px 
+		text-transform: uppercase  
+		color: $ipopo
+		+blogger-bold 
+		+transition(color .2s)
+		&:before
+			content: ""
+			position: absolute
+			+sr(arr-b)
+			left: 0
+			top: 50%
+			margin-top: -5px
+			+transition(left .2s)
+		&:first-child
+			padding-left: 0 
+			&:before
+				display: none
+		&.is-active
+			color: $sky 
+		&:hover
+			color: darken($ipopo,10%)
+			&.is-active
+				color: darken($sky,10%)
+			&:before
+				left: 2px
+.wave
+	min-width: 100%
+	background: url(../img/svg/wave.svg) 0 0 no-repeat
+	height: 18px
+	+r(767)
+		display: none 		
+.slider	
+	position: relative
+	.slick-slider
+		visibility: hidden 
+		opacity: 0
+		&.is-ready
+			visibility: visible
+			opacity: 1 
+	.slick-dots,
+	.slick-prev,
+	.slick-next
+		display: none !important
+		// bottom: 25px
+		// border: 3px solid $sky
+		// background-color: #FFF 
+		// right: 60px
+		// left: auto
+		// border-radius: 30px
+		// padding: 2px 11px 11px 
+		// display: inline-block
+		// +r(1023)
+		// 	right: 45%
+		// 	bottom: -22px
+		// button
+		// 	border: 2px solid $sky
+		// 	border-radius: 50%
+		
+	&__nav
+		padding: 12px 50px
+		background-color: #fff
+		border: 4px solid $sky
+		border-radius: 30px
+		position: absolute
+		bottom: 10px
+		right: 24px
+		display: inline-block
+		+r(1023)
+			position: relative
+			right: 0
+	&__arr
+		position: absolute
+		width: 20px
+		height: 22px
+		margin-top: -11px 
+		top: 50%
+		background-color: transparent 
+		&:before,
+		&:after
+			content: ""
+			position: absolute
+			width: 17px
+			height: 3px
+			background-color: $orangead
+			border-radius: 1px
+			+transition(background-color .2s)
+		&:before
+			+rotate(45)
+		&:after
+			+rotate(-45)
+		&:hover
+			&:before,
+			&:after
+				background-color: darken($orangead, 10%) 
+		&:active
+			&.prev
+				left: 11px
+			&.next
+				right: 11px
+		&.prev
+			left: 14px
+			+transition(left .2s)
+			&:before,
+			&:after
+				left: 0
+			&:before
+				bottom: 4px
+				top: auto
+			&:after
+				top: 5px
+		&.next	
+			right: 14px
+			+transition(right .2s)
+			&:before,
+			&:after
+				right: 0
+			&:after
+				bottom: 4px
+				top: auto
+			&:before
+				top: 5px
+	&__dots
+		text-align: center
+		font-size: 0
+		display: inline-block
+		vertical-align: middle
+		white-space: nowrap 
+		li
+			padding: 0 6px
+			text-align: center 
+			font-size: 0
+			display: inline-block			
+			&.slick-active
+				button
+					border: none
+					background-color: $ipopo  
+		button
+			display: inline-block
+			vertical-align: middle
+			background-color: transparent 
+			width: 16px
+			height: 16px
+			border: 3px solid $sky
+			border-radius: 50%
+			+hidetext
+			 
+		
+	+r(1200)
+		text-align: center
+	&__img
+		+r(1023)
+			display: none
+	&__img-small
+		display: none
+		+r(1023)
+			display: block
+	&__slide
+		position: relative
+	&__left,
+	&__right
+		vertical-align: middle
+		display: inline-block
+		font-size: 0
+	&__left
+		+r(1023)
+			position: relative
+	&__right
+		+r(1023)
+			display: block
+			text-align: center
+	&__link
+		position: absolute
+		left: 50%
+		margin-left: -25px
+		bottom: 20px
+		display: block
+		.link
+			float: none
+		+r(1200)
+			right: 38px
+			left: auto
+			bottom: 70px
+		+r(1023)
+			position: static
+			margin: 18px auto 23px
+			text-align: center
+	&__list
+		font-size: 34px
+		+blogger-bold
+		text-align: left
+		+r(1200)
+			font-size: 25px 
+		+r(1023)
+			font-size: 14px
+			width: 100%
+			margin: 0 auto
+			+blogger-bold	
+			max-width: 260px
+			margin: 0 auto  
+		li
+			line-height: 1.2 
+			position: relative
+			padding-left: 37px 
+			+r(1023)
+				line-height: 1.2 
+				text-align: left
+				position: relative
+				padding-left: 16px  
+				margin-bottom: 15px
+	&__list-small
+		display: none
+		+r(1023)
+			// display: block
+			// position: absolute
+			// bottom: 0
+			// right: 22px
+			font-size: 14px
+			width: 100%
+			margin: 0 auto
+			+blogger-bold
+			text-align: left
+		li
+			line-height: 1.2 
+			position: relative
+			padding-left: 16px 
+			max-width: 160px 
+			margin-bottom: 15px
+	&__info
+		color: $orangead
+	&__icon	
+		position: absolute
+		left: 0
+		top: 0
+		+blogger-bold
+		&.is-sky
+			color: $sky
+		&.is-lily
+			color: $lily
+		&.is-ipopo
+			+sr(arr-f) 
+			top: 50%
+			margin-top: -9px 
+			+r(1023)
+				+sr(arr-f-sm)
+				margin-top: 2px
+				top: 0
+	&__title
+		font-size: 42px
+		text-transform: uppercase
+		color: $ipopo
+		margin-bottom: 13px 
+		+blogger-bold
+		+r(1200)
+			font-size: 38px
+		+r(1023)
+			display: none
+	
+		 
+.footer
+	padding: 107px 0 65px
+	+clr
+	position: relative
+	+r(1120)
+		text-align: center
+	+r(767)
+		padding: 35px 0
+	&:before
+		content: ""
+		position: absolute
+		display: block
+		top: 0
+		min-width: 100%
+		background: url(../img/svg/wave.svg) 0 0 no-repeat
+		height: 18px 
+	.logo
+		float: left
+		margin-top: 0
+		+r(1120)
+			display: inline-block
+			float: none
+			vertical-align: middle
+		+r(767)
+			display: block
+			margin: 0 auto 30px 
+	&__logo
+		color: #999
+		font-size: 16px
+		+pt-reg 
+		display: block
+	&__item
+		float: left
+		margin-left: 3.5% 
+		margin-top: 9px
+		+r(1200)
+			margin-left: 15px
+		+r(1120)
+			display: inline-block
+			float: none
+			vertical-align: middle
+			margin-left: 3.5%
+		+r(767)
+			display: block
+			margin: 0 auto
+			float: none
+		&.hidden
+			+r(1120)
+				display: none
+	&__link
+		font-size: 16px
+		color: $ipopo
+		+pt-reg  
+		display: block
+		+transition(color .2s)
+		line-height: 1.5
+		&:hover
+			color: darken($ipopo,10%)
+		&:active
+			color: lighten($ipopo,10%)
+		+r(1200)
+			font-size: 14px
+.panel
+	+clr
+	margin-top: 49px
+	+r(767)
+		margin-top: 30px
+	.link
+		float: left
+		+r(479)
+			float: none
+		&:hover
+			text-decoration: none
+	.nets
+		float: right
+		margin-top: 0
+		+r(479)
+			float: none
+			margin-top: 35px
+
+
+.nets
+	margin-top: 5px
+	span
+		display: inline-block
+		vertical-align: middle
+		+r(767)
+			display: block
+	&__title
+		display: inline-block
+		margin-right: 37px
+		color: $orangead
+		+blogger-bold
+		font-size: 16px
+		text-transform: uppercase 
+		vertical-align: middle
+		+r(767)
+			margin-right: 0
+			display: block
+			margin-bottom: 10px
+		&:before
+			content: ""
+			display: inline-block
+			+svg(share,31,32)
+			margin-right: 11px
+			vertical-align: middle
+	&__icon
+		display: inline-block
+		font-size: 0
+		margin-left: 10px
+		vertical-align: middle
+		opacity: 1
+		+transition(opacity .2s)
+		&:hover
+			opacity: .8
+		&:active
+			opacity: .7 
+		&:first-child
+			margin-left: 0
+	.title_small
+		display: inline-block
+		vertical-align: middle
+		margin-right: 40px
+		+r(767)
+			display: block
+			margin-right: 0
+			margin-bottom: 10px
+
+.developer
+	display: block
+	+clr
+	&:hover
+		.developer__text
+			span
+				border-color: transparent
+	&:active
+		.developer__text
+			color: darken(#808080,20%)
+	&__text
+		float: left
+		font-size: 16px
+		color: #808080
+		max-width: 103px
+		line-height: 1.5
+		+pt-reg
+		+transition(color .2s)
+		span
+			+transition(border-color .2s)
+			border-bottom: 1px solid rgba(#808080, .4)
+			line-height: .8
+			display: inline-block
+		+r(767)
+			float: none
+			display: inline-block
+			max-width: 100%
+			vertical-align: middle
+	&__icon
+		+svg(sd,75,38)
+		float: left
+		margin-left: 12px 
+		+r(767)
+			float: none
+			display: inline-block
+			vertical-align: middle
+			margin-left: -7px
+.title
+	+clr
+	margin: 70px 33px 30px 
+	+r(1023)
+		margin: 30px auto  
+	.link
+		margin-top: 10px
+		float: right
+		+r(1023)
+			display: none
+	&_small
+		font-size: 24px
+		+blogger-bold
+		color: $orangead
+		margin-bottom: 3px
+		i,
+		span
+			display: inline-block
+			vertical-align: middle
+		i
+			margin-right: 9px 
+	&.with-gift
+		span,
+		i
+			vertical-align: baseline 
+	&.is-white
+		.title__in
+			span
+				color: #fff
+	&_marg
+		margin: 0 0 30px 20px
+	&_no-marg
+		margin: 0
+	&__in
+		float: left
+		+r(1023)
+			float: none
+			text-align: center
+		span
+			font-size: 32px
+			color: $orangead 
+			+blogger-bold
+			text-transform: uppercase 
+			vertical-align: middle
+			+r(1023)
+				display: block
+				font-size: 30px
+			+r(767)
+				font-size: 24px 
+	&__right
+		float: right
+		.btn-simple
+			margin-left: 10px
+			&:first-child
+				margin-left: 0
+			+r(767)
+				display: block
+				margin-left: 0
+				margin-top: 10px
+		+r(1023)
+			float: none
+			text-align: center
+	&__icon
+		display: inline-block
+		font-size: 0
+		margin-right: 18px
+		vertical-align: middle
+.link
+	font-size: 16px
+	color: $ipopo
+	text-transform: uppercase
+	+blogger-bold
+	vertical-align: middle
+	+transition(color .2s)
+	&:hover
+		color: lighten($ipopo,10%)
+	&:active
+		color: darken($ipopo,10%) 
+	&_bottom
+		display: none
+		+r(1023)
+			display: inline-block
+			width: 100%
+			float: none
+			text-align: center
+	&_back
+		padding-left: 15px
+		position: relative 
+		&:before
+			content: ""
+			position: absolute
+			left: 0
+			top: 50%
+			margin-top: -4px
+			+sr(arr-l-f)
+			+tr(left .2s)
+		&:hover
+			&:before
+				left: -2px 
+	&_orange
+		font-size: 24px
+		position: relative
+		padding-left: 22px
+		line-height: 1
+		color: $orangead 
+		+tr(color .2s)
+		text-transform: none
+		display: block
+		margin-bottom: 15px
+		&:before
+			content: ""
+			position: absolute
+			left: 0
+			top: 5px
+			+sr(arr-r-o)
+			+tr(left .2s)				
+		&:hover
+			color: lighten($orangead,5%)
+			&:before
+				left: 3px
+		&:active
+			color: darken($orangead,10%)
+	&_btn
+		padding: 15px 45px
+		background-color: none 
+	&.is-small
+		font-size: 16px
+		color: #FFF  
+		&:hover
+			color: rgba(#fff,.8)
+		&:active
+			color: rgba(#fff,.7)
+		+r(1023)
+			margin-top: 33px
+.item-wrap
+	padding: 0 21px
+	margin-bottom: 40px 
+	font-size: 0
+	+r(1023)	
+		margin-bottom: 0
+		text-align: center
+	+r(479)
+		padding: 0 
+
+.item
+	display: inline-block
+	margin-bottom: 15px
+	font-size: 0
+	margin-left: 1.2%
+	width: 32.3%
+	padding-bottom: 32.3%   
+	position: relative
+	color: #FFF 
+	line-height: 1.3 
+	+r(1130)
+		width: 31.5%
+		padding-bottom: 31.5% 
+	+r(767)
+		width: 298px 
+		padding-bottom: 298px 
+		margin-left: 10px
+		&:nth-child(2n+1)
+			margin-left: 0 !important
+		// &:nth-child(3n+1)
+		// 	margin-left: 10px  !important
+	+r(479)
+		margin-left: 0 !important
+	// +r(668)
+	// 	margin-left: 0
+	&:first-child,
+	&:nth-child(3n+1)
+		margin-left: 0
+	&:hover
+		.item__head
+			top: -55%
+			background-color: rgba($orangead,.65)
+	&:active
+		.item__head
+			background-color: rgba($orangead,.5)
+	&_small
+		width: 23.8%
+		padding-bottom: 23.8%
+		+r(1023)
+			width: 23%
+			padding-bottom: 23%
+			.item__head
+				border-radius: 0
+				top: 0
+				+vertical
+				+r(1023)
+					left: 0
+					right: 0
+			.item__about
+				position: static
+				vertical-align: middle
+				+r(1023)
+					left: 0
+					right: 0
+			&:hover
+				.item__head
+					top: 0
+		+r(767)
+			width: 143px
+			padding-bottom: 143px
+			// &:nth-child(2n+1)
+			// 	margin-left: 10px !important
+			margin-left: 15px !important
+			&:first-child
+				margin-left: 0 !important
+			&:nth-child(5n)
+				margin-left: 15px !important
+		+r(479)
+			&:nth-child(2n+1)
+				margin-left: 0 !important
+		// +r(390)
+		// 	margin-left: 13px !important 
+		// 	&:nth-child(2n+1)
+		// 		margin-left: 0 !important
+			
+		&:first-child,
+		&:nth-child(5n)
+			margin-left: 0 !important
+		// &:nth-child(4n)
+		// 	margin-left: 1.2%
+		&:nth-child(3n+1)
+			margin-left: 1.2%
+		.item__about
+			bottom: 1%
+	&_pattern-2
+		.item__border-white
+			+rotate(-2)
+		.item__border-orange
+			width: 99.5%
+			height: 99.5%
+			+rotate(1)
+			top: 1%
+	&_pattern-3	
+		.item__border-white
+			+rotate(1)
+			width: 98.5%
+			height: 98.5%
+			top: 1%
+			left: 0.5%
+		.item__border-orange
+			width: 98.5%
+			height: 98.5%
+			+rotate(3)
+			top: 1%
+	&__element
+		+rotate(0)
+		position: absolute
+		top: 0 
+		left: 0
+		right: 0
+		bottom: 0
+		overflow: hidden
+		border-radius: 15px
+		z-index: 3		
+	&__img
+		position: absolute
+		height: 100%
+		width: 100%
+		overflow: hidden
+		border-radius: 15px
+		z-index: 3		
+		img
+			height: 100%
+			width: auto
+	&__head
+		background-color: rgba($orangead,.75)
+		position: absolute
+		// top: 0 
+		left: -10%
+		right: -10%
+		border-radius: 50%
+		height: 100%
+		top: -60%
+		+transition(top .2s,background-color .2s)
+		text-align: center
+		z-index: 4 
+		
+	&__about
+		display: inline-block
+		position: absolute
+		bottom: 7%
+		right: 10%
+		left: 10%
+		line-height: 1 
+		z-index: 4 
+		+r(1200)
+			bottom: 5%
+		+r(1023)
+			bottom: 2%
+			line-height: 1	
+	&__who
+		font-size: 16px
+		+pt-reg
+	&__what
+		font-size: 24px
+		+blogger-bold
+		margin-bottom: 3px
+		+r(1200)
+			margin-bottom: 0
+	&__info
+		font-size: 14px
+		line-height: 1.5
+		+pt-reg
+		i
+			vertical-align: middle
+		span
+			vertical-align: middle
+	&__border-white
+		position: absolute
+		height: 99%
+		width: 99%
+		+rotate(2)
+		border-radius: 15px
+		border: 2px solid #fff
+		background-color: transparent
+		z-index: 5
+	&__border-orange
+		position: absolute
+		height: 99%
+		width: 99%
+		+rotate(-1)
+		top: 2%
+		left: .5%
+		border-radius: 15px
+		border: 2px solid $orangead
+		background-color: transparent
+		z-index: 1
+	
+.btn-block
+	position: relative
+	margin-top: 75px
+	margin-bottom: 100px
+	background: url(../img/svg/wave.svg) 0 0 no-repeat
+	height: 18px 
+	// &:before
+	// 	content: ""
+	// 	position: absolute
+	// 	min-width: 100%
+	// 	background: url(../img/svg/wave.svg) 0 0 no-repeat
+	// 	height: 18px 
+.bg
+	position: absolute
+	top: 133px
+	right: -45%
+	left: -45%
+	background: url(../img/bg-home.png) 50% 50% no-repeat
+	width: 2249px
+	height: 1047px
+	background-size:  2249px 1047px 
+	+r(1200)
+		display: none 
+.btn-wrap
+	position: absolute
+	text-align: center
+	display: inline-block
+	right: 0
+	left: 0
+	top: 50%
+	margin-top: -41px
+	+r(1023)
+		margin-top: -27px
+
+.btn-align
+	text-align: center
+	position: relative
+	margin-top: 86px
+.btn
+	display: inline-block
+	width: 477px
+	position: relative
+	+transition(width .2s)
+	+r(1200)
+		width: 400px
+	+r(1023)
+		width: 263px 
+		.icon-cloud
+			+svg(cloud,34,28)
+		.icon-f5
+			+svg(f5,34,34)
+	&:after
+		content: ""
+		position: absolute
+		top: -48px
+		right: -40px
+		+svg(shine,86,86)
+		+r(767)
+			display: none
+	&:hover
+		// width: 490px
+		// +r(1200)
+		// 	width: 410px
+		// +r(960)
+		// 	width: 263px
+		// .btn__shell
+		// 	height: 97px
+		// 	+r(960)
+		// 		height: 57px 
+		.btn__border-orange
+			transform: translate3d(0,0,0) rotate(-1deg) skew(-3deg)
+		.btn__border-blue
+			transform: translate3d(0,0,0) rotate(-3deg)
+		.btn__wrapper
+			background-color: darken(#7b4ba5,2%)
+			+r(1023)
+				background-color: $ipopo 
+		.btn__in
+			background-color: lighten($ipopo,2%)
+			&:after
+				background-color: lighten($ipopo,2%)
+		&.is-wider
+			// width: 40%
+			// +r(960) 
+			// 	width: 263px
+
+	&:active
+		// +r(960)
+		// 	width: 267px
+		// 	.btn__shell
+		// 		height: 61px
+		.btn__border-orange
+			// +skew(3deg,1deg)
+			transform: translate3d(0,0,0) rotate(1deg) skew(3deg)
+		.btn__border-blue
+			transform: translate3d(0,0,0) rotate(-2deg) skew(-8deg)
+			+r(1023)
+				transform: translate3d(0,0,0) rotate(-1deg) skew(-3deg)
+		.btn__wrapper
+			background-color: darken(#7b4ba5,6%)
+			+r(1023)
+				background-color: $ipopo 
+		.btn__in
+			background-color: lighten($ipopo,3%)
+			&:after
+				background-color: lighten($ipopo,3%)
+		.btn__content
+			text-shadow: 1px 2px 1px #563671 
+		.icon-f5
+			+rotate(45)
+	&.is-wider
+		width: 39%
+		.btn__content
+			left: 22% 
+			+r(1023)
+				left: 30px 
+		+r(1023)
+			width: 263px
+	&__shell
+		height: 93px
+		transform: translate3d(0,0,0) rotate(-2deg)
+		overflow: hidden
+		position: relative
+		border-radius: 10px
+		z-index: 3
+		+transition(height .2s)
+		+r(1023)
+			height: 57px
+	&__wrapper
+		background: #7b4ba5
+		position: absolute
+		bottom: 21px 
+		width: 100%
+		left: 2px
+		height: 150%
+		border-radius: 10px
+		transform: translate3d(0,0,0) rotate(3deg)
+		z-index: 3
+		+transition(background-color .2s)
+		+r(1023)
+			background-color: $ipopo 
+			bottom: 6px
+			left: 2px
+	&__in	
+		background: $ipopo
+		position: absolute
+		width: 100%
+		height: 100%
+		bottom: 30%
+		right: 3%
+		border-radius: 8px
+		transform: translate3d(0,0,0) rotate(3deg)
+		z-index: 4	
+		+transition(background-color .2s)
+		+r(1023)
+			bottom: 10px
+			right: -2px
+		&:after
+			content: ""
+			position: absolute
+			right: -2px
+			bottom: 3px
+			width: 8px
+			background: $ipopo
+			height: 100%
+			+rotate(4)
+			+transition(background-color .2s)
+	&__border-blue
+		border: 4px solid #a6c3fc
+		border-radius: 10px
+		background: transparent
+		height: 79%
+		width: 100%
+		position: absolute
+		bottom: 24px
+		left: -1px
+		+transition(transform .2s)
+		transform: translate3d(0,0,0) rotate(-2deg) skew(8deg)
+		+r(1023)
+			height: 102%
+			width: 103%
+			bottom: 4px
+			left: -1px
+
+	&__border-orange
+		border: 4px solid $orangead
+		border-radius: 10px
+		background: transparent
+		height: 75%
+		width: 99%
+		position: absolute
+		bottom: 18px
+		left: -4px
+		z-index: 2
+		transform: translate3d(0,0,0) rotate(1deg) skew(6deg)
+		// +skew(6deg,1deg)
+		+transition(transform .2s)
+		+r(1023)
+			height: 82%
+			width: 103%
+			bottom: 3px
+			left: -4px
+	&__content
+		position: absolute
+		+rotate(-1)
+		+transition(text-shadow .1s)
+		bottom: 7%
+		left: 0
+		right: 0
+		z-index: 5
+		+r(1200)
+			left: 7%
+		+r(1023)
+			left: 15px
+			bottom: 7px
+		i,
+		span
+			display: inline-block
+			vertical-align: middle
+		
+		span
+			margin-left: 16px 
+			display: inline-block
+			vertical-align: middle
+			+blogger-bold
+			font-size: 28px 
+			color: #FFF 
+			text-transform: uppercase 
+			+r(1200)
+				font-size: 24px
+				margin-left: 10px
+			+r(1041)
+				font-size: 20px
+			+r(1023)
+				font-size: 16px
+.btn-simple
+	display: inline-block
+	height: 48px
+	line-height: 48px
+	padding: 0 68px
+	border-radius: 30px
+	background-color: $ipopo
+	font-size: 16px
+	color: #FFF
+	text-transform: uppercase
+	text-align: center
+	+blogger-bold
+	+transition(background-color .2s, text-shadow .2s)
+	&.with-icon
+		padding: 0 40px 
+		i,
+		span
+			vertical-align: middle
+			display: inline-block
+		span
+			font-size: 16px
+		i
+			margin-top: -5px 
+	&.is-adapt
+		padding: 0 35px
+		+r(1200)
+			padding: 0 23px 
+		+r(767)
+			display: block
+			margin-bottom: 10px
+			margin-left: 0 
+	&.is-block
+		+r(767)
+			display: block
+			height: auto
+			line-height: 1
+			padding: 12px 20px 8px  
+			margin-bottom: 15px 
+			width: 100%		
+	&.is-ninja
+		visibility: hidden 
+		+r(767)
+			display: none !important
+	&.is-blue
+		background-color: $sky 
+	&.is-lily
+		background-color: $lily
+	&.is-small
+		padding: 0 16px
+		i,
+		span
+			vertical-align: middle
+			display: inline-block
+		span
+			font-size: 16px
+		i
+			margin-top: -5px 
+	&:hover
+		background-color: darken($ipopo,4%) 
+		&.is-blue
+			background-color: darken($sky,4%)
+		&.is-lily
+			background-color: darken($lily,4%) 
+	&:active
+		text-shadow: -1px -2px 1px #563671
+		background-color: lighten($ipopo,1%) 
+		&.is-blue
+			background-color: lighten($sky,1%)
+			text-shadow: -1px -2px 1px #97b0e1
+		&.is-lily
+			background-color: lighten($lily,1%)
+			text-shadow: -1px -2px 1px #cb86cf
+	+r(1023)
+		padding: 0 50px
+	+r(767)
+		padding: 0 26px 
+.search
+	+clr
+	margin-bottom: 32px 
+	position: relative
+	z-index: 3 
+	.btn-simple
+		float: right
+		overflow: hidden
+		+r(767)
+			position: relative
+			z-index: 2
+	&__in		
+		position: relative
+		width: 83%
+		+r(1200)
+			width: 80%	
+		+r(767)
+			width: 100%	
+			display: inline-block
+			position: absolute
+		input
+			height: 48px
+			line-height: 48px  
+			width: 100%	
+			padding: 0 20px 0 68px
+			border: 4px solid $sky
+			border-radius: 30px
+			background-color: transparent
+			color: $orangead
+			+pt-reg
+			font-size: 18px 
+			+transition(border-color .2s)	
+			&:focus
+				border-color: darken($sky,7%)
+			+r(767)
+				padding: 0 110px 0 68px
+	&__icon
+		position: absolute
+		left: 20px 
+		top: 50%
+		margin-top: -17px
+
+.block-content
+	margin: 0 -1% 0 -3%
+	margin-top: 95px
+	height: 700px
+	position: relative
+	+rotate(0)
+	+clr
+	+r(1200)
+		margin: 0
+	+r(1023)
+		margin-top: 30px
+		height: auto
+	+r(767)
+		overflow: hidden
+	&:before,
+	&:after
+		content: ""
+		position: absolute		
+		height: 99%	
+		border-radius: 7px
+		border-width: 2px
+		border-style: solid
+		background-color: transparent
+		z-index: 3
+	&:before
+		border-color: white
+		width: 99.5%	
+		right: 0
+		bottom: .5%
+		height: 100%
+		+rotate(-0.5)
+		+r(1023)
+			width: 100.7%
+			left: -5px
+			right: auto 
+			bottom: 8px
+			height: 99%
+		+r(767)
+			left: 0
+			width: 103% 
+			left: -10px
+		+r(479)
+			width: 105%
+			left: -8px
+	&:after
+		border-color: $orangead
+		right: .5%
+		width: 99.5%
+		bottom: 1%
+		display: block
+		+rotate(-1)
+		+r(1023)
+			border-width: 1px
+			width: 100%
+			bottom: 0
+			right: 0
+.element-block
+	background: $orangead 
+	width: 50%
+	height: 100%
+	float: left
+	padding: 45px 
+	border-radius: 15px 0 0 15px	
+	position: relative
+	+r(1023)
+		padding: 30px  0 50px 0
+		float: none
+		width: 100%
+		height: auto
+		border-radius: 15px 15px 0 0
+		margin: 0  
+	+r(767)
+		padding: 30px 0
+		border-radius: 0
+	.title
+		margin: 0
+		margin-bottom: 30px
+		z-index: 4
+		position: relative
+		+r(1023)
+			font-size: 24px
+	&.is-ipopo
+		background: $ipopo
+		border-radius: 0 15px 15px 0
+		position: relative	
+		+r(1023)
+			border-radius: 0 0 15px 15px 
+			padding: 20px 20px 35px
+		+r(767)
+			border-radius: 0 
+		&:before
+			content: ""
+			position: absolute
+			top: 0
+			bottom: 0
+			left: -10px
+			width: 10px
+			background: url(../img/wave-vert.png) 0 0 repeat-y
+			background-size: 10px 31px
+			+r(1023)
+				top: -7px
+				bottom: auto
+				right: 0px
+				left: 0px
+				width: auto
+				height: 8px
+				background: url(../img/wave-horz.png) 0 0 repeat-x
+				background-size: 32px 8px
+.js-slider-element
+	+r(1023)
+		visibility: hidden 
+		opacity: 0
+		position: relative
+		z-index: 10
+		&.is-ready
+			visibility: visible
+			opacity: 1 
+.slider-element
+	display: inline-block
+	width: 240px
+	height: 240px
+	margin-left: 4.4%
+	margin-bottom: 8%
+	// width: auto
+	// height: auto
+	// +r(770)
+	// 	display: block
+	// 	margin: 0 auto	
+	&:nth-child(2n+1) 
+		margin-left: 0
+	+r(1200)
+		width: 180px
+		height: 180px
+		margin-left: 7%
+	// +r(1023)
+	// 	margin-left: 6%
+	+r(1023)
+		margin: 0
+		.slick-dots
+			bottom: 0
+.element
+	width: 100%
+	height: 100%	
+	position: relative
+	display: block
+	font-size: 0
+	z-index: 4
+	// a
+	// 	display: block
+	// 	height: 100%
+	// 	width: 100%
+	+r(1023)
+		width: 250px
+		padding-bottom: 242px 
+		margin: 0 auto
+		margin-bottom: 22px 
+	&:hover
+		.element__img
+			&:before
+				background-color: rgba(#FFF,.1)
+		.meta,
+		.element-name
+			text-shadow: 1px 1px 1px #898585
+		.element__border
+			&.pattern-1
+				+rotate(-2)
+			&.pattern-2
+				+rotate(-3)
+			&.pattern-3
+				+rotate(-1)
+			&.pattern-4
+				+rotate(3)
+	&__img
+		position: absolute
+		width: 100%
+		height: 100%
+		overflow: hidden
+		border-radius: 7px		
+		&:before
+			content: ""
+			position: absolute
+			top: 0
+			bottom: 0
+			right: 0
+			left: 0
+			background-color: transparent 
+			+transition(background-color .2s) 
+		+r(1023)
+			width: 98%
+			height: 98%
+		img
+			width: auto
+			height: 100%
+	&__info
+		position: absolute
+		padding: 30px
+	&__name
+		+blogger-bold
+		color: #FFF
+		font-size: 24px 
+		text-shadow: 1px 1px 1px rgba(#898585,.5)
+		+transition(text-shadow .2s)
+		line-height: 1
+	&__border
+		position: absolute
+		height: 100%
+		width: 100%
+		border: 2px solid #fff
+		border-radius: 7px
+		background-color: transparent
+		z-index: 4
+		+transition(transform .2s)
+		&.pattern-1
+			+rotate(2)
+		&.pattern-2
+			+rotate(-2)
+		&.pattern-3
+			+rotate(-4) 
+		&.pattern-4
+			+rotate(2)
+			width: 98%
+			right: 2%
+		+r(1023)
+			width: 98%
+			height: 97%
+			bottom: 4px
+
+.meta
+	font-size: 16px	
+	+pt-bold
+	&.is-white
+		text-shadow: 1px 1px 1px rgba(#898585,.5)
+		color: #FFF
+		+transition(text-shadow .2s) 
+	&.is-orangead
+		color: $orangead 
+	&.is-regular
+		+pt-reg
+		color: $text 
+.post
+	display: block
+	+transition(opacity .2s)
+	position: relative
+	z-index: 4
+	margin-top: 50px
+	+r(640)
+		text-align: center
+	&:first-child
+		margin-top: 0
+	&:hover
+		.post__name
+			text-shadow: 1px 1px 1px darken($ipopo,15%)
+		.post__img
+			&:before
+				+rotate(2)
+			&.pattern-2
+				&:before
+					+rotate(-2)
+	&__img
+		display: inline-block
+		vertical-align: middle
+		margin-right: 14px
+		width: 25%
+		height: 98px
+		position: relative
+		+r(640)
+			width: 283px
+			height: 126px 
+			margin: 0 auto
+		&:before
+			content: ""
+			position: absolute
+			height: 100%
+			width: 100%
+			left: 0
+			border: 2px solid white
+			border-radius: 5px
+			+rotate(-2)
+			z-index: 2
+			+transition(transform .2s)
+		&.pattern-2
+			&:before
+				+rotate(2)
+	&__img-in		
+		border-radius: 5px
+		overflow: hidden		
+		width: 100%
+		height: 100%		
+		img
+			width: 100%
+			height: auto
+		+r(640)
+			text-align: center
+	&__right
+		display: inline-block
+		vertical-align: middle
+		width: 60%
+		+r(770)
+			width: 70%
+		+r(640)
+			display: block
+			width: 95%
+			text-align: left
+			margin-top: 15px
+			
+	&__name
+		font-size: 24px
+		+blogger-bold
+		margin-top: 5px
+		color: #FFF
+		line-height: 1
+		+transition(text-shadow .2s)
+.js-catalog
+	visibility: hidden
+	opacity: 0
+	+transition(opacity .3s) 
+	&.is-ready
+		visibility: visible
+		opacity: 1   
+.catalog
+	position: relative
+	width: 100%
+	padding: 45px 40px 0 50px
+	+r(900)
+		padding-top: 5px
+	+r(615)
+		padding: 5px 10px 0 0
+	.slick-dots
+		bottom: -37px
+		button
+			border: 3px solid $sky
+			background-color: transparent
+			border-radius: 50% 
+	.slick-active
+		button
+			border: none
+	&__prev
+		position: absolute
+		left: 0
+		display: block
+		top: 50%
+		width: 60px 
+		height: 32px
+		margin-top: 16px
+		+transition(left .2s)
+		background-color: transparent
+		+r(900)
+			margin-top: 0
+		+r(615)
+			display: none
+		&:hover
+			left: -10px
+		&:before
+			content: "" 
+			position: absolute
+			height: 8px
+			border-radius: 4px
+			width: 25px
+			background: $ipopo 
+			z-index: 2
+			left: 0
+			bottom: 6px
+			+rotate(45)
+		&:after   
+			content: ""
+			position: absolute
+			height: 8px
+			border-radius: 4px
+			width: 25px
+			background: $orangead
+			z-index: 1
+			left: 0
+			top: 5px
+			+rotate(-45)
+	&__next
+		position: absolute
+		right: 0px
+		display: block
+		top: 50%
+		width: 60px
+		height: 32px
+		margin-top: 16px
+		+transition(right .2s)
+		background-color: transparent
+		+r(900)
+			margin-top: 0
+		+r(615)
+			display: none
+		&:hover
+			right: -10px 
+		&:before
+			content: "" 
+			position: absolute
+			height: 8px
+			border-radius: 4px
+			width: 25px
+			background: $orangead
+			z-index: 2			
+			bottom: 6px
+			right: 0 
+			+rotate(-45)
+		&:after   
+			content: ""
+			position: absolute
+			height: 8px
+			right: 0
+			border-radius: 4px
+			width: 25px
+			background: $ipopo 
+			z-index: 1
+			top: 5px			
+			+rotate(45)
+			
+.card
+	display: inline-block
+	font-size: 0
+	width: 230px
+	height: 150px
+	position: relative
+	// margin-left: 45px
+	
+	// &:first-child
+	// 	margin-left: 0
+	border-radius: 15px
+	&.is-blue
+		.card__in
+			background-color: $sky
+			transform: translate3d(0,0,0) skew(1deg) rotate(-3deg)
+			border-radius: 15px 40px 21px 15px
+	&.is-pink
+		.card__in
+			background-color: $lily
+			border-radius: 15px 30px 30px 10px
+	&.is-orange
+		.card__in
+			background-color: $orangead
+			bottom: auto
+			top: -7px
+			left: 0
+			border-radius: 37px 15px 23px 15px
+			transform: translate3d(0,0,0) skew(5deg) rotate(3deg)
+		.card__img
+			transform: translate3d(0,0,0) rotate(-2deg)
+
+	&.is-ipopo
+		.card__shell
+			transform: translate3d(0,0,0) skew(-3deg) rotate(0deg)
+		.card__in
+			background-color: $ipopo
+			bottom: auto
+			top: -7px
+			left: 0
+			border-radius: 15px
+			transform: translate3d(0,0,0) skew(0deg) rotate(3deg)
+		.card__img
+			transform: translate3d(0,0,0) rotate(-3deg)
+
+	&:hover
+		&.is-blue
+			.card__in
+				background-color: darken($sky,4%)
+		&.is-pink
+			.card__in
+				background-color: darken($lily,4%)
+		&.is-orange
+			.card__in
+				background-color: darken($orangead,4%)
+		&.is-ipopo
+			.card__in
+				background-color: darken($ipopo,4%)
+	.border
+		border: 1px solid white
+		position: absolute
+		height: 90%
+		width: 100%
+		background: transparent 	
+		&.pattern-1
+			height: 84%
+			width: 96% 
+			transform: translate3d(0,0,0) skew(1deg) rotate(1deg)
+			top: 5px
+			right: 0
+			border-radius: 10px
+		&.pattern-2
+			height: 84%
+			width: 96% 
+			transform: translate3d(0,0,0) skew(2deg) rotate(1deg)
+			top: 2px
+			right: 4px
+			border-radius: 10px
+		&.pattern-3
+			height: 84%
+			width: 97% 
+			transform: translate3d(0,0,0) skew(-2deg) rotate(0deg)
+			top: 2px
+			right: 4px
+			border-radius: 10px
+		&.blue
+			height: 90%
+			border-radius: 7px
+			top: -1px
+			transform: translate3d(0,0,0) rotate(-3deg)
+			border-color: $sky
+		&.lily
+			border-color: $lily
+			top: -2px
+			right: 0
+			width: 98%
+			height: 90%
+			border-radius: 7px
+			transform: translate3d(0,0,0) rotate(-1deg)
+		&.orangead
+			border-color: $orangead
+			top: 0
+			right: -2px
+			width: 101%
+			height: 89%
+			border-radius: 7px
+			transform: translate3d(0,0,0) rotate(-4deg)
+		&.ipopo
+			border-color: $ipopo
+			top: 0
+			right: 0
+			width: 99%
+			height: 89%
+			border-radius: 7px
+			transform: translate3d(0,0,0) rotate(-2deg)
+	&__shell
+		position: relative
+		width: 100%
+		height: 140px
+		overflow: hidden
+		border-radius: 10px
+	&__in
+		position: absolute
+		width: 100%
+		height: 100%
+		border-radius: 15px 15px 30px 10px
+		+skew(5deg,-3deg)
+		left: 5px 
+		bottom: 7px
+		+transition(background-color .2s)
+		+vertical
+		display: inline-block
+	&__img
+		vertical-align: middle
+		display: inline-block
+		+rotate(2)
+.up
+	margin: 30px auto 
+	background-color: transparent 
+	display: none
+	+r(767)
+		display: block
+	p
+		+blogger-bold
+		font-size: 16px
+		color: $ipopo
+		text-transform: uppercase 
+		+tr(color .2s)
+	&:active
+		p
+			color: darken($ipopo,3%) 
+		.up__in
+			background-color: darken($ipopo,3%)
+			&:before,
+			&:after
+				margin-top: -3px    
+	&__in
+		width: 50px
+		height: 50px
+		background-color: $ipopo 
+		position: relative
+		border-radius: 50%	
+		+tr(background-color .2s)	
+		&:before,
+		&:after
+			content: ""
+			position: absolute
+			width: 26px
+			height: 8px
+			border-radius: 4px
+			top: 50%
+			margin-top: -4px
+			+tr(margin-top .2s)
+		&:before
+			background-color: #FFF
+			+rotate(-45) 
+			left: 5px
+		&:after
+			background-color: $orangead
+			+rotate(45) 
+			right: 6px
+			left: auto
+.article
+	padding-left: 43px 
+	margin: 5px 0 0 20px
+	line-height: 1.5
+	font-size: 16px
+	color: $text 
+	+clr
+	+r(1023)
+		margin-left: 0
+		padding: 0 20px
+	.meta
+		margin-bottom: 37px 
+		+r(767)
+			text-align: center
+			margin-bottom: 8px	
+	h1
+		display: inline-block
+		position: relative
+		vertical-align: baseline 
+		font-size: 32px
+		text-transform: uppercase 
+		color: $orangead
+		+blogger-bold
+		line-height: .75 
+		+r(1023)
+			padding-left: 40px
+		+r(767)
+			font-size: 24px
+			text-align: center
+			line-height: 1
+			padding-left: 0 
+		&:before
+			content: ""
+			position: absolute
+			left: -43px
+			bottom: 0
+			+svg(page,26,32)
+			margin-right: 16px 
+			vertical-align: baseline 
+			+r(1023)
+				left: -3px
+			+r(767)
+				display: block
+				position: static
+				margin: 0 auto 7px
+	h2
+		margin: 19px 0 
+		font-size: 32px
+		color: $orangead
+		+blogger-bold 
+		+r(767)
+			font-size: 24px
+			margin: 10px 0 
+	h3
+		font-size: 16px
+		+pt-bold
+		color: $orangead
+	p
+		margin-bottom: 24px
+		+pt-reg  
+		color: $text 
+		+r(767)
+			margin-bottom: 20px
+	figure
+		position: relative
+		max-width: 383px
+		&[align="left"]
+			float: left
+			margin-right: 32px 
+			+r(767)
+				float: none
+				display: block
+				margin-bottom: 30px
+				margin-right: 0  
+		&[align="right"]
+			float: right
+			margin-right: 0
+			margin-left: 32px
+			+r(767)
+				float: none
+				display: block
+				margin-bottom: 30px
+				margin-left: 0 
+		&:before,
+		&:after
+			content: ""
+			position: absolute
+			width: 99%
+			height: 98%
+			border: 2px solid #fff
+			border-radius: 8px
+			background-color: transparent
+			left: 0.5%
+		&:before
+			+rotate(-1)
+			z-index: 2 
+			top: 1%
+		&:after
+			border-color: $orangead
+			+rotate(-1)
+			z-index: 0 
+			top: 2% 
+	img
+		border-radius: 11px  
+		position: relative
+		z-index: 1 
+		width: 100%
+		height: auto
+	a
+		color: $ipopo
+		&:hover
+			text-decoration: underline 
+	.designer-crawfish
+		margin-left: -40px
+		margin-bottom: 45px 
+		border-radius: 10px
+		background-color: $white-blue
+		padding: 44px 60px 41px 108px
+		+r(767)
+			margin-left: 0  
+			padding: 28px 18px 30px 30px
+			border-radius: 0
+			margin-bottom: 15px 
+		h3
+			margin-left: -20px
+			+r(767)
+				margin-left: 0
+		
+	ul
+		margin-top: 20px
+		list-style-type: disc
+	li
+		margin-bottom: 10px 
+	ol
+		list-style-type: decimal
+		margin-top: 20px
+	table
+		margin-left: -40px
+		width: 100%
+		width: calc(100% + 40px)
+		+r(767)
+			margin-left: 0
+			width: calc(100% + 0px)
+	thead
+		background-color: $ipopo
+		
+	th
+		padding: 16px 10px 16px 80px 
+		color: $orangead 
+		text-align: left
+		white-space: nowrap
+		+r(767)
+			padding-left: 9px 
+		&:first-child
+			border-radius: 5px 0 0 5px
+			+r(767)
+				border-radius: 0
+		&:last-child
+			border-radius: 0 5px 5px 0
+			padding-right: 75px
+			+r(767)
+				border-radius: 0 
+				padding-right: 9px
+	tr
+		&:nth-child(2n)
+			background-color: $white-blue 
+		td
+			&:last-child
+				padding-right: 75px 
+				+r(767)
+					padding-right: 9px
+	td
+		padding: 16px 10px 16px 80px 
+		+r(767)
+			padding-left: 9px 
+		&:first-child
+			border-radius: 5px 0 0 5px
+			white-space: nowrap
+			+r(767)
+				border-radius: 0
+				white-space: normal
+		&:last-child
+			border-radius: 0 5px 5px 0
+			white-space: nowrap
+			+r(767)
+				border-radius: 0
+				white-space: normal		
+.iframe
+	position: relative
+	padding-bottom: 56.25%
+	height: 0
+	overflow: hidden
+	margin-left: -40px
+	margin-bottom: 35px	
+	+r(767)
+		margin-left: 0		  
+	iframe
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+.meta
+	line-height: 1.5
+	+pt-bold 
+	font-size: 16px
+	color: $orangead
+	span
+		display: inline-block
+		margin-right: 20px 
+.left
+	float: left
+	margin-right: 55px
+	max-width: 385px
+	.picture
+		+r(1030)
+			float: left
+			margin-right: 20px
+			margin-left: 20px
+		+r(767)
+			float: none
+			margin: 0 auto 25px
+	.text
+		margin-bottom: 7px 
+		+r(1030)
+			overflow: hidden
+	&_small
+		max-width: 245px 
+	+r(1200)
+		max-width: 300px 
+		margin-right: 40px
+	+r(1030)
+		float: none
+		margin-right: 0
+		+clr
+		max-width: 100% 
+	+r(770)
+		padding: 0 10px 
+		
+.overflow
+	overflow: hidden
+	+box
+	+r(1040)
+		text-align: center 
+	+r(770)
+		padding: 30px 10px 0 
+	+r(500)
+		text-align: left
+	&__top
+		+clr
+		margin-bottom: 30px
+		+r(767)
+			+display-flex
+			+flex-direction(column)
+		.btn-simple
+			float: right
+			+r(767)
+				float: none
+				+order(1)
+		.tabs
+			float: left
+			+r(767)
+				float: none
+				+order(2)
+		&.with-only-btn
+			+r(1023)
+				text-align: center
+				.btn-simple
+					float: none
+					margin-top: 15px
+	&.no-pad-top
+		padding-top: 0
+	&.with-pad-bottom
+		padding-bottom: 40px 
+
+
+.picture
+	width: 385px 
+	height: 385px
+	position: relative
+	border-radius: 11px
+	margin-bottom: 32px
+	text-align: center
+	+r(1200)
+		width: 299px
+		height: 299px 
+	&:before,
+	&:after
+		content: ""
+		position: absolute
+		width: 98%
+		height: 98%
+		border: 2px solid #fff
+		border-radius: 11px
+		background-color: transparent
+		left: 0.5%
+	&:before
+		+rotate(2)
+		z-index: 3
+		top: 1%
+	&:after
+		border-color: $orangead
+		+rotate(-2)
+		width: 100%
+		z-index: 0 
+		top: 2% 
+	img
+		width: 100%
+		height: auto
+		border-radius: 11px
+		position: relative
+		z-index: 2 
+	&_small
+		width: 240px
+		height: 240px
+		&:after
+			display: none
+		&:before
+			+rotate(1)
+	.btn-photo
+		position: absolute
+		bottom: 15px
+		right: 0
+		left: 0
+		text-align: center
+		width: 100%
+		z-index: 10
+		&:hover
+			span
+				color: rgba(#fff,.7)
+		&:active
+			span
+				color: #FFF 
+		span
+			color: #FFF 
+.text
+	color: $text
+	+pt-reg
+	font-size: 16px
+	line-height: 1.5   
+.user-pic
+	width: 142px
+	height: 142px
+	border-radius: 10px
+	overflow: hidden
+	position: relative
+	&:before
+		content: ""
+		position: absolute
+		height: 98%
+		width: 98%
+		border: 2px solid #fff
+		border-radius: 5px
+		right: 2px
+		bottom: 0
+		+rotate(2)
+	img
+		height: 100%
+		width: auto
+.owner
+	+r(500)
+		margin-bottom: 20px
+	.user-pic
+		display: inline-block
+		vertical-align: middle
+		font-size: 0
+		+r(500)
+			display: block
+			margin-bottom: 20px
+	&__info
+		display: inline-block
+		vertical-align: middle
+		font-size: 0
+		margin-left: 15px 
+		line-height: 1.5
+		text-align: left
+		+r(500)
+			display: block
+			margin-left: 0
+	&__who
+		font-size: 16px
+		+pt-bold
+		color: $orangead
+	&__name
+		color: $ipopo
+		display: block
+		+blogger-bold
+		font-size: 24px
+		line-height: 1 
+		text-transform: capitalize
+		+tr(color .2s)
+		&:hover
+			color: darken($ipopo,10%)
+	&__link
+		display: inline-block
+		margin-left: 20px
+		margin-top: 8px
+		+r(500)
+			display: block
+			margin-left: 0
+		&:first-child
+			margin-left: 0 
+		&:hover
+			span
+				color: darken($ipopo,10%) 
+		span
+			vertical-align: middle
+			font-size: 16px
+			+pt-bold
+			color: $ipopo
+			+tr(color .2s)
+	&__icon
+		margin-right: 5px
+		vertical-align: middle
+.details
+	margin: 55px 0	
+	text-align: center
+	+r(1040)
+		margin: 40px auto
+		max-width: 520px 
+	+r(767)
+		margin: 30px auto
+		max-width: 100% 
+	&__li
+		position: relative
+		margin-top: 30px
+		text-align: left
+		padding-left: 40px 
+		&:first-child
+			margin-top: 0
+		+r(767)
+			margin-top: 25px
+		.btn-action
+			margin-left: 20px 
+	&__left,
+	&__right
+		span
+			font-size: 16px
+			vertical-align: middle
+			text-transform: uppercase
+			color: $orangead
+			+blogger-bold 
+		i
+			display: inline-block
+			vertical-align: middle
+			margin-right: 10px
+			position: absolute
+			left: 0
+			top: -9px
+		.is-lowercase
+			text-transform: lowercase 
+			vertical-align: middle
+			display: inline-block
+			margin-top: -7px 
+		.icon-share
+			top: 0
+	&__left
+		width: 180px 
+		display: inline-block
+		vertical-align: middle
+		font-size: 0
+		+r(767)
+			width: auto 
+			
+	&__right
+		display: inline-block
+		vertical-align: middle
+		font-size: 0
+		margin-left: 45px 
+		+r(767)
+			margin-left: 0
+	.btn-action
+		+r(1024)
+			display: block
+			margin-top: 10px
+.product-slider
+	opacity: 0
+	visibility: hidden
+	margin-bottom: 30px
+	+r(767)
+		margin-bottom: 50px
+	&.is-ready
+		opacity: 1
+		visibility: visible 
+	.slick-dots
+		bottom: -43px
+		button
+			background-color: $orangead
+	.slick-dots
+		.slick-active
+			button
+				background-color: $ipopo 
+.product-slide
+	display: inline-block
+	vertical-align: top
+	margin-top: 30px
+	margin-left: 48px
+	&:first-child
+		margin-left: 0
+	&:nth-child(n+4)
+		display: none
+		+r(767)
+			display: inline-block
+	+r(1200)
+		margin-left: 25px
+	+r(1040)
+		margin-left: 48px
+.product
+	display: block
+	font-size: 0
+	text-align: left
+	margin: 0 auto
+	
+	&__img-father
+		display: block
+		width: 200px
+		height: 200px
+		border-radius: 15px
+		border: 3px solid $orangead
+		position: relative
+		margin-bottom: 30px
+		text-align: left
+		&:before
+			content: ""
+			position: absolute
+			border: 2px solid $ipopo
+			border-radius: 5px
+			height: 100%
+			width: 100%
+			background-color: transparent
+			+rotate(1.5) 
+			+tr(transform .2s)
+		&:hover
+			&:before
+				+rotate(-1.5)
+	&__img
+		width: 100%
+		height: 100%
+		border-radius: 15px
+		overflow: hidden
+		img
+			width: 100%
+			height: auto
+			vertical-align: middle
+	&__body
+		max-width: 205px
+		.btn-action
+			display: block
+			margin-top: 15px 
+	&__footer	
+		margin-top: 30px	
+		
+		// .btn-simple
+		// 	margin-top: 30px
+		// .done
+		// 	margin-top: 30px
+	&__name
+		color: $ipopo
+		display: block
+		+pt-bold
+		font-size: 16px  
+		line-height: 1.5 
+		margin-bottom: 10px
+		+tr(color .2s)
+		&:hover
+			color: darken($ipopo,10%) 
+	&__info
+		i,
+		span
+			display: inline-block
+			vertical-align: middle
+		i
+			margin-right: 10px
+		span
+			color: $text
+			font-size: 16px
+			+pt-bold  
+.done
+	height: 48px
+	line-height: 48px 
+	
+	&__message
+		display: inline-block
+		vertical-align: middle
+		font-size: 16px
+		+blogger-bold
+		color: $orangead
+		text-transform: uppercase
+		margin-left: 10px 
+.pic
+	width: 48px
+	height: 48px
+	border-radius: 5px
+	overflow: hidden
+	display: inline-block
+	vertical-align: middle
+	img
+		width: auto 
+		height: 100%
+.group-wrap
+	margin-top:  50px
+	font-size: 0
+	.is-lily
+		margin-left: 11px
+		+r(767)
+			margin-left: 0  
+		+r(479)
+			height: auto
+			padding: 15px 
+			line-height: 1.3
+			span
+				max-width: 190px
+	+r(767)
+		padding-top: 30px
+		margin: 0 
+.group
+	font-size: 0
+	&__info
+		font-size: 16px
+		+pt-bold
+		color: $text
+		line-height: 1.5
+		display: inline-block
+		vertical-align: middle 
+		margin-right: 30px 
+		+r(1200)
+			margin-right: 15px
+		+r(767)
+			display: block
+			margin-bottom: 10px
+	&__info-inline
+		display: block
+		color: $orangead
+		p
+			display: inline-block
+	&__pic
+		display: inline-block
+		margin-right: 26px
+		.pic
+			margin-left: 9px
+			&:first-child
+				margin-left: 0
+			+r(1200)
+				&:nth-child(n+5)
+					display: none
+			+r(767)
+				display: none
+	.btn-simple
+		display: inline-block
+		vertical-align: middle
+		margin-right: 22px
+		+r(1200)
+			margin-right: 15px
+		+r(767)
+			margin: 17px 0
+			display: block
+	.about
+		+r(767)
+			display: block
+.about
+	display: inline-block
+	vertical-align: middle
+	background-color: $orangead
+	padding: 13px 45px
+	border-radius: 5px
+	line-height: 1.5
+	color: #fff
+	font-size: 16px
+	+pt-bold 
+	+r(1200)
+		padding: 13px 30px 
+	+r(767)
+		margin-bottom: 10px
+	&__info
+		span
+			display: inline-block
+	&__left
+		min-width: 120px
+		text-align: left 
+	&__right
+		min-width: 90px
+		text-align: right 
+.btn-action
+	display: inline-block
+	background-color: transparent
+	&:hover
+		span
+			border-color: $ipopo
+	&:active
+		span
+			color: darken($ipopo,10%) 
+	span
+		border-bottom: 1px dashed transparent
+		display: inline-block
+		vertical-align: middle
+		line-height: 1
+		color: $ipopo
+		font-size: 16px 
+		+transition(color .2s, border-color .2s)
+		+pt-reg 
+	i
+		vertical-align: middle
+		margin-right: 3px 
+
+.array-wrap
+	margin-top: 55px
+	margin-bottom: 40px 
+	+r(1200)
+		margin: 20px 0
+	+clr
+	.title_small
+		margin-bottom: 13px
+	.btn-action
+		&.with-marg
+			margin-top: 15px
+			padding-left: 8px
+
+	.is-l
+		float: left
+	.is-r
+		float: right
+		margin-right: 15px
+.array
+	display: table
+	width: 100% 
+	padding: 8px 0 
+	&:nth-child(2n+1)
+		background: $white-blue
+		border-radius: 8px 
+	&_no-table
+		+r(1200)
+			display: block
+		.array__item
+			+r(1200)
+				display: inline-block
+		.array__info
+			+r(1200)
+				margin-left: 61px  
+	&__item
+		vertical-align: middle
+		display: table-cell 
+		padding-left: 8px
+		+pt-reg
+		font-size: 16px
+	
+	&__info
+		min-width: 120px
+		p
+			color: $text			
+			white-space: nowrap 
+	&__trash
+		padding: 0 10px 
+		font-size: 0
+		text-align: center
+		vertical-align: middle
+.little-name
+	color: $ipopo
+	display: block
+	+pt-reg
+	font-size: 16px
+	+tr(color .2s)
+	&:hover
+		color: darken($ipopo,15%)
+	&:active
+		color: lighten($ipopo, 5%)  
+.block
+	&.is-orangead
+		background-color: $orangead
+	&.is-sky
+		background-color: $sky
+	padding: 20px 20px 20px 15px
+	width: 100% 
+	border-radius: 4px
+	margin-bottom: 15px
+	line-height: 1 
+	span
+		display: inline-block
+		vertical-align: middle
+		font-size: 24px 
+		color: #FFF
+		max-width: 299px 
+		+blogger-bold
+		+r(1200)
+			font-size: 22px
+			max-width: 190px
+		+r(1024)
+			max-width: 100%
+		+r(479)
+			max-width: 215px 
+			p
+				display: inline-block
+	i   
+		display: inline-block
+		vertical-align: middle
+		margin-right: 13px 
+.btn-net
+	display: block
+	background-color: $sky
+	color: $ipopo
+	font-size: 16px
+	+blogger-bold
+	height: 48px
+	line-height: 48px
+	width: 200px
+	text-align: center 
+	border-radius: 30px 
+	text-transform: uppercase
+	margin-top: 15px 
+	+transition(color .2s, background-color .2s)
+	+r(767)
+		width: 100%
+	&:first-child
+		margin-top: 0
+	&:hover
+		background-color: darken($sky,4%)
+	&:active
+		background-color: lighten($sky,1%)
+		color: darken($ipopo,10%)
+	span,
+	i
+		display: inline-block
+		vertical-align: middle
+	i
+		margin-right: 12px 
+.btn-net-wrap
+	margin-top: 55px 
+	+r(767)
+		margin-top: 15px 
+.input
+	position: relative
+	&_small
+		width: 242px
+		display: inline-block
+		font-size: 0
+		+r(1200)
+			width: 100%
+			display: block
+	input
+		border: 2px solid $sky
+		padding: 0 20px
+		color: $orangead
+		background-color: transparent
+		height: 48px
+		line-height: 48px
+		width: 100%
+		border-radius: 30px
+		font-size: 16px
+		+pt-reg
+		+transition(border-color .2s)	
+		&:focus
+			border-color: darken($sky,7%) 
+	&_sky-text
+		input
+			color: $sky 
+			+pt-italic
+	&_grey-text
+		input
+			color: $text 
+	&_date
+		input
+			padding: 0 10px
+			width: 100px
+			height: 32px
+			line-height: 32px
+			font-size: 16px
+			+pt-reg
+			color: $ipopo 
+			vertical-align: middle
+		button
+			vertical-align: bottom
+			margin-left: 10px 
+			display: inline-block	
+		.ui-datepicker
+			position: absolute
+			right: -127px
+			top: 38px
+			display: none !important
+			border: 4px solid $orangead
+			&.is-visible
+				display: block !important
+			+r(1024)
+				position: static
+				display: block !important
+				width: 320px
+				border: 0
+				margin: 0 auto
+				&:before
+					display: none
+		.input__name
+			display: inline-block
+			margin-right: 20px 
+			vertical-align: middle
+	&__name
+		font-size: 16px
+		+pt-reg
+		color: $text
+		margin-bottom: 6px 
+		text-align: left 
+.select
+	position: relative
+	&_small
+		width: 242px
+		display: inline-block
+		font-size: 0
+		margin-right: 13px
+		+r(1200)
+			width: 100%
+			display: block
+			margin-right: 0
+			margin-bottom: 15px
+	&_mid
+		width: 460px
+		+r(1200)
+			width: 400px
+		+r(767)
+			width: 100%
+	input
+		border: 2px solid $sky
+		padding: 0 20px
+		color: $text
+		background-color: transparent
+		height: 48px
+		line-height: 48px
+		width: 100%
+		border-radius: 30px
+		font-size: 16px
+		+pt-reg
+		+transition(border-color .2s)	
+		&:focus
+			border-color: darken($sky,7%)
+	select
+		position: absolute
+		color: $text
+		padding: 5px 10px 
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		-webkit-appearance: none
+		opacity: 0
+		+pt-reg
+		font-size: 16px 
+	.icon-arrow-down
+		position: absolute
+		right: 15px
+		top: 50%
+		margin-top: -4px
+.select-wrap
+	clear: both
+	padding-top: 40px
+	+r(1200)
+		padding-top: 20px
+
+.block-comment
+	margin-top: 100px
+	+r(767)
+		margin-top: 50px
+	.title_small
+		margin-bottom: 25px
+		+r(479)
+			span
+				max-width: 255px
+				line-height: 1
+				vertical-align: top
+			i
+				vertical-align: top
+
+.comment
+	&.is-level-1
+		.comment__item
+			background: $white-blue 
+	&.is-level-2
+		.comment__item
+			background: #FFF
+			margin-left: 100px 
+			+r(479)
+				margin-left: 0
+				padding-left: 33px  
+	&.is-level-3
+		.comment__item
+			background: $white-blue 
+			margin-left: 145px
+			+r(479)
+				margin-left: 0
+				padding-left: 58px		
+	&__item
+		border-radius: 5px
+		padding: 7px 8px 15px
+		+clr
+		+r(479)
+			border-radius: 0
+		.pic
+			float: left
+			margin-right: 8px
+		.little-name
+			display: inline-block
+			margin-right: 9px
+		.text
+			margin-bottom: 15px
+	&__info
+		overflow: hidden
+.md-hidden
+	+r(1030)
+		display: none
+.md-shown
+	display: none
+	+r(1030)
+		display: block
+.sm-hidden
+	vertical-align: top !important
+	+r(767)
+		display: none !important
+.sm-shown
+	display: none
+	+r(767)
+		display: block		
+.step-wrap
+	width: 845px
+	margin-left: 20px 
+	position: relative 
+	+r(1200)
+		width: 750px
+	+r(1023)
+		margin-left: 0
+	+r(767)
+		width: 100%
+.step
+	border-left: 4px solid $orangead 
+	border-right: 4px solid $orangead 
+	border-bottom: 4px solid $orangead 
+	border-radius: 30px
+	position: relative
+	+r(767)
+		border-radius: 0
+		border: none 
+	&.is-inactive
+		border: none
+		.step__name
+			background-color: $white-blue
+			color: $ipopo 
+		.step__body
+			display: none
+		+r(767)
+			display: none
+	&.is-checked
+		.step__name
+			position: relative
+			&:after
+				content: ""
+				position: absolute
+				right: 18px
+				top: 50%
+				margin-top: -16px
+				+svg(checked,33,32)
+	&__name
+		margin: 0 -4px 
+		background-color: $orangead
+		border-radius: 30px
+		height: 64px  
+		line-height: 64px
+		padding: 0 40px
+		color: #FFF
+		text-transform: uppercase  
+		font-size: 24px
+		+blogger-bold
+		+r(767)
+			text-transform: none
+			padding: 10px 10px
+			height: auto
+			line-height: 1
+			margin: 0 
+			border-radius: 0  
+	&__body	
+		padding: 43px 38px
+		+clr
+		+r(767)
+			padding: 25px 10px 0 
+	&__wrapper
+		clear: both
+		+clr
+	&__left
+		float: left
+		+clr
+		+r(767)
+			float: none
+		&.with-marg
+			margin-top: 30px
+			+r(767)
+				margin-top: 10px
+		&.with-align
+			text-align: center
+		.btn-simple
+			&.with-marg-b
+				+r(767)
+					margin-bottom: 25px			
+	&__right
+		float: right
+		+clr
+		+r(767)
+			float: none
+			text-align: center
+		&.no-align
+			text-align: left
+		&.with-marg
+			margin-top: 30px
+			+r(767)
+				margin-top: 10px
+	&__text
+		margin-bottom: 35px
+		+r(767)
+			margin-bottom: 20px
+		.title_small
+			margin-bottom: 25px 
+			+r(767)
+				margin-bottom: 15px
+	.nets
+		margin-bottom: 40px
+		+r(767)		
+			margin-bottom: 25px	
+	.input_date
+		.title_small
+			display: inline-block
+			vertical-align: middle
+			margin-right: 10px
+		.icon-date
+			+r(1023)
+				display: none
+		
+	.input
+		&.with-marg-b
+			+r(767)
+				margin-bottom: 30px 
+	.btn-simple
+		&.is-lily
+			+r(479)
+				font-size: 15px
+		+r(767)
+			display: block
+	.link_back
+		display: none
+		+r(767)
+			display: inline-block
+			margin-top: 25px
+	.textarea
+		width: 500px 
+		margin-bottom: 40px
+		+r(1200)
+			width: 410px
+			margin-bottom: 20px
+		+r(767)
+			width: 100%
+			margin-bottom: 15px
+	.photo-add
+		margin-top: 38px	
+		+r(767)
+			margin-top: 0
+.ipopo
+	width: 150px
+	height: auto
+	position: absolute
+	top: 50%
+	margin-top: -160px
+	right: -270px
+	+r(1200)
+		right: -170px
+		width: 130px
+	+r(1023)
+		display: none
+	img
+		width: 100%
+		height: auto
+.photo-add
+	position: relative
+	width: 238px
+	height: 238px
+	text-align: center
+	+r(767)
+		width: 295px
+		height: 295px
+		margin: 0 auto 
+	&__img
+		width: 100%
+		height: 100%
+		overflow: hidden
+		border-radius: 10px
+		background-color: $white-blue
+		span
+			color: $sky
+			font-size: 16px
+			+blogger-bold
+			text-transform: uppercase 
+			position: absolute
+			top: 30%
+			right: 0
+			left: 0
+			display: block 
+		img
+			width: 100%
+			height: auto
+	&.is-added
+		&:before
+			display: none
+		span
+			display: none
+		background-color: none
+	.btn-photo
+		position: absolute
+		bottom: 15px
+		right: 0
+		left: 0 
+		text-align: center
+		width: 100%
+
+.btn-photo
+	display: block
+	&:hover
+		span
+			color: darken($ipopo,10%)
+		.btn-photo__in
+			background-color: rgba(#fff,.5)
+	&:active
+		span
+			color: lighten($ipopo,5%)
+		.btn-photo__in
+			background-color: #fff	
+	span
+		font-size: 16px
+		color: $ipopo 
+		text-transform: uppercase 
+		+blogger-bold
+		display: block
+		+transition(color .2s) 
+	&__in
+		margin-bottom: 10px
+		display: inline-block
+		height: 63px
+		width: 63px
+		background-color: #FFF 
+		border-radius: 50%
+		+transition(background-color .2s)
+		+vertical
+		i
+			display: inline-block
+			vertical-align: middle
+.textarea
+	+r(767)
+		width: 100% !important
+	textarea
+		border: 2px solid $sky
+		border-radius: 30px
+		resize: none 
+		width: 100% 
+		height: 240px 
+		font-size: 16px
+		+pt-reg
+		color: $text
+		padding: 15px 20px
+.checkbox
+	position: relative
+	cursor: pointer
+	text-align: left
+	+r(767)
+		max-width: 320px
+		margin: 0 auto 25px
+		&:last-child
+			margin-bottom: 0 
+		
+	&:hover
+		.checkbox__text
+			color: darken($ipopo,10%)
+			i
+				border-color: darken($ipopo,10%)
+	&__text
+		font-size: 16px 
+		+pt-reg
+		color: $ipopo
+		+transition(color .2s)
+		padding-left: 23px 
+		display: block
+		line-height: 1.5
+		+nosel
+		+r(767)
+			padding-left: 43px
+		i
+			position: absolute
+			left: 0
+			top: 3px
+			border: 2px solid $ipopo
+			border-radius: 50%
+			height: 16px
+			width: 16px
+			background: #FFF
+			+transition(border-color .2s) 
+			+r(767)
+				height: 32px
+				width: 32px
+				top: 0px
+			&:before
+				display: none
+				content: ""
+				position: absolute
+				left: 50%
+				top: 50%
+				margin: -4px 0 0 -4px
+				width: 8px
+				height: 8px
+				background-color: $orangead
+				border-radius: 50%
+				+r(767)
+					height: 16px
+					width: 16px
+					margin: -8px 0 0 -8px  
+	input
+		position: absolute
+		opacity: 0
+		&:checked
+			+ span
+				i
+					&:before
+						display: block
+.number-wrap
+	.title_small
+		display: inline-block
+		margin-right: 35px 
+		+r(767)
+			margin-right: 0
+			display: block
+			margin-bottom: 15px 
+.number
+	position: relative
+	display: inline-block
+	vertical-align: middle
+	// height: 25px
+	// width: 142px
+	box-sizing: border-box
+	padding: 7px
+	border: 2px solid $sky
+	border-radius: 30px
+	&__input
+		display: inline-block
+		margin: 0 20px 
+		width: 20px
+		text-align: center
+		font-size: 16px
+		+pt-reg
+		color: $text
+		vertical-align: middle
+	&__plus,
+	&__minus
+		width: 32px
+		height: 32px
+		border-top: 2px solid transparent
+		border-left: 2px solid transparent
+		background: $ipopo
+		border-radius: 50%		
+		vertical-align: middle
+		+vertical
+		position: relative
+		+box
+		&:active
+			border-color: darken($ipopo,10%)
+			background-color: lighten($ipopo,3%)
+.category
+	&__item
+		width: 32.7%
+		text-align: center
+		display: inline-block
+		font-size: 0
+		margin-bottom: 20px
+		&:first-child,
+		&:nth-child(3n+4)
+			text-align: left
+		&:nth-child(3n)
+			text-align: right
+		&.is-active
+			.category__info
+				color: $orangead
+				span
+					display: inline-block
+		+r(1023)
+			text-align: center
+			width: 24%
+			&:first-child,
+			&:nth-child(3n+4)
+				text-align: center
+			&:nth-child(3n)
+				text-align: center
+		+r(767)
+			width: 32.5%
+		+r(479)
+			width: 49%
+	&__btn
+		display: inline-block
+		vertical-align: top
+		&.is-pattern-1
+			.category__top
+				background-color: $orangead
+				&:after
+					+rotate(-6)
+		&.is-pattern-2
+			.category__top
+				background-color: $sky
+				&:after
+					+rotate(6)
+		&.is-pattern-3
+			.category__top
+				background-color: $ipopo
+				&:after
+					+rotate(-6)
+		&:hover
+			&.is-pattern-1
+				.category__top
+					background-color: darken($orangead,4%)
+					&:after
+						+rotate(6)
+			&.is-pattern-2
+				.category__top
+					background-color: darken($sky,4%)
+					&:after
+						+rotate(-6)
+			&.is-pattern-3
+				.category__top
+					background-color: darken($ipopo,4%)
+					&:after
+						+rotate(6)
+		&:active
+			&.is-pattern-1
+				.category__top
+					background-color: lighten($orangead,3%)
+					&:after
+						+rotate(3)
+			&.is-pattern-2
+				.category__top
+					background-color: lighten($sky,3%)
+					&:after
+						+rotate(-3)
+			&.is-pattern-3
+				.category__top
+					background-color: lighten($ipopo,3%)
+					&:after
+						+rotate(3)
+
+	&__top
+		margin-bottom: 15px
+		border: 2px solid $ipopo
+		display: inline-block
+		border-radius: 4px
+		position: relative
+		width: 130px
+		height: 70px
+		text-align: center
+		+vertical
+		+transition(background-color .2s)
+		&:after
+			content: ""
+			position: absolute
+			top: 0
+			right: 0
+			left: 0
+			bottom: 0
+			border-radius: 4px
+			border: 2px solid $orangead
+			+transition(transform .2s)
+		i
+			vertical-align: middle
+	&__info
+		color: $ipopo
+		font-size: 16px
+		line-height: 1
+		+pt-bold
+		span
+			display: none
+.list
+	+r(1023)
+		overflow: hidden
+		width: 270px
+		margin: 0 auto 
+	&__item
+		margin-top: 15px
+		a
+			display: inline-block
+		i
+			display: inline-block
+			vertical-align: middle
+		&.is-active
+			.list__name
+				color: $sky 
+				
+		&:hover
+			.list__name
+				color: darken($ipopo,10%) 
+			&.is-active
+				.list__name
+					color: darken($sky,5%)  			
+	&__name
+		margin-left: 10px
+		font-size: 16px
+		+blogger-bold
+		color: $ipopo
+		vertical-align: middle
+		text-transform: uppercase 
+		+transition(color .2s)
+	&_menu
+		position: absolute
+		background-color: #FFF
+		width: 100%
+		z-index: 3 
+		top: 0
+		border: 4px solid $sky
+		border-radius: 25px
+		padding: 0 15px
+		opacity: 0
+		visibility: hidden  
+		+transition(opacity .5s)
+		.btn-list-menu
+			border: none
+			padding: 0
+			display: block
+		.list__item
+			margin-top: 0
+			margin-bottom: 15px
+			&:first-child
+				margin-bottom: 0
+			.icon-arrow-down
+				right: 0
+		&.is-active
+			visibility: visible 
+			opacity: 1
+	&_longer-name
+		.list__name
+			font-size: 15px
+.tabs
+	font-size: 0
+	&__item
+		display: inline-block
+		position: relative
+		vertical-align: middle
+		margin-right: 15px
+		padding: 0 43px
+		height: 48px
+		line-height: 48px
+		border: 4px solid $sky
+		color: $sky
+		font-size: 16px
+		text-transform: uppercase  
+		+blogger-bold
+		border-radius: 30px
+		+box
+		+transition(border-color .2s, color .2s)
+		&:last-child
+			margin-right: 0
+		&:after
+			display: none
+			content: ""
+			position: absolute
+			left: 50%
+			bottom: -13px
+			margin-left: -8px 
+			+arr(17,9,$sky,b)
+		&:hover
+			border-color: darken($sky, 7%)
+			color: darken($sky,7%)
+		&:active
+			border-color: lighten($sky, 3%)
+			color: lighten($sky,3%)
+		&.is-active
+			color: #FFF
+			background: $sky
+			&:hover,
+			&:active
+				border-color: $sky
+				color: white
+			&:after
+				display: block
+		+r(767)
+			display: block
+			margin-top: 15px
+			margin-right: 0
+			text-align: center 
+.post-prev-wrap
+	+clr
+	+r(1200)
+		text-align: center
+.post-prev
+	+clr
+	text-align: left
+	margin-bottom: 40px
+	&_vertical
+		float: left
+		font-size: 0
+		margin-left: 10px
+		&:nth-child(3n+1),
+		&:first-child
+			margin-left: 0
+		+r(1200)
+			float: none
+			display: inline-block
+			margin-left: 20px
+			&:nth-child(3n+1)
+				margin-left: 20px
+			&:nth-child(2n+1)
+				margin-left: 0
+		+r(767)
+			text-align: center
+			margin-left: 0
+			&:nth-child(3n+1)
+				margin-left: 0
+
+		.post-prev__img
+			display: block
+			float: none
+			margin-right: 0
+			margin-bottom:  10px
+			+r(767)
+				display: inline-block				
+		.post-prev__common
+			float: none
+			width: 284px
+			text-align: left
+			+r(767)
+				width: 100%
+				padding: 0 10px 
+			.text
+				margin-top: 10px
+	&__img
+		float: left
+		width: 284px
+		height: 284px
+		border-radius: 10px
+		overflow: hidden
+		position: relative
+		margin-right: 15px
+		text-align: left
+		+r(767)
+			float: none
+			display: block
+			margin: 0 auto 
+		&:before
+			content: ""
+			position: absolute
+			border: 2px solid #fff
+			border-radius: 10px
+			width: 98%
+			height: 98% 
+			bottom: 3px
+			right: 3px	
+			+transition(transform .2s)				
+		img
+			width: 100%
+			height: auto
+		&.is-pattern-1
+			&:before
+				+rotate(-1)
+		&.is-pattern-2
+			&:before
+				+rotate(1)
+		&:hover
+			&.is-pattern-1
+				&:before
+					+rotate(1)
+			&.is-pattern-2
+				&:before
+					+rotate(-1)
+	
+	&__common
+		overflow: hidden
+		padding-top: 10px 
+		text-align: left
+		.info
+			margin-top: 13px 
+		.text
+			margin: 30px 0 
+			+r(1200)
+				margin: 20px 0
+	&__name
+		font-size: 32px
+		+blogger-bold
+		line-height: 1
+		color: $ipopo
+		+transition(color .2s)
+		&:hover
+			color: darken($ipopo,10%)
+		&:active
+			color: $ipopo 
+
+// posts
+.posts
+	padding-left: 20px
+	+r(768)
+		padding-left: 0
+	.post-prev
+		margin-bottom: 36px
+	.title
+		margin: 10px 0 35px
+		+r(768)
+			margin-bottom: 20px
+		+r(480)
+			margin: 16px 0 14px
+			line-height: 24px
+	.title__icon
+		margin-right: 4px
+		+r(768)
+			margin: 0 0 12px
+	.post-prev__img
+		margin-right: 58px
+		+r(768)
+			margin-right: auto
+	.meta
+		margin: 5px 0 8px
+	.text
+		margin: 23px 0
+		+r(768)
+			margin: 8px 0
+
+
+.info
+	+clr
+	&__item
+		float: left
+		margin-left: 25px
+		&:first-child
+			margin-left: 0
+		a
+			display: block
+		i
+			margin-right: 6px
+			display: inline-block
+			vertical-align: middle
+		span
+			display: inline-block
+			vertical-align: middle
+			color: $ipopo
+			font-size: 16px
+			+transition(color .2s)
+			+pt-bold
+		&.is-orange
+			+r(1200)
+				clear: both
+				float: none
+				margin-left: 0
+				padding-top: 11px 
+			span
+				color: $orangead
+	&.is-link
+		&:hover
+			span
+				color: darken($ipopo,10%) 
+.link-about
+	display: block
+	i
+		display: inline-block
+		vertical-align: middle
+		margin-right: 10px
+	span
+		display: inline-block
+		vertical-align: middle
+		font-size: 16px
+		color: $ipopo
+		+pt-bold 
+.list-menu-wrap
+	position: relative
+	z-index: 10 
+	margin-bottom: 30px
+.btn-list-menu
+	display: block
+	position: relative
+	border: 4px solid $sky
+	border-radius: 30px
+	width: 100%
+	padding: 0 15px 
+	height: 48px
+	line-height: 48px
+	text-align: left
+	font-size: 0
+	z-index: 5
+	opacity: 1
+	visibility: visible
+	+transition(opacity .5s, border-color)
+	.burger
+		vertical-align: top
+	.icon-arrow-down
+		position: absolute
+		right: 15px
+		top: 50%
+		margin-top: -4px 
+	span
+		margin-left: 10px
+		font-size: 16px
+		display: inline-block
+		+blogger-bold
+		color: $ipopo
+		vertical-align: middle
+		text-transform: uppercase 
+		+transition(color .2s)
+	&:hover
+		border-color: darken($sky,5%)
+	&:active
+		border-color: $sky 
+	&.is-active
+		opacity: 0
+		visibility: hidden
+		z-index: 0
+
+// stores
+.stores
+	.title
+		margin: 10px 0 35px 20px
+		+r(768)
+			margin-bottom: 20px
+		+r(480)
+			margin: 16px 0 14px
+			line-height: 24px
