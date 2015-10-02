@@ -1243,6 +1243,13 @@ button
 		font-size: 0
 		margin-right: 18px
 		vertical-align: middle
+
+.title-middle
+	font-size: 32px
+	line-height: 1.2
+	+blogger-bold
+	color: $orangead
+
 .link
 	font-size: 16px
 	color: $ipopo
@@ -4261,9 +4268,220 @@ button
 // stores
 .stores
 	.title
-		margin: 10px 0 35px 20px
+		margin: 10px 0 15px 20px
 		+r(768)
 			margin-bottom: 20px
 		+r(480)
 			margin: 16px 0 14px
 			line-height: 24px
+	.search
+		margin-bottom: 42px
+		.search__placeholder
+			position: absolute
+			top: 50%
+			left: 72px
+			+translate(0,-50%)
+			color: $orangead
+			font-size: 18px
+			+pt-reg
+			span
+				color: $ipopo
+				+pt-italic
+		input
+			position: relative
+			&:focus
+				& + .search__placeholder
+					display: none
+	.search__in
+		margin-left: 14px
+		width: auto
+		overflow: hidden
+	.btn-simple
+		margin-left: 18px
+	.title-middle
+		margin: 0 0 16px 14px
+
+// nav
+.nav
+	position: relative
+	z-index: 4
+	.nav__item
+		&:nth-child(odd)
+			a
+				background: rgba(#a6c3fc, .15)
+		& > a,
+		& > ul > li > a
+			position: relative
+			+blogger-bold
+			&:before
+				position: absolute
+				content: ''
+				top: 50%
+				right: 12px
+				margin-top: -8px
+				+s(arr-nav)
+		& > ul > li 
+			& > a
+				+border-radius(0 4px 4px 0)
+				&:before
+					right: 9px
+		& > ul
+			width: 240px
+			& > li
+				& > a
+					padding-left: 48px
+				a
+					text-transform: initial
+				& > ul
+					padding-left: 8px
+					width: 242px
+					font-size: 0
+					&:before
+						background-position: -240px 100%
+					ul
+						width: 200px
+						&:before
+							background-position: 100% 100%
+						li
+							&:hover
+								a
+									background-color: transparent
+						a
+							padding-left: 7px
+					a
+						padding-left: 45px
+						+pt-reg
+					li
+						&:hover
+							& > a span
+								border-color: $ipopo
+					span
+						position: relative
+						padding-left: 10px
+						line-height: .9
+						border-bottom: 1px solid transparent
+						+transition(border-color .3s)
+						display: inline-block
+						&:before
+							position: absolute
+							content: ''
+							top: 4px
+							left: 0
+							height: 3px
+							width: 3px
+							+border-radius(50%)
+							background: $ipopo
+			li
+				&:hover
+					& > a
+						background: #fff
+		ul
+			&:before
+				position: absolute
+				content: ''
+				top: 0
+				left: 0
+				right: 0
+				bottom: 0
+				background: url(../img/nav-bg.png) no-repeat 0 100%
+		a
+			position: relative
+			z-index: 1
+	li
+		&:hover
+			& > ul
+				visibility: visible
+				opacity: 3
+				z-index: 0
+	a
+		padding: 13px 25px 13px 10px
+		color: $ipopo
+		font-size: 16px
+		text-transform: uppercase
+		+border-radius(4px)
+		+transition(background .3s)
+		+box
+		display: block
+	ul
+		position: absolute
+		top: 0
+		bottom: 0
+		left: 100%
+		background: #a6c3fc
+		visibility: hidden
+		opacity: 0
+		z-index: -1
+		+border-radius(0 4px 4px 0)
+		+transition(opacity .3s, visibility .3s)
+
+// shop
+.shop
+	margin-top: 35px
+	padding: 46px 6px 30px 0
+	+pt-reg
+	+border-radius(4px)
+	background: #f2f6ff
+	+clr
+	&:first-child
+		margin-top: 0
+	p
+		margin-top: 30px
+		line-height: 24px
+		&:first-child
+			margin-top: 0
+	.shop__name
+		float: left
+		text-align: center
+		font-size: 0
+		width: 24.4%
+	.shop__img
+		vertical-align: top
+		display: inline-block
+		img
+			display: block
+	.shop__link
+		margin-top: 15px
+		font-size: 16px
+		display: block
+	.shop__text
+		float: left
+		padding-right: 15px
+		width: 54%
+		+box
+	.title_small	
+		margin-bottom: 5px
+		& + p
+			margin-top: 0
+	.shop__right
+		float: right
+		width: 21.3%
+		+blogger-bold
+		color: $orangead
+		.btn-simple
+			margin-left: 0
+			padding-left: 25px
+			padding-right: 25px
+			display: block
+		.icon-basket
+			margin: 8px 9px 0 0
+			vertical-align: top
+
+// opted
+.opted
+	margin-top: 27px
+	font-size: 24px
+	line-height: 1.4
+	.opted__in
+		position: relative
+		margin: 5px 0 8px
+		padding-left: 37px
+		font-size: 32px
+		line-height: 32px
+		.icon-checked
+			position: absolute
+			top: 0
+			left: 0
+		p
+			line-height: 32px
+	p
+		margin: 0

@@ -345,4 +345,9 @@ $(".js-slider-next").on("click", function(){
         });
     }
     number();
+
+    // input placeholder
+    $('.js-input-plac').on('click', function() {
+    	$('.js-search-input').focus();
+    });
 });
