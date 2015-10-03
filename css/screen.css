@@ -1296,6 +1296,7 @@ button { background-color: transparent; }
 @media only screen and (max-width: 1200px) { .shop .shop__right .btn-simple { float: right; margin-top: 60px; } }
 @media only screen and (max-width: 767px) { .shop .shop__right .btn-simple { float: none; margin-top: 35px; } }
 .shop .shop__right .icon-basket { margin: 8px 9px 0 0; vertical-align: top; }
+.shop .shop__name, .shop .shop__text, .shop .shop__right { position: relative; z-index: 1; }
 @media only screen and (max-width: 1200px) { .shop .opted { overflow: hidden; } }
 @media only screen and (max-width: 767px) { .shop .opted { text-align: center; } }
 
