@@ -1249,6 +1249,8 @@ button
 	line-height: 1.2
 	+blogger-bold
 	color: $orangead
+	+r(1023)
+		font-size: 24px
 
 .link
 	font-size: 16px
@@ -4276,6 +4278,8 @@ button
 			line-height: 24px
 	.search
 		margin-bottom: 42px
+		+r(767)
+			margin-bottom: 16px
 		.search__placeholder
 			position: absolute
 			top: 50%
@@ -4284,7 +4288,7 @@ button
 			color: $orangead
 			font-size: 18px
 			+pt-reg
-			span
+			.search__word
 				color: $ipopo
 				+pt-italic
 		input
@@ -4296,10 +4300,16 @@ button
 		margin-left: 14px
 		width: auto
 		overflow: hidden
+		+r(767)
+			margin-left: 0
+			width: 100%
+			display: block
 	.btn-simple
 		margin-left: 18px
 	.title-middle
 		margin: 0 0 16px 14px
+		+r(1040)
+			text-align: left
 
 // nav
 .nav
@@ -4421,7 +4431,13 @@ button
 	+pt-reg
 	+border-radius(4px)
 	background: #f2f6ff
+	+box
 	+clr
+	+r(1040)
+		text-align: left
+	+r(767)
+		margin-top: 17px
+		padding: 16px 10px 25px
 	&:first-child
 		margin-top: 0
 	p
@@ -4429,11 +4445,17 @@ button
 		line-height: 24px
 		&:first-child
 			margin-top: 0
+		+r(1023)
+			margin-top: 25px
 	.shop__name
 		float: left
 		text-align: center
 		font-size: 0
 		width: 24.4%
+		+r(1200)
+			width: 30%
+		+r(767)
+			width: 100%
 	.shop__img
 		vertical-align: top
 		display: inline-block
@@ -4448,23 +4470,50 @@ button
 		padding-right: 15px
 		width: 54%
 		+box
+		+r(1200)
+			margin: 0
+			width: 70%
+		+r(767)
+			margin-top: 15px
+			width: 100%
 	.title_small	
 		margin-bottom: 5px
 		& + p
 			margin-top: 0
 	.shop__right
 		float: right
+		margin-top: -7px
 		width: 21.3%
 		+blogger-bold
 		color: $orangead
+		+clr
+		+r(1200)
+			padding-left: 20px
+			width: 100%
+		+r(767)
+			padding-left: 0
 		.btn-simple
 			margin-left: 0
 			padding-left: 25px
 			padding-right: 25px
 			display: block
+			+r(1200)
+				float: right
+				margin-top: 60px
+			+r(767)
+				float: none
+				margin-top: 35px
 		.icon-basket
 			margin: 8px 9px 0 0
 			vertical-align: top
+	.opted
+		+r(1200)
+			overflow: hidden
+		+r(767)
+			text-align: center
+	.mob-mod
+		+r(767)
+			display: inline-block
 
 // opted
 .opted
@@ -4473,15 +4522,25 @@ button
 	line-height: 1.4
 	.opted__in
 		position: relative
-		margin: 5px 0 8px
+		margin: 11px 0 6px
 		padding-left: 37px
 		font-size: 32px
 		line-height: 32px
+		+r(767)
+			display: inline-block
 		.icon-checked
 			position: absolute
-			top: 0
+			top: -5px
 			left: 0
 		p
 			line-height: 32px
 	p
 		margin: 0
+
+// mob-hide
+.mob-hide
+	+r(767)
+		display: none
+.mob-mod
+	&:first-letter
+		text-transform: uppercase
