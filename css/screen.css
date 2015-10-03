@@ -1272,7 +1272,7 @@ button { background-color: transparent; }
 @media only screen and (max-width: 767px) { .shop .shop__name { width: 100%; } }
 .shop .shop__img { vertical-align: top; display: inline-block; }
 .shop .shop__img img { display: block; }
-.shop .shop__link { margin-top: 15px; font-size: 16px; display: block; }
+.shop .shop__link { margin-top: 15px; font-size: 16px; color: #8d5bb4; display: block; }
 .shop .shop__text { float: left; padding-right: 15px; width: 54%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 @media only screen and (max-width: 1200px) { .shop .shop__text { margin: 0; width: 70%; } }
 @media only screen and (max-width: 767px) { .shop .shop__text { margin-top: 15px; width: 100%; } }
@@ -1296,6 +1296,8 @@ button { background-color: transparent; }
 .opted .opted__in .icon-checked { position: absolute; top: -5px; left: 0; }
 .opted .opted__in p { line-height: 32px; }
 .opted p { margin: 0; }
+
+@media only screen and (max-width: 1040px) { .ipad-hide { display: none; } }
 
 @media only screen and (max-width: 767px) { .mob-hide { display: none; } }
 
@@ -1344,7 +1346,6 @@ button { background-color: transparent; }
 .l { padding-left: 10px; *zoom: 1; }
 .l:after { content: " "; display: table; clear: both; }
 .l .l-left { float: left; width: 260px; margin-right: 35px; }
-@media only screen and (max-width: 1040px) { .l .l-left { display: none; } }
 .l .overflow { padding: 0 0 40px; }
 
 .icon-planet { background: url("../img/svg/planet.svg") no-repeat 0 0; -moz-background-size: 16px 16px; -o-background-size: 16px 16px; -webkit-background-size: 16px 16px; background-size: 16px 16px; width: 16px; height: 16px; display: inline-block; }
