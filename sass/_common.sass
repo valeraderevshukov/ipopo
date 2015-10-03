@@ -4310,6 +4310,9 @@ button
 		margin: 0 0 16px 14px
 		+r(1040)
 			text-align: left
+		+r(1023)
+			margin-left: 0
+			padding-left: 10px
 
 // nav
 .nav
@@ -4319,72 +4322,6 @@ button
 		&:nth-child(odd)
 			a
 				background: rgba(#a6c3fc, .15)
-		& > a,
-		& > ul > li > a
-			position: relative
-			+blogger-bold
-			&:before
-				position: absolute
-				content: ''
-				top: 50%
-				right: 12px
-				margin-top: -8px
-				+s(arr-nav)
-		& > ul > li 
-			& > a
-				+border-radius(0 4px 4px 0)
-				&:before
-					right: 9px
-		& > ul
-			width: 240px
-			& > li
-				& > a
-					padding-left: 48px
-				a
-					text-transform: initial
-				& > ul
-					padding-left: 8px
-					width: 242px
-					font-size: 0
-					&:before
-						background-position: -240px 100%
-					ul
-						width: 200px
-						&:before
-							background-position: 100% 100%
-						li
-							&:hover
-								a
-									background-color: transparent
-						a
-							padding-left: 7px
-					a
-						padding-left: 45px
-						+pt-reg
-					li
-						&:hover
-							& > a span
-								border-color: $ipopo
-					span
-						position: relative
-						padding-left: 10px
-						line-height: .9
-						border-bottom: 1px solid transparent
-						+transition(border-color .3s)
-						display: inline-block
-						&:before
-							position: absolute
-							content: ''
-							top: 4px
-							left: 0
-							height: 3px
-							width: 3px
-							+border-radius(50%)
-							background: $ipopo
-			li
-				&:hover
-					& > a
-						background: #fff
 		ul
 			&:before
 				position: absolute
@@ -4394,15 +4331,102 @@ button
 				right: 0
 				bottom: 0
 				background: url(../img/nav-bg.png) no-repeat 0 100%
+			ul
+				&:before
+					background-position: -240px 100%
+				ul
+
+					&:before
+						background-position: 100% 100%
 		a
 			position: relative
 			z-index: 1
+	.nav__in
+		width: 240px
+		li
+			+rm(1023)
+				&:hover
+					& > a
+						background: #fff
+			a
+				text-transform: initial
+		& > li > a
+			padding-left: 45px
+			+border-radius(0 4px 4px 0)
+			&:before
+				right: 9px
+	.nav__last-ul
+		padding-left: 8px
+		width: 250px
+		font-size: 0
+		ul
+			width: 200px
+			li
+				&:hover
+					a
+						background-color: transparent
+			a
+				padding-left: 7px
+		a
+			padding-left: 45px
+			text-transform: initial
+			+pt-reg
+		li
+			&:hover
+				& > a span
+					border-color: $ipopo
+		span
+			position: relative
+			padding-left: 10px
+			line-height: .9
+			border-bottom: 1px solid transparent
+			+transition(border-color .3s)
+			display: inline-block
+			&:before
+				position: absolute
+				content: ''
+				top: 4px
+				left: 0
+				height: 3px
+				width: 3px
+				+border-radius(50%)
+				background: $ipopo
+	.nav__item > a,
+	.nav__in > li > a
+		position: relative
+		+blogger-bold
+		&:before
+			position: absolute
+			content: ''
+			top: 50%
+			right: 12px
+			margin-top: -8px
+			+s(arr-nav)
 	li
-		&:hover
-			& > ul
+		&.is-active
+			ul
+				position: relative
+				left: 0
+				padding-left: 0
+				width: auto
 				visibility: visible
 				opacity: 3
 				z-index: 0
+				background: none
+				& > li
+					&:nth-child(odd)
+						a
+							background: rgba(#a6c3fc, .15)
+					&.is-active
+						border: none
+				a
+					padding-left: 10px
+		+rm(1023)
+			&:hover
+				& > ul
+					visibility: visible
+					opacity: 3
+					z-index: 0
 	a
 		padding: 13px 25px 13px 10px
 		color: $ipopo
@@ -4537,6 +4561,11 @@ button
 			line-height: 32px
 	p
 		margin: 0
+
+// back
+.back
+	text-align: center
+	margin-top: 30px
 
 // ipad-hide
 .ipad-hide
