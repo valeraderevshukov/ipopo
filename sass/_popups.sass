@@ -5,7 +5,8 @@
 	top: 0
 	bottom: 0
 	left: 0
-	right: 0	
+	right: 0
+	overflow-y: scroll	
 	+r(767)
 		position: absolute
 		top: 0
@@ -64,7 +65,7 @@
 			background: #fff
 			height: 100%
 	&__in
-		position: fixed
+		position: absolute
 		top: 100px
 		left: 50%
 		margin-left: -290px 
@@ -174,8 +175,33 @@
 		.icon-date
 			+r(1023)
 				display: none 
+	.popup__butt
+		margin-top: 30px
+		.btn-simple
+			padding-left: 24px
+			padding-right: 35px
+			+r(767)
+				margin-right: 10px
+			+r(480)
+				margin-right: 0
+		.link_back
+			margin-top: 12px
+			vertical-align: top
+			display: inline-block
+	.popup__rad
+		text-align: left
+		+r(1023)
+			display: inline-block
+		.radio
+			margin-top: 4px
+	.popup__h
+		margin-bottom: 18px
+	.quantity
+		margin-top: 28px
+		.number
+			+r(480)
+				margin-left: 0
 		 
-			
 .popup-login
 	.input
 		margin-top: 27px

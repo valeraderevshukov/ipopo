@@ -77,6 +77,8 @@ body
 	+pt-reg
 	font-size: 14px 
 	line-height: 1.4
+	&.is-hidden
+		overflow: hidden
 a
 	text-decoration: none 
 button
@@ -1824,6 +1826,9 @@ button
 		&.is-lily
 			background-color: lighten($lily,1%)
 			text-shadow: -1px -2px 1px #cb86cf
+	.icon-basket
+		margin: 8px 9px 0 0
+		vertical-align: top
 	+r(1023)
 		padding: 0 50px
 	+r(767)
@@ -3784,6 +3789,46 @@ button
 				i
 					&:before
 						display: block
+
+.radio
+	position: relative
+	+pt-reg
+	font-size: 16px
+	color: $ipopo
+	+user-select(none)
+	cursor: pointer
+	display: block
+	input,
+	span:before
+		position: absolute
+		content: ''
+		top: 0
+		left: 0
+		height: 16px
+		width: 16px
+	input
+		z-index: -1
+		+opacity(0)
+		&:checked
+			& + span:after
+				display: block
+	span
+		position: relative
+		padding-left: 20px
+		&:before
+			+border-radius(50%)
+			border: 2px solid #8d5bb4
+		&:after
+			position: absolute
+			content: ''
+			top: 4px
+			left: 4px
+			height: 8px
+			width: 8px
+			+border-radius(50%)
+			background: $orangead
+			display: none
+
 .number-wrap
 	.title_small
 		display: inline-block
@@ -3799,7 +3844,7 @@ button
 	// height: 25px
 	// width: 142px
 	box-sizing: border-box
-	padding: 7px
+	padding: 6px
 	border: 2px solid $sky
 	border-radius: 30px
 	&__input
@@ -3826,6 +3871,12 @@ button
 		&:active
 			border-color: darken($ipopo,10%)
 			background-color: lighten($ipopo,3%)
+	.icon-minus,
+	.icon-plus-small
+		position: relative
+		left: -1px
+	.icon-minus
+		top: -1px
 .category
 	&__item
 		width: 32.7%
@@ -4553,9 +4604,6 @@ button
 			+r(767)
 				float: none
 				margin-top: 35px
-		.icon-basket
-			margin: 8px 9px 0 0
-			vertical-align: top
 	.shop__name,
 	.shop__text,
 	.shop__right
@@ -4604,8 +4652,20 @@ button
 	+r(767)
 		display: none
 
+// mob-mod
 .mob-mod
 	+r(767)
 		display: inline-block
 		&:first-letter
 			text-transform: uppercase
+
+// quantity
+.quantity
+	.title_small,
+	.number
+		vertical-align: top
+		display: inline-block
+	.title_small
+		padding-top: 7px
+	.number
+		margin-left: 35px

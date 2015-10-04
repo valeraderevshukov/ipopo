@@ -251,6 +251,7 @@ $(".js-slider-next").on("click", function(){
 	});
 	$(".js-popup-close").on("click",function(){
 		$(".js-popup").removeClass("is-active");
+		$('body').removeClass('is-hidden');
 		return false;
 	});
 	$(".js-delete-gift").on("click",function(){
