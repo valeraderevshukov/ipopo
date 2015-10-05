@@ -92,7 +92,7 @@ button
 .l-center
 	margin: 0 auto
 	padding: 0 1%
-	max-width: 1200px
+	max-width: 1240px
 	position: relative
 	z-index: 10  
 	+clr
@@ -1213,6 +1213,8 @@ button
 		margin: 0
 	&__in
 		float: left
+		&.title__in_lp20
+			padding-left: 20px
 		+r(1023)
 			float: none
 			text-align: center
@@ -1777,6 +1779,8 @@ button
 			font-size: 16px
 		i
 			margin-top: -5px 
+		.icon-post
+			margin-top: -3px
 	&.is-adapt
 		padding: 0 35px
 		+r(1200)
@@ -4669,3 +4673,101 @@ button
 		padding-top: 7px
 	.number
 		margin-left: 35px
+
+// postcards
+.postcards
+	padding: 15px 0 0 20px
+	.left
+		margin-right: 42px
+
+// gratters
+.gratters
+	margin-bottom: 106px
+	padding-top: 4px
+
+// cong
+.cong
+	padding: 16px 0 16px 16px
+	+border-radius(4px)
+	+clr
+	&:nth-child(even)
+		background: rgba(#a7c3fd, .15)
+	.cong__img
+		position: relative
+		float: left
+		margin-right: 18px
+		max-width: 142px
+		border: 3px solid #feb737
+		+border-radius(8px)
+		+box
+		&:before
+			content: ""
+			position: absolute
+			border: 2px solid #8d5bb4
+			+border-radius(2px)
+			left: 0px
+			right: 0px
+			bottom: 0
+			top: 0
+			+rotate(2.5)
+		img
+			display: block
+	.cong__in
+		overflow: hidden
+	.cong__wrap
+		+clr
+	.cong__left
+		overflow: hidden
+	.cong__right
+		float: right
+		width: 144px
+	.btn-action
+		margin-top: 8px
+		&:first-child
+			margin-top: 0
+	.cong__row
+		margin-top: 13px
+	.title_small
+		margin: 8px 0 6px
+	.date
+		color: #666
+		font-size: 16px
+		+pt-bold
+	.arr-right
+		margin: 13px 11px
+
+.from,
+.whom
+	vertical-align: top
+	display: inline-block
+	.from__img,
+	.whom__img
+		margin-right: 5px
+		height: 48px
+		width: 48px
+		overflow: hidden
+		vertical-align: top
+		+border-radius(3px)
+		display: inline-block
+		img
+			display: block
+	.from__text,
+	.whom__text
+		line-height: 48px
+		+pt-reg
+		font-size: 16px
+		color: $ipopo
+		vertical-align: top
+		display: inline-block
+		span
+			line-height: 1.4
+			vertical-align: middle
+			display: inline-block
+
+
+
+// arr-right
+.arr-right
+	vertical-align: top
+	+svg(arr-color-right,33,23)
+	display: inline-block
