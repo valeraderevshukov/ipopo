@@ -1,0 +1,11 @@
+.frame .frame__butt { margin-top: 30px; }
+.frame .frame__butt .btn-simple { padding-left: 24px; padding-right: 35px; }
+@media only screen and (max-width: 767px) { .frame .frame__butt .btn-simple { margin-right: 10px; } }
+@media only screen and (max-width: 1023px) { .frame .frame__butt .btn-simple { margin-right: 0; } }
+.frame .frame__butt .link_back { margin-top: 12px; vertical-align: top; display: inline-block; }
+.frame .frame__rad { text-align: left; }
+@media only screen and (max-width: 1023px) { .frame .frame__rad { display: inline-block; } }
+.frame .frame__rad .radio { margin-top: 4px; }
+.frame .frame__h { margin-bottom: 18px; }
+.frame .quantity { margin-top: 28px; }
+@media only screen and (max-width: 480px) { .frame .quantity .number { margin-left: 0; } }

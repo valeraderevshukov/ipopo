@@ -1317,7 +1317,7 @@ button.btn-edit { line-height: 1; }
 .shop .shop__right:after { content: " "; display: table; clear: both; }
 @media only screen and (max-width: 1200px) { .shop .shop__right { padding-left: 20px; width: 100%; } }
 @media only screen and (max-width: 767px) { .shop .shop__right { padding-left: 0; } }
-.shop .shop__right .btn-simple { margin-left: 0; padding-left: 25px; padding-right: 25px; display: block; }
+.shop .shop__right .btn-simple { margin-right: 4px; margin-left: 0; padding-left: 25px; padding-right: 25px; display: block; }
 @media only screen and (max-width: 1200px) { .shop .shop__right .btn-simple { float: right; margin-top: 60px; } }
 @media only screen and (max-width: 767px) { .shop .shop__right .btn-simple { float: none; margin-top: 35px; } }
 .shop .shop__name, .shop .shop__text, .shop .shop__right { position: relative; z-index: 1; }
@@ -1408,11 +1408,14 @@ button.btn-edit { line-height: 1; }
 .const .const__in { *zoom: 1; }
 .const .const__in:after { content: " "; display: table; clear: both; }
 .const .const__right { overflow: hidden; }
+@media only screen and (max-width: 767px) { .const .const__right { overflow: visible; } }
 .const .const__wrap { width: 442px; }
 .const .const__bot { margin-top: 30px; *zoom: 1; }
 .const .const__bot:after { content: " "; display: table; clear: both; }
 .const .const__back { float: left; margin: 0 58px 0 2px; padding-top: 10px; width: 385px; }
-.const .const__butt { float: left; font-size: 0; }
+@media only screen and (max-width: 1244px) { .const .const__back { width: auto; } }
+.const .const__butt { overflow: hidden; font-size: 0; }
+@media only screen and (max-width: 1244px) { .const .const__butt { float: right; overflow: visible; } }
 .const .const__butt [class^="btn-"] { margin-left: 42px; min-width: 200px; }
 .const .const__butt [class^="btn-"]:first-child { margin-left: 0; }
 .const .const__row { margin-top: 42px; }
@@ -1423,6 +1426,12 @@ button.btn-edit { line-height: 1; }
 .const .textarea { margin-bottom: 34px; width: 442px; }
 .const .textarea textarea { height: 96px; }
 .const .postcard { float: left; margin: 8px 58px 0 0; }
+@media only screen and (max-width: 767px) { .const .postcard { float: none; width: 100%; } }
+.const .head { margin: -18px -10px 18px; }
+
+.head { margin: 10px -10px 0; padding: 16px 10px; text-align: left; font-size: 24px; color: white; font-family: "blogger_sans-bold", Georgia, sans-serif; font-weight: 700; background: #8d5bb4; }
+.head [class^="icon-"] { margin-right: 8px; }
+.head .head__text { vertical-align: top; display: inline-block; }
 
 .postcard { position: relative; width: 385px; }
 .postcard.is-has-img:before { border-color: #8d5bb4; }
@@ -1444,6 +1453,7 @@ button.btn-edit { line-height: 1; }
 .edit { margin-top: 20px; }
 .edit .edit__item { margin-left: 38px; vertical-align: top; display: inline-block; }
 .edit .edit__item:first-child { margin-left: 0; }
+@media only screen and (max-width: 1244px) { .edit .edit__item { margin: 15px 0 0 0; display: block; } }
 .edit .edit__buttons { font-size: 0; }
 .edit .edit__buttons [class^="btn-"] { margin-left: 9px; vertical-align: top; }
 .edit .edit__buttons [class^="btn-"]:first-child { margin-left: 0; }
@@ -1743,6 +1753,11 @@ button.btn-edit { line-height: 1; }
 .popup.is-width .popup__in { width: 804px; margin-left: -402px; }
 @media only screen and (max-width: 1023px) { .popup.is-width .popup__in { position: absolute; width: 100%; bottom: 0; top: 0px; margin: 0; left: 0; text-align: center; font-size: 0; }
   .popup.is-width .popup__in:before { content: ""; display: inline-block; vertical-align: middle; width: 0; height: 100%; } }
+@media only screen and (max-width: 767px) { .popup.is-frame { position: fixed; } }
+.popup.is-frame .popup__in { width: 804px; margin-left: -402px; }
+@media only screen and (max-width: 1023px) { .popup.is-frame .popup__in { width: 100%; margin-left: 0; } }
+@media only screen and (max-width: 1023px) { .popup.is-frame .popup__content { display: block; } }
+@media only screen and (max-width: 767px) { .popup.is-frame iframe { height: 500px; } }
 .popup.is-higher .popup__in { top: 30px; }
 .popup.non-fixed { position: absolute; }
 .popup.non-fixed .popup__in { position: absolute; }
@@ -1804,6 +1819,19 @@ button.btn-edit { line-height: 1; }
 @media only screen and (max-width: 767px) { .popup-login__col { float: none; } }
 .popup-login__col.with-width { width: 252px; margin-right: 40px; }
 @media only screen and (max-width: 767px) { .popup-login__col.with-width { margin: 0; width: 100%; } }
+
+.frame .frame__butt { margin-top: 30px; }
+.frame .frame__butt .btn-simple { padding-left: 24px; padding-right: 35px; }
+@media only screen and (max-width: 767px) { .frame .frame__butt .btn-simple { margin-right: 10px; } }
+@media only screen and (max-width: 480px) { .frame .frame__butt .btn-simple { margin-right: 0; } }
+.frame .frame__butt .link_back { margin: 12px 0 0 56px; vertical-align: top; display: inline-block; }
+@media only screen and (max-width: 767px) { .frame .frame__butt .link_back { margin-left: 0; } }
+.frame .frame__rad { text-align: left; }
+@media only screen and (max-width: 1023px) { .frame .frame__rad { display: inline-block; } }
+.frame .frame__rad .radio { margin-top: 4px; }
+.frame .frame__h { margin-bottom: 18px; }
+.frame .quantity { margin-top: 28px; }
+@media only screen and (max-width: 480px) { .frame .quantity .number { margin-left: 0; } }
 
 .hasDatepicker { cursor: pointer; }
 

@@ -1,0 +1,80 @@
+<link rel="stylesheet" media="all" href="css/screen.css" >
+<script src="js/lib/jquery.js"></script>
+<script>
+	$(document).ready(function() {
+		function number() { 
+	        var number = $(".js-number");
+	        number.each(function(){
+	            var max_number = +($(this).attr("data-max-number"));
+	            var input = $(this).find("input");
+	            var plus = $(this).find(".js-plus-number");
+	            var minus = $(this).find(".js-minus-number");
+	            plus.on("click", function(){
+	                var val = +(input.val());
+	                if (val >= max_number) {
+	                    return false
+	                }
+	                else {
+	                    val += 1;
+	                    input.val(val);
+	                }
+	            });
+	            minus.on("click", function(){
+	                var val = +(input.val());
+	                if (val > 1) {
+	                    val -= 1;
+	                    input.val(val);
+	                }
+	                return false;
+	            });
+	            input.on("change", function(){
+	                var val = +$(this).val();
+	                if (val > max_number) {
+	                    val = max_number;
+	                    $(this).val(val);
+	                }
+	                if (val == '') {
+	                    val = 1;
+	                    $(this).val(val);
+	                }
+	            });
+	        });
+		}
+		number();
+	});
+</script>
+<div class="frame">
+	<div class="frame__h">
+		<div class="title_small">Подарок добавлен у вишлист</div>
+	</div>
+	<div class="frame__rad">
+		<div class="title_small">Этот подарок могут подарить:</div>
+		<label class="radio">
+			<input type="radio" name="rad" checked>
+			<span>Один человек (классический вариант подарка)</span>
+		</label>
+		<label class="radio">
+			<input type="radio" name="rad">
+			<span>Несколько человек (групповая покупка)</span>
+		</label>
+	</div>
+	<div class="quantity">
+		<div class="title_small">Подтвердите количество товаров:</div>
+		<div class="number js-number" data-max-number="9">
+			<button class="number__minus js-minus-number" type="button">
+				<i class="icon-minus"></i>
+			</button>
+			<input type="text" class="number__input" value="1">
+			<button class="number__plus js-plus-number" type="button">
+				<i class="icon-plus-small"></i>
+			</button>
+		</div>
+	</div>
+	<div class="frame__butt">
+		<button class="btn-simple" type="button">
+			<i class="icon-basket"></i>
+			<span>Продолжить выбор подарков</span>
+		</button>
+		<a href="#" class="link link_back">Вернутся в вишлист</a>
+	</div>
+</div>

@@ -4626,6 +4626,7 @@ button.btn-edit
 		+r(767)
 			padding-left: 0
 		.btn-simple
+			margin-right: 4px
 			margin-left: 0
 			padding-left: 25px
 			padding-right: 25px
@@ -4908,6 +4909,8 @@ button.btn-edit
 		+clr
 	.const__right
 		overflow: hidden
+		+r(767)
+			overflow: visible
 	.const__wrap
 		width: 442px
 	.const__bot
@@ -4918,9 +4921,14 @@ button.btn-edit
 		margin: 0 58px 0 2px
 		padding-top: 10px
 		width: 385px
+		+r(1244)
+			width: auto
 	.const__butt
-		float: left
+		overflow: hidden
 		font-size: 0
+		+r(1244)
+			float: right
+			overflow: visible
 		[class^="btn-"]
 			margin-left: 42px
 			min-width: 200px
@@ -4948,7 +4956,26 @@ button.btn-edit
 	.postcard
 		float: left
 		margin: 8px 58px 0 0
+		+r(767)
+			float: none
+			width: 100%
+	.head
+		margin: -18px -10px 18px
 
+// head
+.head
+	margin: 10px -10px 0
+	padding: 16px 10px
+	text-align: left
+	font-size: 24px
+	color: #fff
+	+blogger-bold
+	background: $ipopo
+	[class^="icon-"]
+		margin-right: 8px
+	.head__text
+		vertical-align: top
+		display: inline-block
 
 // postcard
 .postcard
@@ -5039,6 +5066,9 @@ button.btn-edit
 		display: inline-block
 		&:first-child
 			margin-left: 0
+		+r(1244)
+			margin: 15px 0 0 0
+			display: block
 	.edit__buttons
 		font-size: 0
 		[class^="btn-"]

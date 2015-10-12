@@ -30,6 +30,21 @@
 				margin: 0
 				left: 0
 				+vertical
+	&.is-frame
+		+r(767)
+			position: fixed
+		.popup__in
+			width: 804px 
+			margin-left: -402px
+			+r(1023)
+				width: 100%
+				margin-left: 0
+		.popup__content
+			+r(1023)
+				display: block
+		iframe
+			+r(767)
+				height: 500px
 	&.is-higher
 		.popup__in
 			top: 30px
@@ -194,7 +209,7 @@
 			display: inline-block
 		.radio
 			margin-top: 4px
-	.popup__h
+	.popup__h 
 		margin-bottom: 18px
 	.quantity
 		margin-top: 28px
@@ -224,3 +239,36 @@
 			+r(767)
 				margin: 0
 				width: 100%
+
+// frame
+.frame
+	.frame__butt
+		margin-top: 30px
+		.btn-simple
+			padding-left: 24px
+			padding-right: 35px
+			+r(767)
+				margin-right: 10px
+			+r(480)
+				margin-right: 0
+		.link_back
+			margin: 12px 0 0 56px
+			vertical-align: top
+			display: inline-block
+			+r(767)
+				margin-left: 0
+	.frame__rad
+		text-align: left
+		+r(1023)
+			display: inline-block
+		.radio
+			margin-top: 4px
+	.frame__h 
+		margin-bottom: 18px
+	.quantity
+		margin-top: 28px
+		.number
+			+r(480)
+				margin-left: 0
+		 
+
