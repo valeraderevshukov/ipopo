@@ -95,7 +95,9 @@ button
 	max-width: 1240px
 	position: relative
 	z-index: 10  
-	+clr
+	+clr 
+	&.l-center_mod
+		z-index: 11
 	&_modif
 		max-width: 1300px
 	+r(1200)
@@ -1771,6 +1773,13 @@ button
 	text-align: center
 	+blogger-bold
 	+transition(background-color .2s, text-shadow .2s)
+	&.btn_mod
+		padding: 0 20px
+		i,
+		span
+			margin-right: 12px
+			vertical-align: middle
+			display: inline-block
 	&.with-icon
 		padding: 0 40px 
 		i,
@@ -1839,6 +1848,24 @@ button
 		padding: 0 50px
 	+r(767)
 		padding: 0 26px 
+
+.btn-edit
+	height: 49px
+	width: 49px
+	text-align: center
+	line-height: 49px
+	+border-radius(50%)
+	background: $ipopo
+	+transition(background .2s)
+	&:hover
+		background: darken($ipopo,4%)
+	&:active
+		background: lighten($ipopo,1%)
+	[class^="icon-"]
+		vertical-align: middle
+button.btn-edit
+	line-height: 1
+
 .search
 	+clr
 	margin-bottom: 32px 
@@ -4496,7 +4523,6 @@ button
 	ul
 		position: absolute
 		top: 0
-		bottom: 0
 		left: 100%
 		background: #a6c3fc
 		visibility: hidden
@@ -4797,3 +4823,271 @@ button
 	vertical-align: top
 	+svg(arr-color-right,33,23)
 	display: inline-block
+
+// constructor
+.constructor
+	.left
+		margin: 20px 45px 0 12px
+		.list
+			width: 260px
+			.list__item
+				margin: 0
+				&:hover,
+				&.is-active
+					a
+						background: #8d5bb4
+					.list__name
+						color: #fff
+			a
+				position: relative
+				padding: 13px 5px 13px 50px
+				background: rgba(#a6c3fc, .15)
+				+transition(background .3s)
+				+border-radius(48px)
+				display: block
+				[class^="icon-"]
+					position: absolute
+					top: 8px
+					left: 12px
+			.list__name
+				margin: 0
+				display: block
+				+transition(color .3s)
+	.overflow
+		padding-top: 28px
+
+// images
+.images
+	font-size: 0
+	padding-bottom: 40px
+	+r(767)
+		padding-bottom: 0
+	.images__in
+		margin-right: -2%
+	.img
+		margin: 0 2% 2% 0
+		width: 31.3%
+		+r(480)
+			margin-bottom: 35px
+			width: 100%
+
+// img
+.img
+	position: relative
+	cursor: pointer
+	vertical-align: top
+	display: inline-block
+	+box
+	&:hover
+		&:before
+			+rotate(2.5)
+	&:before
+		content: ""
+		position: absolute
+		border: 2px solid #8d5bb4
+		+border-radius(8px)
+		left: 7px
+		right: 7px
+		bottom: 0
+		top: 0
+		z-index: 1
+		+rotate(-2.5)
+		will-chenge: transform
+		+transition(transform .3s)
+	.img__in
+		+border-radius(8px)
+		border: 3px solid #feb737
+		overflow: hidden
+	img
+		display: block
+		width: 100%
+
+// const
+.const
+	.const__in
+		+clr
+	.const__right
+		overflow: hidden
+	.const__wrap
+		width: 442px
+	.const__bot
+		margin-top: 30px
+		+clr
+	.const__back
+		float: left
+		margin: 0 58px 0 2px
+		padding-top: 10px
+		width: 385px
+	.const__butt
+		float: left
+		font-size: 0
+		[class^="btn-"]
+			margin-left: 42px
+			min-width: 200px
+			&:first-child
+				margin-left: 0
+	.const__row
+		margin-top: 42px
+		&:first-child
+			margin-top: 5px
+		.btn-simple
+			min-width: 200px
+	.const__title
+		margin-bottom: 15px
+		font-size: 16px
+		color: $ipopo
+		+blogger-bold
+	.title_small
+		& + .const__row
+			margin-top: 23px
+	.textarea
+		margin-bottom: 34px
+		width: 442px
+		textarea
+			height: 96px
+	.postcard
+		float: left
+		margin: 8px 58px 0 0
+
+
+// postcard
+.postcard
+	position: relative
+	width: 385px
+	&.is-has-img
+		&:before
+			border-color: #8d5bb4
+		.postcard__img
+			border-color: #feb737
+		.postcard__ico,
+		.postcard__text
+			display: none
+	&:before
+		content: ""
+		position: absolute
+		border: 2px solid #f2f6ff
+		+border-radius(8px)
+		left: 7px
+		right: 7px
+		bottom: 0
+		top: 0
+		z-index: 1
+		+rotate(-2.5)
+		will-chenge: transform
+		+transition(transform .3s)
+	.postcard__img
+		height: 433px
+		+border-radius(8px)
+		border: 3px solid #f2f6ff
+		background: #f2f6ff
+	.postcard__text
+		position: absolute
+		top: 50%
+		left: 50%
+		+translate(-50%,-50%)
+		margin-top: -18px
+		color: #a6c3fc
+		font-size: 16px
+		text-transform: uppercase
+		+blogger-bold
+	.postcard__ico
+		position: absolute
+		bottom: 35px
+		left: 50%
+		height: 64px
+		width: 64px
+		z-index: 2
+		text-align: center
+		line-height: 64px
+		+translate(-50%,0)
+		+border-radius(50%)
+		background: #fff
+		[class^="icon-"]
+			vertical-align: middle
+
+// load
+.load
+	position: relative
+	margin: 15px 0 40px
+	max-width: 384px
+	+box
+	.load__in
+		padding: 8px 42px 8px 0 
+	.load__wrap
+		height: 16px
+		+border-radius(8px)
+		background: #f2f6ff
+	.load__progress
+		height: 16px
+		+border-radius(8px)
+		background: $ipopo
+	.load__close
+		position: absolute
+		top: 0
+		right: 0
+		background-color: none
+		+svg(close-color,32,32)
+	[class^="btn-"]
+		margin-top: 24px
+
+// edit
+.edit
+	margin-top: 20px
+	.edit__item
+		margin-left: 38px
+		vertical-align: top
+		display: inline-block
+		&:first-child
+			margin-left: 0
+	.edit__buttons
+		font-size: 0
+		[class^="btn-"]
+			margin-left: 9px
+			vertical-align: top
+			&:first-child
+				margin-left: 0
+	.edit__text,
+	.edit__buttons
+		vertical-align: top
+		display: inline-block
+	.edit__text
+		margin-left: 16px
+		padding-top: 16px
+		color: $ipopo
+		font-size: 16px
+		+blogger-bold
+	.edit__field
+		margin-top: 16px
+		+clr
+		&:first-child
+			margin-top: 0
+	.edit__name
+		float: left
+		width: 160px
+		min-height: 48px
+		line-height: 43px
+		font-size: 16px
+		color: $ipopo
+		+blogger-bold
+		span
+			line-height: 1.2
+			vertical-align: middle
+			display: inline-block
+	.edit__right
+		float: left
+		width: 242px
+	.title_small + .edit__field
+		margin-top: 5px
+
+// color
+.color
+	margin: 0 5px 5px 0
+	height: 48px
+	width: 48px
+	border: 4px solid #a6c3fc
+	cursor: pointer
+	vertical-align: top
+	+border-radius(50%)
+	display: inline-block
+	&.is-white
+		background-color: #fff
