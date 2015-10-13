@@ -354,6 +354,7 @@ button { background-color: transparent; }
 .title_small { font-size: 24px; font-family: "blogger_sans-bold", Georgia, sans-serif; font-weight: 700; color: #feb737; margin-bottom: 3px; }
 .title_small i, .title_small span { display: inline-block; vertical-align: middle; }
 .title_small i { margin-right: 9px; }
+@media only screen and (max-width: 767px) { .title_stmod { text-align: left; color: #666666; font-size: 16px; font-family: "ptsans-regular", Arial, sans-serif; font-weight: 400; } }
 .title.with-gift span, .title.with-gift i { vertical-align: baseline; }
 .title.is-white .title__in span { color: white; }
 .title_marg { margin: 0 0 30px 20px; }
@@ -1408,26 +1409,44 @@ button.btn-edit { line-height: 1; }
 .const .const__in { *zoom: 1; }
 .const .const__in:after { content: " "; display: table; clear: both; }
 .const .const__right { overflow: hidden; }
-@media only screen and (max-width: 767px) { .const .const__right { overflow: visible; } }
-.const .const__wrap { width: 442px; }
+@media only screen and (max-width: 1023px) { .const .const__right { text-align: left; } }
+@media only screen and (max-width: 767px) { .const .const__right { text-align: center; overflow: visible; } }
+@media only screen and (max-width: 767px) { .const .const__right .title_small { margin-bottom: 7px; } }
+.const .const__wrap { max-width: 442px; }
+@media only screen and (max-width: 1023px) { .const .const__wrap { text-align: left; } }
+@media only screen and (max-width: 767px) { .const .const__wrap { margin-top: 30px; max-width: auto; }
+  .const .const__wrap .const__title { margin-bottom: 8px; font-size: 24px; font-family: "blogger_sans-bold", Georgia, sans-serif; font-weight: 700; color: #feb737; }
+  .const .const__wrap .btn-simple { width: 100%; } }
 .const .const__bot { margin-top: 30px; *zoom: 1; }
 .const .const__bot:after { content: " "; display: table; clear: both; }
+@media only screen and (max-width: 767px) { .const .const__bot { display: -webkit-flex; display: -moz-flex; display: -ms-flex; display: -o-flex; display: flex; -webkit-flex-flow: row wrap; flex-flow: row wrap; } }
 .const .const__back { float: left; margin: 0 58px 0 2px; padding-top: 10px; width: 385px; }
 @media only screen and (max-width: 1244px) { .const .const__back { width: auto; } }
+@media only screen and (max-width: 767px) { .const .const__back { margin: 30px 0 0; padding: 0; width: 100%; order: 2; text-align: center; } }
+@media only screen and (max-width: 767px) { .const .const__back.is-mod { margin-top: 0; } }
 .const .const__butt { overflow: hidden; font-size: 0; }
 @media only screen and (max-width: 1244px) { .const .const__butt { float: right; overflow: visible; } }
+@media only screen and (max-width: 767px) { .const .const__butt { float: none; width: 100%; } }
 .const .const__butt [class^="btn-"] { margin-left: 42px; min-width: 200px; }
+@media only screen and (max-width: 767px) { .const .const__butt [class^="btn-"] { width: 100%; margin: 16px 0 0; }
+  .const .const__butt [class^="btn-"]:first-child { margin: 0; } }
 .const .const__butt [class^="btn-"]:first-child { margin-left: 0; }
 .const .const__row { margin-top: 42px; }
+@media only screen and (max-width: 767px) { .const .const__row { margin-top: 30px; } }
 .const .const__row:first-child { margin-top: 5px; }
 .const .const__row .btn-simple { min-width: 200px; }
 .const .const__title { margin-bottom: 15px; font-size: 16px; color: #8d5bb4; font-family: "blogger_sans-bold", Georgia, sans-serif; font-weight: 700; }
 .const .title_small + .const__row { margin-top: 23px; }
-.const .textarea { margin-bottom: 34px; width: 442px; }
+.const .title_small.title_stmod { margin-top: 35px; }
+.const .textarea { margin-bottom: 34px; max-width: 442px; }
+@media only screen and (max-width: 767px) { .const .textarea { margin-bottom: 20px; max-width: 100%; } }
 .const .textarea textarea { height: 96px; }
 .const .postcard { float: left; margin: 8px 58px 0 0; }
 @media only screen and (max-width: 767px) { .const .postcard { float: none; width: 100%; } }
 .const .head { margin: -18px -10px 18px; }
+@media only screen and (max-width: 767px) { .const .nets { font-size: 0; } }
+@media only screen and (max-width: 480px) { .const .nets__icon { margin-left: 45px; }
+  .const .nets__icon:first-child { margin-left: 0; } }
 
 .head { margin: 10px -10px 0; padding: 16px 10px; text-align: left; font-size: 24px; color: white; font-family: "blogger_sans-bold", Georgia, sans-serif; font-weight: 700; background: #8d5bb4; }
 .head [class^="icon-"] { margin-right: 8px; }
@@ -1437,11 +1456,15 @@ button.btn-edit { line-height: 1; }
 .postcard.is-has-img:before { border-color: #8d5bb4; }
 .postcard.is-has-img .postcard__img { border-color: #feb737; }
 .postcard.is-has-img .postcard__ico, .postcard.is-has-img .postcard__text { display: none; }
-.postcard:before { content: ""; position: absolute; border: 2px solid #f2f6ff; -moz-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; left: 7px; right: 7px; bottom: 0; top: 0; z-index: 1; -ms-transform: rotate(-2.5deg); -webkit-transform: rotate(-2.5deg); transform: rotate(-2.5deg); will-chenge: transform; -moz-transition: -moz-transform 0.3s; -o-transition: -o-transform 0.3s; -webkit-transition: -webkit-transform 0.3s; transition: transform 0.3s; }
-.postcard .postcard__img { height: 433px; -moz-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; border: 3px solid #f2f6ff; background: #f2f6ff; }
+.postcard:before { content: ""; position: absolute; border: 2px solid #f2f6ff; -moz-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; left: 9px; right: 7px; bottom: 0; top: 0; z-index: 1; -ms-transform: rotate(-2.5deg); -webkit-transform: rotate(-2.5deg); transform: rotate(-2.5deg); will-chenge: transform; -moz-transition: -moz-transform 0.3s; -o-transition: -o-transform 0.3s; -webkit-transition: -webkit-transform 0.3s; transition: transform 0.3s; }
+.postcard .postcard__img { min-height: 433px; -moz-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; overflow: hidden; border: 3px solid #f2f6ff; background: #f2f6ff; }
+@media only screen and (max-width: 480px) { .postcard .postcard__img { min-height: 294px; } }
+.postcard .postcard__img img { width: 100%; display: block; }
 .postcard .postcard__text { position: absolute; top: 50%; left: 50%; -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); margin-top: -18px; color: #a6c3fc; font-size: 16px; text-transform: uppercase; font-family: "blogger_sans-bold", Georgia, sans-serif; font-weight: 700; }
-.postcard .postcard__ico { position: absolute; bottom: 35px; left: 50%; height: 64px; width: 64px; z-index: 2; text-align: center; line-height: 64px; -moz-transform: translate(-50%, 0); -ms-transform: translate(-50%, 0); -webkit-transform: translate(-50%, 0); transform: translate(-50%, 0); -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; }
+.postcard .postcard__ico { position: absolute; bottom: 35px; left: 50%; height: 64px; width: 64px; z-index: 2; cursor: pointer; text-align: center; line-height: 64px; -moz-transform: translate(-50%, 0); -ms-transform: translate(-50%, 0); -webkit-transform: translate(-50%, 0); transform: translate(-50%, 0); -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; }
+@media only screen and (max-width: 767px) { .postcard .postcard__ico { bottom: 55px; } }
 .postcard .postcard__ico [class^="icon-"] { vertical-align: middle; }
+.postcard .postcard__add { position: absolute; bottom: 20px; left: 50%; -moz-transform: translate(-50%, 0); -ms-transform: translate(-50%, 0); -webkit-transform: translate(-50%, 0); transform: translate(-50%, 0); color: #8d5bb4; font-size: 16px; font-family: "blogger_sans-bold", Georgia, sans-serif; font-weight: 700; text-transform: uppercase; }
 
 .load { position: relative; margin: 15px 0 40px; max-width: 384px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 .load .load__in { padding: 8px 42px 8px 0; }
@@ -1450,21 +1473,31 @@ button.btn-edit { line-height: 1; }
 .load .load__close { position: absolute; top: 0; right: 0; background-color: none; background: url("../img/svg/close-color.svg") no-repeat 0 0; -moz-background-size: 32px 32px; -o-background-size: 32px 32px; -webkit-background-size: 32px 32px; background-size: 32px 32px; width: 32px; height: 32px; display: inline-block; }
 .load [class^="btn-"] { margin-top: 24px; }
 
-.edit { margin-top: 20px; }
+.edit { margin-top: 20px; font-size: 0; }
+@media only screen and (max-width: 767px) { .edit { text-align: center; } }
+@media only screen and (max-width: 767px) { .edit.edit_mod { text-align: left; } }
 .edit .edit__item { margin-left: 38px; vertical-align: top; display: inline-block; }
 .edit .edit__item:first-child { margin-left: 0; }
 @media only screen and (max-width: 1244px) { .edit .edit__item { margin: 15px 0 0 0; display: block; } }
+@media only screen and (max-width: 767px) { .edit .edit__item { width: 50%; display: inline-block; } }
 .edit .edit__buttons { font-size: 0; }
+@media only screen and (max-width: 767px) { .edit .edit__buttons { display: block; } }
 .edit .edit__buttons [class^="btn-"] { margin-left: 9px; vertical-align: top; }
 .edit .edit__buttons [class^="btn-"]:first-child { margin-left: 0; }
 .edit .edit__text, .edit .edit__buttons { vertical-align: top; display: inline-block; }
 .edit .edit__text { margin-left: 16px; padding-top: 16px; color: #8d5bb4; font-size: 16px; font-family: "blogger_sans-bold", Georgia, sans-serif; font-weight: 700; }
+@media only screen and (max-width: 767px) { .edit .edit__text { margin: 5px 0 0; padding: 0; display: block; } }
 .edit .edit__field { margin-top: 16px; *zoom: 1; }
 .edit .edit__field:after { content: " "; display: table; clear: both; }
 .edit .edit__field:first-child { margin-top: 0; }
+@media only screen and (max-width: 767px) { .edit .edit__field.is-lang .edit__name { float: left; min-height: 48px; line-height: 43px; width: auto; min-width: 105px; }
+  .edit .edit__field.is-lang .edit__right { float: left; width: auto; } }
 .edit .edit__name { float: left; width: 160px; min-height: 48px; line-height: 43px; font-size: 16px; color: #8d5bb4; font-family: "blogger_sans-bold", Georgia, sans-serif; font-weight: 700; }
 .edit .edit__name span { line-height: 1.2; vertical-align: middle; display: inline-block; }
+@media only screen and (max-width: 767px) { .edit .edit__name { float: none; margin-top: 5px; min-height: auto; width: 100%; color: #666666; line-height: 1.4; font-family: "ptsans-regular", Arial, sans-serif; font-weight: 400; } }
 .edit .edit__right { float: left; width: 242px; }
+@media only screen and (max-width: 767px) { .edit .edit__right { float: none; width: 100%; } }
+@media only screen and (max-width: 767px) { .edit .edit__right .select { margin-top: 5px; } }
 .edit .title_small + .edit__field { margin-top: 5px; }
 
 .color { margin: 0 5px 5px 0; height: 48px; width: 48px; border: 4px solid #a6c3fc; cursor: pointer; vertical-align: top; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; display: inline-block; }

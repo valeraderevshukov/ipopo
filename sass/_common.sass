@@ -1201,6 +1201,12 @@ button
 			vertical-align: middle
 		i
 			margin-right: 9px 
+	&_stmod
+		+r(767)
+			text-align: left
+			color: #666
+			font-size: 16px
+			+pt-reg
 	&.with-gift
 		span,
 		i
@@ -4909,13 +4915,39 @@ button.btn-edit
 		+clr
 	.const__right
 		overflow: hidden
+		+r(1023)
+			text-align: left
 		+r(767)
+			text-align: center
 			overflow: visible
+		.title_small
+			+r(767)
+				margin-bottom: 7px
 	.const__wrap
-		width: 442px
+		max-width: 442px
+		+r(1023)
+			text-align: left
+		+r(767)
+			margin-top: 30px
+			max-width: auto
+			.const__title
+				margin-bottom: 8px
+				font-size: 24px
+				+blogger-bold
+				color: #feb737
+			.btn-simple
+				width: 100%
 	.const__bot
 		margin-top: 30px
 		+clr
+		+r(767)
+			display: -webkit-flex
+			display: -moz-flex
+			display: -ms-flex
+			display: -o-flex
+			display: flex
+			-webkit-flex-flow: row wrap
+			flex-flow: row wrap
 	.const__back
 		float: left
 		margin: 0 58px 0 2px
@@ -4923,19 +4955,38 @@ button.btn-edit
 		width: 385px
 		+r(1244)
 			width: auto
+		+r(767)
+			margin: 30px 0 0
+			padding: 0
+			width: 100%
+			order: 2
+			text-align: center
+		&.is-mod
+			+r(767)
+				margin-top: 0
 	.const__butt
 		overflow: hidden
 		font-size: 0
 		+r(1244)
 			float: right
 			overflow: visible
+		+r(767)
+			float: none
+			width: 100%
 		[class^="btn-"]
 			margin-left: 42px
 			min-width: 200px
+			+r(767)
+				width: 100%
+				margin: 16px 0 0
+				&:first-child
+					margin: 0
 			&:first-child
 				margin-left: 0
 	.const__row
 		margin-top: 42px
+		+r(767)
+			margin-top: 30px
 		&:first-child
 			margin-top: 5px
 		.btn-simple
@@ -4948,9 +4999,14 @@ button.btn-edit
 	.title_small
 		& + .const__row
 			margin-top: 23px
+		&.title_stmod
+			margin-top: 35px
 	.textarea
 		margin-bottom: 34px
-		width: 442px
+		max-width: 442px
+		+r(767)
+			margin-bottom: 20px
+			max-width: 100%
 		textarea
 			height: 96px
 	.postcard
@@ -4961,6 +5017,14 @@ button.btn-edit
 			width: 100%
 	.head
 		margin: -18px -10px 18px
+	.nets
+		+r(767)
+			font-size: 0
+	.nets__icon
+		+r(480)
+			margin-left: 45px
+			&:first-child
+				margin-left: 0
 
 // head
 .head
@@ -4994,7 +5058,7 @@ button.btn-edit
 		position: absolute
 		border: 2px solid #f2f6ff
 		+border-radius(8px)
-		left: 7px
+		left: 9px
 		right: 7px
 		bottom: 0
 		top: 0
@@ -5003,10 +5067,16 @@ button.btn-edit
 		will-chenge: transform
 		+transition(transform .3s)
 	.postcard__img
-		height: 433px
+		min-height: 433px
 		+border-radius(8px)
+		overflow: hidden
 		border: 3px solid #f2f6ff
 		background: #f2f6ff
+		+r(480)
+			min-height: 294px
+		img
+			width: 100%
+			display: block
 	.postcard__text
 		position: absolute
 		top: 50%
@@ -5024,13 +5094,25 @@ button.btn-edit
 		height: 64px
 		width: 64px
 		z-index: 2
+		cursor: pointer
 		text-align: center
 		line-height: 64px
 		+translate(-50%,0)
 		+border-radius(50%)
 		background: #fff
+		+r(767)
+			bottom: 55px
 		[class^="icon-"]
 			vertical-align: middle
+	.postcard__add
+		position: absolute
+		bottom: 20px
+		left: 50%
+		+translate(-50%,0)
+		color: $ipopo
+		font-size: 16px
+		+blogger-bold
+		text-transform: uppercase
 
 // load
 .load
@@ -5060,6 +5142,12 @@ button.btn-edit
 // edit
 .edit
 	margin-top: 20px
+	font-size: 0
+	+r(767)
+		text-align: center
+	&.edit_mod
+		+r(767)
+			text-align: left
 	.edit__item
 		margin-left: 38px
 		vertical-align: top
@@ -5069,8 +5157,13 @@ button.btn-edit
 		+r(1244)
 			margin: 15px 0 0 0
 			display: block
+		+r(767)
+			width: 50% 
+			display: inline-block
 	.edit__buttons
 		font-size: 0
+		+r(767)
+			display: block
 		[class^="btn-"]
 			margin-left: 9px
 			vertical-align: top
@@ -5086,11 +5179,26 @@ button.btn-edit
 		color: $ipopo
 		font-size: 16px
 		+blogger-bold
+		+r(767)
+			margin: 5px 0 0
+			padding: 0
+			display: block
 	.edit__field
 		margin-top: 16px
 		+clr
 		&:first-child
 			margin-top: 0
+		&.is-lang
+			+r(767)
+				.edit__name
+					float: left
+					min-height: 48px
+					line-height: 43px
+					width: auto
+					min-width: 105px
+				.edit__right
+					float: left 
+					width: auto
 	.edit__name
 		float: left
 		width: 160px
@@ -5103,9 +5211,23 @@ button.btn-edit
 			line-height: 1.2
 			vertical-align: middle
 			display: inline-block
+		+r(767)
+			float: none
+			margin-top: 5px
+			min-height: auto
+			width: 100%
+			color: #666
+			line-height: 1.4
+			+pt-reg
 	.edit__right
 		float: left
 		width: 242px
+		+r(767)
+			float: none
+			width: 100%
+		.select
+			+r(767)
+				margin-top: 5px
 	.title_small + .edit__field
 		margin-top: 5px
 
