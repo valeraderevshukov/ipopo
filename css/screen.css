@@ -1558,6 +1558,8 @@ button.btn-edit { line-height: 1; }
 
 .icon-cloud { background: url("../img/svg/cloud.svg") no-repeat 0 0; -moz-background-size: 64px 50px; -o-background-size: 64px 50px; -webkit-background-size: 64px 50px; background-size: 64px 50px; width: 64px; height: 50px; display: inline-block; }
 
+.icon-cloud-small2 { background: url("../img/svg/cloud.svg") no-repeat 0 0; -moz-background-size: 40px 32px; -o-background-size: 40px 32px; -webkit-background-size: 40px 32px; background-size: 40px 32px; width: 40px; height: 32px; display: inline-block; }
+
 .icon-cloud-smaller { background: url("../img/svg/cloud.svg") no-repeat 0 0; -moz-background-size: 41px 32px; -o-background-size: 41px 32px; -webkit-background-size: 41px 32px; background-size: 41px 32px; width: 41px; height: 32px; display: inline-block; }
 
 .icon-gift-shine { background: url("../img/svg/gift-shine.svg") no-repeat 0 0; -moz-background-size: 64px 64px; -o-background-size: 64px 64px; -webkit-background-size: 64px 64px; background-size: 64px 64px; width: 64px; height: 64px; display: inline-block; }
@@ -1800,7 +1802,7 @@ button.btn-edit { line-height: 1; }
 @media only screen and (max-width: 1023px) { .popup.non-fixed .popup__overlay { background: white; height: 100%; } }
 .popup__overlay { position: fixed; top: 0; bottom: 0; left: 0; right: 0; opacity: 0; -moz-transition: opacity 0.2s; -o-transition: opacity 0.2s; -webkit-transition: opacity 0.2s; transition: opacity 0.2s; background: rgba(141, 91, 180, 0.75); }
 @media only screen and (max-width: 767px) { .popup__overlay { background: white; height: 100%; } }
-.popup__in { position: absolute; top: 100px; left: 50%; margin-left: -290px; width: 580px; background-color: white; border-radius: 5px; padding: 49px 44px 46px 43px; }
+.popup__in { position: absolute; top: 100px; left: 50%; margin-left: -290px; width: 588px; background-color: white; border-radius: 5px; padding: 49px 40px 46px 40px; }
 @media only screen and (max-width: 1023px) { .popup__in { position: absolute; width: 100%; bottom: 0; top: 0px; margin: 0; left: 0; text-align: center; font-size: 0; }
   .popup__in:before { content: ""; display: inline-block; vertical-align: middle; width: 0; height: 100%; } }
 @media only screen and (max-width: 767px) { .popup__in { padding: 14px 9px 60px; height: 100%; } }
@@ -1862,6 +1864,13 @@ button.btn-edit { line-height: 1; }
 .frame .frame__rad { text-align: left; }
 @media only screen and (max-width: 1023px) { .frame .frame__rad { display: inline-block; } }
 .frame .frame__rad .radio { margin-top: 4px; }
+.frame .frame__rad [class^="btn-"] { margin: 0 0 0 18px; padding-left: 24px; padding-right: 20px; width: 243px; }
+.frame .frame__rad [class^="btn-"]:first-child { margin-left: 0; }
+.frame .frame__rad [class^="btn-"] [class^="icon-"] { margin: 8px 9px 0 0; vertical-align: top; }
+.frame .frame__back { margin: 15px 0 38px; }
+.frame .frame__back .link_back { margin-left: 0; }
+.frame .frame__nets .title_small { line-height: 1.1; }
+.frame .frame__nets .nets { margin-top: 10px; }
 .frame .frame__h { margin-bottom: 18px; }
 .frame .quantity { margin-top: 28px; }
 @media only screen and (max-width: 480px) { .frame .quantity .number { margin-left: 0; } }

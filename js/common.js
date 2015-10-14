@@ -351,4 +351,27 @@ $(".js-slider-next").on("click", function(){
     $('.js-input-plac').on('click', function() {
     	$('.js-search-input').focus();
     });
+
+    // tab
+	function tab() {
+		$(".js-tab").each(function(){
+			var tab_link = $(this).find("a"),
+				tab_item = $(this).find("li"),
+				index = tab_link.attr("href"),
+				parents = $(this).parents(".js-tab-group"),
+				tab_cont = parents.find(".js-tab-cont");
+			tab_link.on("click", function() {
+				var index = $(this).attr("href");
+				$('.js-tab-item').removeClass("is-active");
+				$(this).parent().addClass("is-active");
+				tab_cont.fadeOut(0);
+				parents.find("."+index).fadeIn(500);
+				return false;
+			});
+			$(this).find('li:first').addClass("is-active");
+			parents.find("."+index).fadeIn(500);
+		});
+	}
+	tab();
+    
 });
