@@ -1,0 +1,321 @@
+=r($width)
+	@media only screen and (max-width: $width+ "px")
+		@content
+
+=vertical
+	text-align: center
+	font-size: 0
+	&:before
+		content: ""
+		display: inline-block
+		vertical-align: middle
+		width: 0
+		height: 100%
+
+// TRANSITION
+=transition($what)
+	-moz-transition: $what
+	-o-transition: $what
+	-webkit-transition: $what
+	-ms-transition: $what
+	transition: $what
+
+=tr($what)
+	+transition($what)
+
+//asdfast font-family
+=font($alias, $name)
+	@font-face
+		font-family: $alias
+		src: url("../fonts/" + $name + ".eot")
+		src: url("../fonts/" + $name + ".eot?#iefix") format("embedded-opentype"), url("../fonts/" + $name + ".woff2") format("woff2"), url("../fonts/" + $name + ".woff") format("woff"), url("../fonts/" + $name + ".ttf") format("truetype")
+		font-weight: normal
+		font-style: normal
+
+// ROTATE
+=rotate($deg: 0, $m11: 0, $m12: 0, $m21: 0, $m22: 0)
+	-moz-transform: rotate($deg + deg)
+	-o-transform: rotate($deg + deg)
+	-webkit-transform: rotate($deg + deg)
+	-ms-transform: rotate($deg + deg)
+	transform: rotate($deg + deg)
+	filter: progid:DXImageTransform.Microsoft.Matrix(M11=$m11, M12=$m12,M21=$m21, M22=$m22, sizingMethod='auto expand')
+	zoom: 1
+
+=clr
+	&:after
+		content: " "
+		display: table
+		clear: both
+	*zoom: 1
+
+
+$ipopo: #8d5bb4
+$orangead: #feb737
+$sky: #a6c3fd
+$lily: #e192e5
+$text: #666666
+$white-blue: #f2f6ff
+
++font(blogger_sans-bold,blogger_sans-bold)
++font(ptsans-bold,ptsans-bold)	
++font(bloggersans-medium,bloggersans-medium)  
++font(ptsans-regular,ptsans-regular)
++font(ptsans-italic,ptsans-italic)
+=blogger-bold
+	font-family: 'blogger_sans-bold', Georgia, sans-serif
+	font-weight: 700
+=blogger-med
+	font-family: 'bloggersans-medium', Georgia, sans-serif
+	font-weight: 500 
+=pt-bold
+	font-family: 'ptsans-bold', Arial, sans-serif
+	font-weight: 700
+=pt-reg
+	font-family: 'ptsans-regular', Arial, sans-serif
+	font-weight: 400  
+=pt-italic
+	font-family: 'ptsans-italic' , Arial, sans-serif
+	font-style: italic 
+
+.ipo-popup
+	display: none 
+	z-index: 49
+	position: fixed
+	top: 0
+	bottom: 0
+	left: 0
+	right: 0
+	overflow-y: scroll	
+	+r(767)
+		position: absolute
+		top: 0
+		bottom: 0
+		left: 0
+		right: 0
+		height: 100%
+	&.is-active
+		display: block
+		.ipo-popup__overlay
+			opacity: 1
+	&.is-width
+		.popup__in
+			width: 804px 
+			margin-left: -402px
+			+r(1023)
+				position: absolute
+				width: 100% 
+				bottom: 0
+				top: 0px
+				margin: 0
+				left: 0
+				+vertical
+	&.is-frame
+		@media only screen and (max-width: 767px)
+			position: fixed
+		.ipo-popup__in
+			width: 804px 
+			margin-left: -402px
+			+r(1023)
+				width: 100%
+				margin-left: 0
+		.ipo-popup__content
+			+r(1023)
+				display: block
+		iframe
+			+r(767)
+				height: 500px
+	&.is-higher
+		.ipo-popup__in
+			top: 30px
+	&.non-fixed
+		position: absolute	
+		.ipo-popup__in
+			position: absolute 
+			+r(1023)
+				position: absolute
+				width: 100% 
+				bottom: 0
+				top: 0px
+				margin: 0
+				left: 0
+				+vertical
+			+r(767)
+				padding: 14px 9px 60px 
+				height: 100%
+		.ipo-popup__overlay
+			+r(1023)
+				background: #fff
+				height: 100%
+	.ipo-popup__overlay
+		position: fixed
+		top: 0
+		bottom: 0
+		left: 0
+		right: 0
+		opacity: 0
+		+tr(opacity .2s)
+		background: rgba(#8d5bb4,.75)		
+		+r(767)
+			background: #fff
+			height: 100%
+	.ipo-popup__in
+		position: absolute
+		top: 100px
+		left: 50%
+		margin-left: -290px 
+		width: 588px
+		background-color: #fff
+		border-radius: 5px
+		padding: 49px 40px 46px 40px
+		+r(1023)
+			position: absolute
+			width: 100% 
+			bottom: 0
+			top: 0px
+			margin: 0
+			left: 0
+			+vertical
+		+r(767)
+			padding: 14px 9px 60px 
+			height: 100%
+			
+		&:before,
+		&:after
+			content: ""
+			position: absolute
+			top: 0
+			bottom: 0
+			right: 0
+			background-color: transparent
+			border-radius: 5px
+			border-width: 2px  
+			border-style: solid
+			+r(1023)	
+				display: none
+		&:before
+			z-index: 3
+			border-color: $orangead
+			+rotate(1.3)
+			left: 1px
+			+r(1023)
+				border: none
+		&:after
+			z-index: 0
+			border-color: $ipopo 
+			+rotate(-1.3)
+			left: -3px
+			right: -3px
+	.ipo-popup__close
+		position: absolute
+		z-index: 11
+		top: 30px 
+		right: 20px
+		+tr(top .2s)
+		&:active
+			top: 32px 
+		+r(767)
+			display: none
+	.ipo-popup__content
+		position: relative		
+		z-index: 4 
+		+clr
+		+r(1023)
+			vertical-align: middle
+			display: inline-block
+		+r(767)
+			display: block
+		&.with-datepicker
+			+r(1023)
+				width: 768px
+				margin: 0 auto 
+			+r(767)
+				width: 480px
+			+r(479)
+				width: 320px
+	.ipo-popup__foot
+		margin-top: 35px
+		+r(479)
+			text-align: center
+			.btn-simple
+				display: block
+				width: 100%
+				margin-bottom: 10px
+	.ipo-popup__title
+		display: none
+		+r(767)
+			display: block
+			margin: 15px 0 30px
+			text-align: center
+			span
+				display: block
+				text-transform: uppercase
+				color: $orangead
+				font-size: 24px
+				+blogger-bold 
+	.ipo-popup__wrap
+		margin-top: 35px 
+	.title_small
+		&.with-marg
+			margin-bottom: 25px
+	.link_back
+		margin-left: 55px 
+		+r(767)
+			margin-left: 0
+	.ui-datepicker
+		right: auto
+		left: 0
+	.input_date
+		margin-top: 30px
+		.icon-date
+			+r(1023)
+				display: none 
+	.ipo-popup__butt
+		margin-top: 30px
+		.btn-simple
+			padding-left: 24px
+			padding-right: 35px
+			+r(767)
+				margin-right: 10px
+			+r(480)
+				margin-right: 0
+		.link_back
+			margin-top: 12px
+			vertical-align: top
+			display: inline-block
+	.ipo-popup__rad
+		text-align: left
+		+r(1023)
+			display: inline-block
+		.radio
+			margin-top: 4px
+	.ipo-popup__h 
+		margin-bottom: 18px
+	.quantity
+		margin-top: 28px
+		.number
+			+r(480)
+				margin-left: 0
+		 
+.ipo-popup-login
+	.input
+		margin-top: 27px
+		+r(767)
+			margin-top: 18px
+	.btn-simple
+		margin-top: 40px
+		+r(767)
+			width: 100%
+			margin-top: 32px
+			margin-bottom: 25px 
+	.ipo-popup-login__col
+		float: left 
+		text-align: left
+		+r(767)
+			float: none
+		&.with-width
+			width: 252px
+			margin-right: 40px
+			+r(767)
+				margin: 0
+				width: 100%
