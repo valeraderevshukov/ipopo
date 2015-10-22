@@ -1793,6 +1793,10 @@ button.btn-edit { line-height: 1; }
 @media only screen and (max-width: 1023px) { .popup.is-frame .popup__in { width: 100%; margin-left: 0; } }
 @media only screen and (max-width: 1023px) { .popup.is-frame .popup__content { display: block; } }
 @media only screen and (max-width: 767px) { .popup.is-frame iframe { height: 500px; } }
+.popup.is-w900 .popup__in { margin-left: -492px; width: 984px; }
+@media only screen and (max-width: 1023px) { .popup.is-w900 .popup__in { width: 100%; margin-left: 0; } }
+@media only screen and (max-width: 1023px) { .popup.is-w900 .popup__content { display: block; } }
+@media only screen and (max-width: 767px) { .popup.is-w900 iframe { height: 500px; } }
 .popup.is-higher .popup__in { top: 30px; }
 .popup.non-fixed { position: absolute; }
 .popup.non-fixed .popup__in { position: absolute; }
@@ -1874,6 +1878,19 @@ button.btn-edit { line-height: 1; }
 .frame .frame__h { margin-bottom: 18px; }
 .frame .quantity { margin-top: 28px; }
 @media only screen and (max-width: 480px) { .frame .quantity .number { margin-left: 0; } }
+
+.tab__list { font-size: 0; }
+@media only screen and (max-width: 980px) { .tab__list { margin-top: -10px; } }
+.tab__item { position: relative; margin-left: 15px; font-size: 16px; font-family: "blogger_sans-bold", Georgia, sans-serif; font-weight: 700; vertical-align: top; display: inline-block; }
+.tab__item:before { position: absolute; content: ""; top: 100%; left: 50%; -moz-transform: translate(-50%, 0); -ms-transform: translate(-50%, 0); -webkit-transform: translate(-50%, 0); transform: translate(-50%, 0); width: 0px; height: 0px; border-style: solid; border-width: 8px 9px 0 9px; border-color: #a6c3fc transparent transparent transparent; display: none; }
+@media only screen and (max-width: 980px) { .tab__item { margin-top: 10px; font-size: 14px; } }
+.tab__item:first-child { margin-left: 0; }
+.tab__item:hover a, .tab__item.is-active a { color: white; background: #a6c3fc; }
+.tab__item.is-active:before { display: block; }
+.tab__item a { padding: 8px 10px; color: #a6c3fc; border: 4px solid #a6c3fc; -moz-border-radius: 22px; -webkit-border-radius: 22px; border-radius: 22px; -moz-transition: color 0.2s, background 0.2s; -o-transition: color 0.2s, background 0.2s; -webkit-transition: color 0.2s, background 0.2s; transition: color 0.2s, background 0.2s; display: block; }
+.tab__in { margin-top: 40px; }
+.tab__cont { display: none; }
+.tab__cont:first-child { display: block; }
 
 .hasDatepicker { cursor: pointer; }
 

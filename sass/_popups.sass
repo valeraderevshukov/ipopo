@@ -45,6 +45,19 @@
 		iframe
 			+r(767)
 				height: 500px
+	&.is-w900
+		.popup__in
+			margin-left: -492px
+			width: 984px
+			+r(1023)
+				width: 100%
+				margin-left: 0
+		.popup__content
+			+r(1023)
+				display: block
+		iframe
+			+r(767)
+				height: 500px
 	&.is-higher
 		.popup__in
 			top: 30px
@@ -289,5 +302,53 @@
 		.number
 			+r(480)
 				margin-left: 0
+
+// tab
+.tab
+	&__list
+		font-size: 0
+		+r(980)
+			margin-top: -10px
+	&__item
+		position: relative
+		margin-left: 15px
+		font-size: 16px
+		+blogger-bold
+		vertical-align: top
+		display: inline-block
+		&:before
+			position: absolute
+			content: ''
+			top: 100%
+			left: 50%
+			+translate(-50%,0)
+			+arr(18,8,#a6c3fc,b)
+			display: none
+		+r(980)
+			margin-top: 10px
+			font-size: 14px
+		&:first-child
+			margin-left: 0
+		&:hover,
+		&.is-active
+			a
+				color: #fff
+				background: #a6c3fc
+		&.is-active
+			&:before
+				display: block
+		a
+			padding: 8px 10px
+			color: #a6c3fc
+			border: 4px solid #a6c3fc
+			+border-radius(22px)
+			+transition(color .2s, background .2s)
+			display: block
+	&__in
+		margin-top: 40px
+	&__cont
+		display: none
+		&:first-child
+			display: block
 		 
 
