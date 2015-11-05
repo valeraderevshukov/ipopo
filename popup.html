@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>profile_galleries</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
+	<!-- theme color for android 5.0 -->
+	<meta name="theme-color" content="#fff"> 
+	<!-- <meta name="viewport" content="width=1200"> -->
+	<!-- <meta name="viewport" content="initial-scale=1, user-scalable=no"> -->
+	<link rel="stylesheet" media="all" href="css/ipopo.css" >
+	<!--[if IE]><script src="js/html5shiv.js"></script><![endif]-->
+</head>
+<body>
+<!-- ipopo -->
+<div class="ipopo">
+	<!-- popup -->
+	<div class="ipo-popup is-frame is-active js-popup"> 	
+		<div class="ipo-popup__overlay"></div>
+		<div class="ipo-popup__in">
+			<button type="button" class=" ipo-popup__close js-popup-close">
+				<i class="icon-ipo-close-color"></i>
+			</button>
+			<div class="ipo-popup__content">
+				<div class="ipo-frame">
+					<div class="ipo-frame__h">
+						<div class="ipo-title">Подарок добавлен у вишлист</div>
+					</div>
+					<div class="ipo-frame__rad">
+						<div class="ipo-title">Этот подарок могут подарить:</div>
+						<label class="ipo-radio">
+							<input type="radio" name="rad" checked>
+							<span>Один человек (классический вариант подарка)</span>
+						</label>
+						<label class="ipo-radio">
+							<input type="radio" name="rad">
+							<span>Несколько человек (групповая покупка)</span>
+						</label>
+					</div>
+					<div class="ipo-quantity">
+						<div class="ipo-title">Подтвердите количество товаров:</div>
+						<div class="ipo-number js-number" data-max-number="9">
+							<button class="ipo-number__minus js-minus-number" type="button">
+								<i class="icon-ipo-minus"></i>
+							</button>
+							<input type="text" class="ipo-number__input" value="1">
+							<button class="ipo-number__plus js-plus-number" type="button">
+								<i class="icon-ipo-plus-small"></i>
+							</button>
+						</div>
+					</div>
+					<div class="ipo-frame__butt">
+						<button class="ipo-btn-simple" type="button">
+							<i class="icon-ipo-basket"></i>
+							<span>Продолжить выбор подарков</span>
+						</button>
+						<a href="#" class="ipo-link ipo-link_back">Вернутся в вишлист</a>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>
+</div>
+<!-- load scripts -->
+<script src="js/lib/head.js" data-headjs-load="js/init.js"></script>
+</body>
+</html>
