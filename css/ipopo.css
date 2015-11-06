@@ -3,34 +3,6 @@
 @font-face { font-family: bloggersans-medium; src: url("../fonts/bloggersans-medium.eot"); src: url("../fonts/bloggersans-medium.eot?#iefix") format("embedded-opentype"), url("../fonts/bloggersans-medium.woff2") format("woff2"), url("../fonts/bloggersans-medium.woff") format("woff"), url("../fonts/bloggersans-medium.ttf") format("truetype"); font-weight: normal; font-style: normal; }
 @font-face { font-family: ptsans-regular; src: url("../fonts/ptsans-regular.eot"); src: url("../fonts/ptsans-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/ptsans-regular.woff2") format("woff2"), url("../fonts/ptsans-regular.woff") format("woff"), url("../fonts/ptsans-regular.ttf") format("truetype"); font-weight: normal; font-style: normal; }
 @font-face { font-family: ptsans-italic; src: url("../fonts/ptsans-italic.eot"); src: url("../fonts/ptsans-italic.eot?#iefix") format("embedded-opentype"), url("../fonts/ptsans-italic.woff2") format("woff2"), url("../fonts/ptsans-italic.woff") format("woff"), url("../fonts/ptsans-italic.ttf") format("truetype"); font-weight: normal; font-style: normal; }
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; vertical-align: baseline; }
-
-body, html { height: 100%; }
-
-img, fieldset, a img { border: none; }
-
-input[type="text"], input[type="email"], input[type="tel"], textarea { -webkit-appearance: none; }
-
-input[type="submit"], button { cursor: pointer; }
-input[type="submit"]::-moz-focus-inner, button::-moz-focus-inner { padding: 0; border: 0; }
-
-textarea { overflow: auto; }
-
-input, button { margin: 0; padding: 0; border: 0; }
-
-div, input, textarea, select, button, h1, h2, h3, h4, h5, h6, a, span, a:focus { outline: none; }
-
-ul, ol { list-style-type: none; }
-
-table { border-spacing: 0; border-collapse: collapse; width: 100%; }
-
-a { text-decoration: none; }
-
-html { box-sizing: border-box; }
-
-* { box-sizing: border-box; }
-*:before, *:after { box-sizing: border-box; }
-
 .icon-ipo-plus-small { background: url('../img/icons-sf7213c1ce1.png') 0 -343px no-repeat; background-position: 0 -172px; width: 15.5px; height: 15.5px; -moz-background-size: 25px 187px; -webkit-background-size: 25px 187px; background-size: 25px 187px; display: inline-block; vertical-align: middle; }
 
 .icon-ipo-minus { width: 16px; height: 4px; border-radius: 3px; background-color: #a6c3fd; display: inline-block; vertical-align: middle; }
@@ -44,6 +16,21 @@ html { box-sizing: border-box; }
 .icon-ipo-post { background: url("../img/svg/ico-post.svg") no-repeat 0 0; background-size: 40px 40px; width: 40px; height: 40px; display: inline-block; }
 
 .ipopo { font-family: "ptsans-regular", Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 1.4; }
+.ipopo html, .ipopo body, .ipopo div, .ipopo span, .ipopo applet, .ipopo object, .ipopo iframe, .ipopo h1, .ipopo h2, .ipopo h3, .ipopo h4, .ipopo h5, .ipopo h6, .ipopo p, .ipopo blockquote, .ipopo pre, .ipopo a, .ipopo abbr, .ipopo acronym, .ipopo address, .ipopo big, .ipopo cite, .ipopo code, .ipopo del, .ipopo dfn, .ipopo em, .ipopo img, .ipopo ins, .ipopo kbd, .ipopo q, .ipopo s, .ipopo samp, .ipopo small, .ipopo strike, .ipopo strong, .ipopo sub, .ipopo sup, .ipopo tt, .ipopo var, .ipopo b, .ipopo u, .ipopo i, .ipopo center, .ipopo dl, .ipopo dt, .ipopo dd, .ipopo ol, .ipopo ul, .ipopo li, .ipopo fieldset, .ipopo form, .ipopo label, .ipopo legend, .ipopo table, .ipopo caption, .ipopo tbody, .ipopo tfoot, .ipopo thead, .ipopo tr, .ipopo th, .ipopo td, .ipopo article, .ipopo aside, .ipopo canvas, .ipopo details, .ipopo embed, .ipopo figure, .ipopo figcaption, .ipopo footer, .ipopo header, .ipopo hgroup, .ipopo menu, .ipopo nav, .ipopo output, .ipopo ruby, .ipopo section, .ipopo summary, .ipopo time, .ipopo mark, .ipopo audio, .ipopo video { margin: 0; padding: 0; border: 0; vertical-align: baseline; }
+.ipopo body, .ipopo html { height: 100%; }
+.ipopo img, .ipopo fieldset, .ipopo a img { border: none; }
+.ipopo input[type="text"], .ipopo input[type="email"], .ipopo input[type="tel"], .ipopo textarea { -webkit-appearance: none; }
+.ipopo input[type="submit"], .ipopo button { cursor: pointer; }
+.ipopo input[type="submit"]::-moz-focus-inner, .ipopo button::-moz-focus-inner { padding: 0; border: 0; }
+.ipopo textarea { overflow: auto; }
+.ipopo input, .ipopo button { margin: 0; padding: 0; border: 0; }
+.ipopo div, .ipopo input, .ipopo textarea, .ipopo select, .ipopo button, .ipopo h1, .ipopo h2, .ipopo h3, .ipopo h4, .ipopo h5, .ipopo h6, .ipopo a, .ipopo span, .ipopo a:focus { outline: none; }
+.ipopo ul, .ipopo ol { list-style-type: none; }
+.ipopo table { border-spacing: 0; border-collapse: collapse; width: 100%; }
+.ipopo a { text-decoration: none; }
+.ipopo html { box-sizing: border-box; }
+.ipopo * { box-sizing: border-box; }
+.ipopo *:before, .ipopo *:after { box-sizing: border-box; }
 
 .ipo-popup { display: none; z-index: 49; position: fixed; top: 0; bottom: 0; left: 0; right: 0; overflow-y: scroll; }
 @media only screen and (max-width: 767px) { .ipo-popup { position: absolute; top: 0; bottom: 0; left: 0; right: 0; height: 100%; } }
