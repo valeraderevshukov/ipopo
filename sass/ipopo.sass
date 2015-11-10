@@ -160,8 +160,7 @@ $white-blue: #f2f6ff
 	+pt-reg
 	font-size: 14px 
 	line-height: 1.4
-	
-	html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5,
+	div, span, applet, object, iframe,h1, h2, h3, h4, h5,
 	h6, p, blockquote, pre,a, abbr, acronym, address, big,
 	cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small,
 	strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt,
@@ -172,9 +171,7 @@ $white-blue: #f2f6ff
 		margin: 0 
 		padding: 0
 		border: 0
-		vertical-align: baseline
-	body, html
-		height: 100%    
+		vertical-align: baseline 
 	img,fieldset, a img
 		border: none
 	input[type="text"],
@@ -205,70 +202,102 @@ $white-blue: #f2f6ff
 		width: 100%
 	a
 		text-decoration: none
-	// box-sizing model reset
-
-	html
-		box-sizing: border-box
 	*
 		box-sizing: border-box
 		&:before,
 		&:after
 			box-sizing: border-box
 
-.ipo-popup
-	display: none 
-	z-index: 49
-	position: fixed
-	top: 0
-	bottom: 0
-	left: 0
-	right: 0
-	overflow-y: scroll	
-	+r(767)
-		position: absolute
+	.ipo-popup
+		display: none 
+		z-index: 49
+		position: fixed
 		top: 0
 		bottom: 0
 		left: 0
 		right: 0
-		height: 100%
-	&.is-active
-		display: block
+		overflow-y: scroll	
+		+r(767)
+			position: absolute
+			top: 0
+			bottom: 0
+			left: 0
+			right: 0
+			height: 100%
+		&.is-active
+			display: block
+			.ipo-popup__overlay
+				opacity: 1
+		&.is-width
+			.ipo-popup__in
+				width: 804px 
+				margin-left: -402px
+				+r(1023)
+					position: absolute
+					width: 100% 
+					bottom: 0
+					top: 0px
+					margin: 0
+					left: 0
+					+vertical
+		&.is-frame
+			@media only screen and (max-width: 767px)
+				position: fixed
+			.ipo-popup__in
+				width: 804px 
+				margin-left: -402px
+				+r(1023)
+					width: 100%
+					margin-left: 0
+			.ipo-popup__content
+				+r(1023)
+					display: block
+			iframe
+				+r(767)
+					height: 500px
+		&.is-higher
+			.ipo-popup__in
+				top: 30px
+		&.ipo-non-fixed
+			position: absolute	
+			.ipo-popup__in
+				position: absolute 
+				+r(1023)
+					position: absolute
+					width: 100% 
+					bottom: 0
+					top: 0px
+					margin: 0
+					left: 0
+					+vertical
+				+r(767)
+					padding: 14px 9px 60px 
+					height: 100%
+			.ipo-popup__overlay
+				+r(1023)
+					background: #fff
+					height: 100%
 		.ipo-popup__overlay
-			opacity: 1
-	&.is-width
-		.ipo-popup__in
-			width: 804px 
-			margin-left: -402px
-			+r(1023)
-				position: absolute
-				width: 100% 
-				bottom: 0
-				top: 0px
-				margin: 0
-				left: 0
-				+vertical
-	&.is-frame
-		@media only screen and (max-width: 767px)
 			position: fixed
-		.ipo-popup__in
-			width: 804px 
-			margin-left: -402px
-			+r(1023)
-				width: 100%
-				margin-left: 0
-		.ipo-popup__content
-			+r(1023)
-				display: block
-		iframe
+			top: 0
+			bottom: 0
+			left: 0
+			right: 0
+			opacity: 0
+			+tr(opacity .2s)
+			background: rgba(#8d5bb4,.75)		
 			+r(767)
-				height: 500px
-	&.is-higher
+				background: #fff
+				height: 100%
 		.ipo-popup__in
-			top: 30px
-	&.ipo-non-fixed
-		position: absolute	
-		.ipo-popup__in
-			position: absolute 
+			position: absolute
+			top: 100px
+			left: 50%
+			margin-left: -290px 
+			width: 588px
+			background-color: #fff
+			border-radius: 5px
+			padding: 49px 40px 46px 40px
 			+r(1023)
 				position: absolute
 				width: 100% 
@@ -280,569 +309,534 @@ $white-blue: #f2f6ff
 			+r(767)
 				padding: 14px 9px 60px 
 				height: 100%
-		.ipo-popup__overlay
-			+r(1023)
-				background: #fff
-				height: 100%
-	.ipo-popup__overlay
-		position: fixed
-		top: 0
-		bottom: 0
-		left: 0
-		right: 0
-		opacity: 0
-		+tr(opacity .2s)
-		background: rgba(#8d5bb4,.75)		
-		+r(767)
-			background: #fff
-			height: 100%
-	.ipo-popup__in
-		position: absolute
-		top: 100px
-		left: 50%
-		margin-left: -290px 
-		width: 588px
-		background-color: #fff
-		border-radius: 5px
-		padding: 49px 40px 46px 40px
-		+r(1023)
+				
+			&:before,
+			&:after
+				content: ""
+				position: absolute
+				top: 0
+				bottom: 0
+				right: 0
+				background-color: transparent
+				border-radius: 5px
+				border-width: 2px  
+				border-style: solid
+				+r(1023)	
+					display: none
+			&:before
+				z-index: 3
+				border-color: $orangead
+				+rotate(1.3)
+				left: 1px
+				+r(1023)
+					border: none
+			&:after
+				z-index: 0
+				border-color: $ipopo 
+				+rotate(-1.3)
+				left: -3px
+				right: -3px
+		.ipo-popup__close
 			position: absolute
-			width: 100% 
-			bottom: 0
-			top: 0px
-			margin: 0
-			left: 0
-			+vertical
-		+r(767)
-			padding: 14px 9px 60px 
-			height: 100%
-			
-		&:before,
-		&:after
-			content: ""
-			position: absolute
-			top: 0
-			bottom: 0
-			right: 0
-			background-color: transparent
-			border-radius: 5px
-			border-width: 2px  
-			border-style: solid
-			+r(1023)	
+			z-index: 11
+			top: 30px 
+			right: 20px
+			+tr(top .2s)
+			background: none
+			&:active
+				top: 32px 
+			+r(767)
 				display: none
-		&:before
-			z-index: 3
-			border-color: $orangead
-			+rotate(1.3)
-			left: 1px
+		.ipo-popup__content
+			position: relative		
+			z-index: 4 
+			+clr
 			+r(1023)
-				border: none
-		&:after
-			z-index: 0
-			border-color: $ipopo 
-			+rotate(-1.3)
-			left: -3px
-			right: -3px
-	.ipo-popup__close
-		position: absolute
-		z-index: 11
-		top: 30px 
-		right: 20px
-		+tr(top .2s)
-		background: none
-		&:active
-			top: 32px 
-		+r(767)
-			display: none
-	.ipo-popup__content
-		position: relative		
-		z-index: 4 
-		+clr
-		+r(1023)
-			vertical-align: middle
-			display: inline-block
-		+r(767)
-			display: block
-		&.ipo-with-datepicker
-			+r(1023)
-				width: 768px
-				margin: 0 auto 
+				vertical-align: middle
+				display: inline-block
 			+r(767)
-				width: 480px
+				display: block
+			&.ipo-with-datepicker
+				+r(1023)
+					width: 768px
+					margin: 0 auto 
+				+r(767)
+					width: 480px
+				+r(479)
+					width: 320px
+		.ipo-popup__foot
+			margin-top: 35px
 			+r(479)
-				width: 320px
-	.ipo-popup__foot
-		margin-top: 35px
-		+r(479)
-			text-align: center
-			.ipo-btn-simple
-				display: block
-				width: 100%
-				margin-bottom: 10px
-	.ipo-popup__title
-		display: none
-		+r(767)
-			display: block
-			margin: 15px 0 30px
-			text-align: center
-			span
-				display: block
-				text-transform: uppercase
-				color: $orangead
-				font-size: 24px
-				+blogger-bold 
-	.ipo-popup__wrap
-		margin-top: 35px 
-	.ipo-title
-		&.ipo-with-marg
-			margin-bottom: 25px
-	.ipo-link_back
-		margin-left: 55px 
-		+r(767)
-			margin-left: 0
-	.ui-datepicker
-		right: auto
-		left: 0
-	.ipo-input_date
-		margin-top: 30px
-		.ipo-icon-date
-			+r(1023)
-				display: none 
-	.ipo-popup__butt
-		margin-top: 30px
-		.ipo-btn-simple
-			padding-left: 24px
-			padding-right: 35px
-			+r(767)
-				margin-right: 10px
-			+r(480)
-				margin-right: 0
-		.ipo-link_back
-			margin-top: 12px
-			vertical-align: top
-			display: inline-block
-	.ipo-popup__rad
-		text-align: left
-		+r(1023)
-			display: inline-block
-		.ipo-radio
-			margin-top: 4px
-	.ipo-popup__h 
-		margin-bottom: 18px
-	.ipo-quantity
-		margin-top: 28px
-		.ipo-number
-			+r(480)
-				margin-left: 0
-		 
-.ipo-popup-login
-	.ipo-input
-		margin-top: 27px
-		+r(767)
-			margin-top: 18px
-	.ipo-btn-simple
-		margin-top: 40px
-		+r(767)
-			width: 100%
-			margin-top: 32px
-			margin-bottom: 25px 
-	.ipo-popup-login__col
-		float: left 
-		text-align: left
-		+r(767)
-			float: none
-		&.ipo-with-width
-			width: 252px
-			margin-right: 40px
-			+r(767)
-				margin: 0
-				width: 100%
-
-.ipo-title
-	+clr 
-	font-size: 24px
-	+blogger-bold
-	color: $orangead
-	margin-bottom: 3px
-	i,
-	span
-		display: inline-block
-		vertical-align: middle
-	i
-		margin-right: 9px 
-	+r(1023)
-		margin: 30px auto  
-	.ipo-link
-		margin-top: 10px
-		float: right
-		+r(1023)
+				text-align: center
+				.ipo-btn-simple
+					display: block
+					width: 100%
+					margin-bottom: 10px
+		.ipo-popup__title
 			display: none
-// frame
-.ipo-frame
-	.ipo-frame__butt
-		margin-top: 30px
-		.ipo-btn-simple
-			padding-left: 24px
-			padding-right: 35px
 			+r(767)
-				margin-right: 10px
-			+r(480)
-				margin-right: 0
+				display: block
+				margin: 15px 0 30px
+				text-align: center
+				span
+					display: block
+					text-transform: uppercase
+					color: $orangead
+					font-size: 24px
+					+blogger-bold 
+		.ipo-popup__wrap
+			margin-top: 35px 
+		.ipo-title
+			&.ipo-with-marg
+				margin-bottom: 25px
 		.ipo-link_back
-			margin: 12px 0 0 56px
+			margin-left: 55px 
+			+r(767)
+				margin-left: 0
+		.ui-datepicker
+			right: auto
+			left: 0
+		.ipo-input_date
+			margin-top: 30px
+			.ipo-icon-date
+				+r(1023)
+					display: none 
+		.ipo-popup__butt
+			margin-top: 30px
+			.ipo-btn-simple
+				padding-left: 24px
+				padding-right: 35px
+				+r(767)
+					margin-right: 10px
+				+r(480)
+					margin-right: 0
+			.ipo-link_back
+				margin-top: 12px
+				vertical-align: top
+				display: inline-block
+		.ipo-popup__rad
+			text-align: left
+			+r(1023)
+				display: inline-block
+			.ipo-radio
+				margin-top: 4px
+		.ipo-popup__h 
+			margin-bottom: 18px
+		.ipo-quantity
+			margin-top: 28px
+			.ipo-number
+				+r(480)
+					margin-left: 0
+			 
+	.ipo-popup-login
+		.ipo-input
+			margin-top: 27px
+			+r(767)
+				margin-top: 18px
+		.ipo-btn-simple
+			margin-top: 40px
+			+r(767)
+				width: 100%
+				margin-top: 32px
+				margin-bottom: 25px 
+		.ipo-popup-login__col
+			float: left 
+			text-align: left
+			+r(767)
+				float: none
+			&.ipo-with-width
+				width: 252px
+				margin-right: 40px
+				+r(767)
+					margin: 0
+					width: 100%
+
+	.ipo-title
+		+clr 
+		font-size: 24px
+		+blogger-bold
+		color: $orangead
+		margin-bottom: 3px
+		i,
+		span
+			display: inline-block
+			vertical-align: middle
+		i
+			margin-right: 9px 
+		+r(1023)
+			margin: 30px auto  
+		.ipo-link
+			margin-top: 10px
+			float: right
+			+r(1023)
+				display: none
+	// frame
+	.ipo-frame
+		.ipo-frame__butt
+			margin-top: 30px
+			.ipo-btn-simple
+				padding-left: 24px
+				padding-right: 35px
+				+r(767)
+					margin-right: 10px
+				+r(480)
+					margin-right: 0
+			.ipo-link_back
+				margin: 12px 0 0 56px
+				vertical-align: top
+				display: inline-block
+				+r(767)
+					margin-left: 0
+		.ipo-frame__rad
+			text-align: left
+			+r(1023)
+				display: inline-block
+			.ipo-radio
+				margin-top: 4px
+			[class^="btn-"]
+				margin: 0 0 0 18px
+				padding-left: 24px
+				padding-right: 20px
+				width: 243px
+				&:first-child
+					margin-left: 0
+				[class^="icon-"]
+					margin: 8px 9px 0 0
+					vertical-align: top
+		.ipo-frame__back
+			margin: 15px 0 38px
+			.ipo-link_back
+				margin-left: 0
+		.ipo-frame__nets
+			.ipo-title
+				line-height: 1.1
+			.ipo-nets
+				margin-top: 10px
+		.ipo-frame__h 
+			margin-bottom: 18px
+		.ipo-quantity
+			margin-top: 28px
+			.ipo-number
+				+r(480)
+					margin-left: 0
+
+
+	// quantity
+	.ipo-quantity
+		.ipo-title,
+		.ipo-number
 			vertical-align: top
 			display: inline-block
-			+r(767)
-				margin-left: 0
-	.ipo-frame__rad
-		text-align: left
-		+r(1023)
-			display: inline-block
-		.ipo-radio
-			margin-top: 4px
-		[class^="btn-"]
-			margin: 0 0 0 18px
-			padding-left: 24px
-			padding-right: 20px
-			width: 243px
-			&:first-child
-				margin-left: 0
-			[class^="icon-"]
-				margin: 8px 9px 0 0
-				vertical-align: top
-	.ipo-frame__back
-		margin: 15px 0 38px
-		.ipo-link_back
-			margin-left: 0
-	.ipo-frame__nets
 		.ipo-title
-			line-height: 1.1
-		.ipo-nets
-			margin-top: 10px
-	.ipo-frame__h 
-		margin-bottom: 18px
-	.ipo-quantity
-		margin-top: 28px
+			padding-top: 7px
 		.ipo-number
-			+r(480)
-				margin-left: 0
+			margin-left: 35px
 
-
-// quantity
-.ipo-quantity
-	.ipo-title,
-	.ipo-number
-		vertical-align: top
-		display: inline-block
-	.ipo-title
-		padding-top: 7px
-	.ipo-number
-		margin-left: 35px
-
-.ipo-radio
-	position: relative
-	+pt-reg
-	font-size: 16px
-	color: $ipopo
-	user-select: none
-	cursor: pointer
-	display: block
-	input,
-	span:before
-		position: absolute
-		content: ''
-		top: 0
-		left: 0
-		height: 16px
-		width: 16px
-	input
-		z-index: -1
-		opacity: 0
-		&:checked
-			& + span:after
-				display: block
-	span
+	.ipo-radio
 		position: relative
-		padding-left: 20px
-		&:before
-			border-radius: 50% 
-			border: 2px solid #8d5bb4
-			box-sizing: border-box
-		&:after
+		+pt-reg
+		font-size: 16px
+		color: $ipopo
+		user-select: none
+		cursor: pointer
+		display: block
+		input,
+		span:before
 			position: absolute
 			content: ''
-			top: 4px
-			left: 4px
-			height: 8px
-			width: 8px
-			border-radius: 50%
-			background: $orangead
+			top: 0
+			left: 0
+			height: 16px
+			width: 16px
+		input
+			z-index: -1
+			opacity: 0
+			&:checked
+				& + span:after
+					display: block
+		span
+			position: relative
+			padding-left: 20px
+			&:before
+				border-radius: 50% 
+				border: 2px solid #8d5bb4
+				box-sizing: border-box
+			&:after
+				position: absolute
+				content: ''
+				top: 4px
+				left: 4px
+				height: 8px
+				width: 8px
+				border-radius: 50%
+				background: $orangead
+				display: none
+
+	.ipo-link
+		font-size: 16px
+		color: $ipopo
+		text-transform: uppercase
+		+blogger-bold
+		vertical-align: middle
+		+transition(color .2s)
+		&:hover
+			color: lighten($ipopo,10%)
+		&:active
+			color: darken($ipopo,10%) 
+		&_bottom
 			display: none
-
-.ipo-link
-	font-size: 16px
-	color: $ipopo
-	text-transform: uppercase
-	+blogger-bold
-	vertical-align: middle
-	+transition(color .2s)
-	&:hover
-		color: lighten($ipopo,10%)
-	&:active
-		color: darken($ipopo,10%) 
-	&_bottom
-		display: none
-		+r(1023)
-			display: inline-block
-			width: 100%
-			float: none
-			text-align: center
-	&_back
-		padding-left: 15px
-		position: relative 
-		&:before
-			content: ""
-			position: absolute
-			left: 0
-			top: 50%
-			margin-top: -4px
-			+sr(arr-l-f)
-			+tr(left .2s)
-		&:hover
+			+r(1023)
+				display: inline-block
+				width: 100%
+				float: none
+				text-align: center
+		&_back
+			padding-left: 15px
+			position: relative 
 			&:before
-				left: -2px 
-	&_orange
-		font-size: 24px
-		position: relative
-		padding-left: 22px
-		line-height: 1
-		color: $orangead 
-		+tr(color .2s)
-		text-transform: none
-		display: block
-		margin-bottom: 15px
-		&:before
-			content: ""
-			position: absolute
-			left: 0
-			top: 5px
-			+sr(arr-r-o)
-			+tr(left .2s)				
-		&:hover
-			color: lighten($orangead,5%)
-			&:before
-				left: 3px
-		&:active
-			color: darken($orangead,10%)
-	&_btn
-		padding: 15px 45px
-		background-color: none 
-	&.is-small
-		font-size: 16px
-		color: #FFF  
-		&:hover
-			color: rgba(#fff,.8)
-		&:active
-			color: rgba(#fff,.7)
-		+r(1023)
-			margin-top: 33px
-
-.ipo-number
-	position: relative
-	display: inline-block
-	vertical-align: middle
-	// height: 25px
-	// width: 142px
-	box-sizing: border-box
-	padding: 6px
-	border: 2px solid $sky
-	border-radius: 30px
-	&__input
-		display: inline-block
-		margin: 0 20px 
-		width: 20px
-		text-align: center
-		font-size: 16px
-		+pt-reg
-		color: $text
-		vertical-align: middle
-	&__plus,
-	&__minus
-		width: 32px
-		height: 32px
-		border-top: 2px solid transparent
-		border-left: 2px solid transparent
-		background: $ipopo
-		border-radius: 50%		
-		vertical-align: middle
-		+vertical
-		position: relative
-		box-sizing: border-box
-		&:active
-			border-color: darken($ipopo,10%)
-			background-color: lighten($ipopo,3%)
-	.icon-ipo-minus,
-	.icon-ipo-plus-small
-		position: relative
-		left: -1px
-	.icon-ipo-minus
-		top: -1px
-
-.ipo-btn-simple
-	display: inline-block
-	height: 48px
-	line-height: 48px
-	padding: 0 68px
-	border-radius: 30px
-	background-color: $ipopo
-	font-size: 16px
-	color: #FFF
-	text-transform: uppercase
-	text-align: center
-	+blogger-bold
-	transition: background-color .2s, text-shadow .2s
-	&.ipo-btn_mod
-		padding: 0 20px
-		i,
-		span
-			margin-right: 12px
-			vertical-align: middle
-			display: inline-block
-	&.ipo-with-icon
-		padding: 0 40px 
-		i,
-		span
-			vertical-align: middle
-			display: inline-block
-		span
-			font-size: 16px
-		i
-			margin-top: -5px 
-		.ipo-icon-post
-			margin-top: -3px
-	&.is-adapt
-		padding: 0 35px
-		+r(1200)
-			padding: 0 23px 
-		+r(767)
-			display: block
-			margin-bottom: 10px
-			margin-left: 0 
-	&.is-block
-		+r(767)
-			display: block
-			height: auto
+				content: ""
+				position: absolute
+				left: 0
+				top: 50%
+				margin-top: -4px
+				+sr(arr-l-f)
+				+tr(left .2s)
+			&:hover
+				&:before
+					left: -2px 
+		&_orange
+			font-size: 24px
+			position: relative
+			padding-left: 22px
 			line-height: 1
-			padding: 12px 20px 8px  
-			margin-bottom: 15px 
-			width: 100%		
-	&.is-ninja
-		visibility: hidden 
-		+r(767)
-			display: none !important
-	&.is-blue
-		background-color: $sky 
-	&.is-lily
-		background-color: $lily
-	&.is-small
-		padding: 0 16px
-		i,
-		span
-			vertical-align: middle
-			display: inline-block
-		span
-			font-size: 16px
-		i
-			margin-top: -5px 
-	&:hover
-		background-color: darken($ipopo,4%) 
-		&.is-blue
-			background-color: darken($sky,4%)
-		&.is-lily
-			background-color: darken($lily,4%) 
-	&:active
-		text-shadow: -1px -2px 1px #563671
-		background-color: lighten($ipopo,1%) 
-		&.is-blue
-			background-color: lighten($sky,1%)
-			text-shadow: -1px -2px 1px #97b0e1
-		&.is-lily
-			background-color: lighten($lily,1%)
-			text-shadow: -1px -2px 1px #cb86cf
-	.icon-ipo-basket
-		margin: 8px 9px 0 0
-		vertical-align: top
-	+r(1023)
-		padding: 0 50px
-	+r(767)
-		padding: 0 26px 
-.ipo-input
-	position: relative
-	&_small
-		width: 242px
-		display: inline-block
-		font-size: 0
-		+r(1200)
-			width: 100%
+			color: $orangead 
+			+tr(color .2s)
+			text-transform: none
 			display: block
-	input
+			margin-bottom: 15px
+			&:before
+				content: ""
+				position: absolute
+				left: 0
+				top: 5px
+				+sr(arr-r-o)
+				+tr(left .2s)				
+			&:hover
+				color: lighten($orangead,5%)
+				&:before
+					left: 3px
+			&:active
+				color: darken($orangead,10%)
+		&_btn
+			padding: 15px 45px
+			background-color: none 
+		&.is-small
+			font-size: 16px
+			color: #FFF  
+			&:hover
+				color: rgba(#fff,.8)
+			&:active
+				color: rgba(#fff,.7)
+			+r(1023)
+				margin-top: 33px
+
+	.ipo-number
+		position: relative
+		display: inline-block
+		vertical-align: middle 
+		// height: 25px
+		// width: 142px
+		box-sizing: border-box
+		padding: 6px
 		border: 2px solid $sky
-		padding: 0 20px
-		color: $orangead
-		background-color: transparent
-		height: 48px
-		line-height: 48px
-		width: 100%
 		border-radius: 30px
-		font-size: 16px
-		+pt-reg
-		+transition(border-color .2s)	
-		&:focus
-			border-color: darken($sky,7%) 
-	&_sky-text
-		input
-			color: $sky 
-			+pt-italic
-	&_grey-text
-		input
-			color: $text 
-	&_date
-		input
-			padding: 0 10px
-			width: 100px
-			height: 32px
-			line-height: 32px
+		&__input
+			display: inline-block
+			margin: 0 20px 
+			width: 20px
+			text-align: center
 			font-size: 16px
 			+pt-reg
-			color: $ipopo 
+			color: $text
 			vertical-align: middle
-		button
-			vertical-align: bottom
-			margin-left: 10px 
-			display: inline-block	
-		.ui-datepicker
-			position: absolute
-			right: -127px
-			top: 38px
-			display: none !important
-			border: 4px solid $orangead
-			&.is-visible
-				display: block !important
-			+r(1024)
-				position: static
-				display: block !important
-				width: 320px
-				border: 0
-				margin: 0 auto
-				&:before
-					display: none
-		.ipo-input__name
-			display: inline-block
-			margin-right: 20px 
+		&__plus,
+		&__minus
+			width: 32px
+			height: 32px
+			border-top: 2px solid transparent
+			border-left: 2px solid transparent
+			background: $ipopo
+			border-radius: 50%		
 			vertical-align: middle
-	&__name
+			+vertical
+			position: relative
+			box-sizing: border-box
+			&:active
+				border-color: darken($ipopo,10%)
+				background-color: lighten($ipopo,3%)
+		.icon-ipo-minus,
+		.icon-ipo-plus-small
+			position: relative
+			left: -1px
+			vertical-align: middle
+		.icon-ipo-minus
+			top: -1px
+
+	.ipo-btn-simple
+		display: inline-block
+		height: 48px
+		line-height: 48px
+		padding: 0 68px
+		border-radius: 30px
+		background-color: $ipopo
 		font-size: 16px
-		+pt-reg
-		color: $text
-		margin-bottom: 6px 
-		text-align: left 
+		color: #FFF
+		text-transform: uppercase
+		text-align: center
+		+blogger-bold
+		transition: background-color .2s, text-shadow .2s
+		&.ipo-btn_mod
+			padding: 0 20px
+			i,
+			span
+				margin-right: 12px
+				vertical-align: middle
+				display: inline-block
+		&.ipo-with-icon
+			padding: 0 40px 
+			i,
+			span
+				vertical-align: middle
+				display: inline-block
+			span
+				font-size: 16px
+			i
+				margin-top: -5px 
+			.ipo-icon-post
+				margin-top: -3px
+		&.is-adapt
+			padding: 0 35px
+			+r(1200)
+				padding: 0 23px 
+			+r(767)
+				display: block
+				margin-bottom: 10px
+				margin-left: 0 
+		&.is-block
+			+r(767)
+				display: block
+				height: auto
+				line-height: 1
+				padding: 12px 20px 8px  
+				margin-bottom: 15px 
+				width: 100%		
+		&.is-ninja
+			visibility: hidden 
+			+r(767)
+				display: none !important
+		&.is-blue
+			background-color: $sky 
+		&.is-lily
+			background-color: $lily
+		&.is-small
+			padding: 0 16px
+			i,
+			span
+				vertical-align: middle
+				display: inline-block
+			span
+				font-size: 16px
+			i
+				margin-top: -5px 
+		&:hover
+			background-color: darken($ipopo,4%) 
+			&.is-blue
+				background-color: darken($sky,4%)
+			&.is-lily
+				background-color: darken($lily,4%) 
+		&:active
+			text-shadow: -1px -2px 1px #563671
+			background-color: lighten($ipopo,1%) 
+			&.is-blue
+				background-color: lighten($sky,1%)
+				text-shadow: -1px -2px 1px #97b0e1
+			&.is-lily
+				background-color: lighten($lily,1%)
+				text-shadow: -1px -2px 1px #cb86cf
+		.icon-ipo-basket
+			margin: 8px 9px 0 0
+			vertical-align: top
+		+r(1023)
+			padding: 0 50px
+		+r(767)
+			padding: 0 26px 
+	.ipo-input
+		position: relative
+		&_small
+			width: 242px
+			display: inline-block
+			font-size: 0
+			+r(1200)
+				width: 100%
+				display: block
+		input
+			border: 2px solid $sky
+			padding: 0 20px
+			color: $orangead
+			background-color: transparent
+			height: 48px
+			line-height: 48px
+			width: 100%
+			border-radius: 30px
+			font-size: 16px
+			+pt-reg
+			+transition(border-color .2s)	
+			&:focus
+				border-color: darken($sky,7%) 
+		&_sky-text
+			input
+				color: $sky 
+				+pt-italic
+		&_grey-text
+			input
+				color: $text 
+		&_date
+			input
+				padding: 0 10px
+				width: 100px
+				height: 32px
+				line-height: 32px
+				font-size: 16px
+				+pt-reg
+				color: $ipopo 
+				vertical-align: middle
+			button
+				vertical-align: bottom
+				margin-left: 10px 
+				display: inline-block	
+			.ui-datepicker
+				position: absolute
+				right: -127px
+				top: 38px
+				display: none !important
+				border: 4px solid $orangead
+				&.is-visible
+					display: block !important
+				+r(1024)
+					position: static
+					display: block !important
+					width: 320px
+					border: 0
+					margin: 0 auto
+					&:before
+						display: none
+			.ipo-input__name
+				display: inline-block
+				margin-right: 20px 
+				vertical-align: middle
+		&__name
+			font-size: 16px
+			+pt-reg
+			color: $text
+			margin-bottom: 6px 
+			text-align: left 
