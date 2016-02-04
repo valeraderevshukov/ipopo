@@ -338,10 +338,10 @@ button
 	left: 0
 	z-index: 20
 	height: auto
-	transform: translate3d(0,-110%,0)
+	+transform(translate3d(0,-110%,0))
 	+transition(transform .4s)
 	&.is-active
-		transform: translate3d(0,0,0)
+		+transform(translate3d(0,0,0))
 	&__wrap
 		max-width: 320px
 		margin: 0 auto 
@@ -3000,6 +3000,8 @@ button.btn-edit
 		.slick-active
 			button
 				background-color: $ipopo 
+	.product-slide
+		width: 100%
 .product-slide
 	display: inline-block
 	vertical-align: top

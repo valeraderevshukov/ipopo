@@ -1,35 +1,53 @@
 head.ready(function() {	
 
-	// $(window).load(function() {
-	// 	setTimeout(function(){
-	// 		$('.js-person').addClass('is-active');
-	// 	}, 2000);
-	// });
-
+	// first ipopo
 	var idleTimer 	= null,
 		idleState 	= false,
-		idleWait 	= 4000; 
+		idleWait 	= 10000,
+		ipPers 		= $('.js-person'),
+		ipText 		= $('.js-person-text'); 
 	 
 	$(document).on('mousemove keydown scroll', function(){
 		clearTimeout(idleTimer);
 		if(idleState == true){ 
-			// console.log('hi');
-			$('.js-person-text').removeClass('is-active');
+			ipText.removeClass('is-active');
 			setTimeout(function(){
-				$('.js-person').removeClass('is-active');
+				ipPers.removeClass('is-active');
 			}, 300);
 		}
 	
 		idleState = false;
 		idleTimer = setTimeout(function(){ 
-			// console.log('where are you');
 			setTimeout(function(){
-				$('.js-person-text').addClass('is-active');
+				ipText.addClass('is-active');
 			}, 1000);
-			$('.js-person').addClass('is-active');
+			ipPers.addClass('is-active');
 			idleState = true; 
 		}, idleWait);
 	});
 	
 	$('body').trigger("mousemove");
+	
+	
+	// ipopo paid
+	var ipopoPaid = $('.js-person-paid'),
+		ipopoText = $('.js-person-paid-text');
+
+	$('.js-paid').on('click', function(){
+		ipopoPaid.addClass('is-active');
+		setTimeout(function(){
+			ipopoText.addClass('is-active');
+		}, 1000);
+		if(ipopoPaid.hasClass('is-active')) {
+			setTimeout(function(){
+				ipopoText.removeClass('is-active');
+				setTimeout(function(){
+					ipopoPaid.removeClass('is-active');
+				}, 300);
+			}, 6000);
+		}
+		return false;
+	});
+	
+
 });

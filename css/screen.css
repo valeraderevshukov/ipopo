@@ -107,8 +107,8 @@ button { background-color: transparent; }
 .btn-close__item.is-orangead { background-color: #feb737; transform: translate3d(0, 0, 0) rotate(45deg); }
 .btn-close__item.is-sky { background-color: #a6c3fd; transform: translate3d(0, 0, 0) rotate(-45deg); }
 
-.menu { position: absolute; background: #e9d7af; top: 0; right: 0; left: 0; z-index: 20; height: auto; transform: translate3d(0, -110%, 0); -moz-transition: -moz-transform 0.4s; -o-transition: -o-transform 0.4s; -webkit-transition: -webkit-transform 0.4s; transition: transform 0.4s; }
-.menu.is-active { transform: translate3d(0, 0, 0); }
+.menu { position: absolute; background: #e9d7af; top: 0; right: 0; left: 0; z-index: 20; height: auto; -moz-transform: translate3d(0, -110%, 0); -ms-transform: translate3d(0, -110%, 0); -webkit-transform: translate3d(0, -110%, 0); transform: translate3d(0, -110%, 0); -moz-transition: -moz-transform 0.4s; -o-transition: -o-transform 0.4s; -webkit-transition: -webkit-transform 0.4s; transition: transform 0.4s; }
+.menu.is-active { -moz-transform: translate3d(0, 0, 0); -ms-transform: translate3d(0, 0, 0); -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
 .menu__wrap { max-width: 320px; margin: 0 auto; }
 .menu__wrap.is-country { padding-left: 128px; }
 .menu__wrap.is-lang { padding-left: 31px; }
@@ -827,6 +827,7 @@ button.btn-edit { line-height: 1; }
 .product-slider .slick-dots { bottom: -43px; }
 .product-slider .slick-dots button { background-color: #feb737; }
 .product-slider .slick-dots .slick-active button { background-color: #8d5bb4; }
+.product-slider .product-slide { width: 100%; }
 
 .product-slide { display: inline-block; vertical-align: top; margin-top: 30px; margin-left: 48px; }
 .product-slide:first-child { margin-left: 0; }

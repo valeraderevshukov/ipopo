@@ -12,21 +12,38 @@
 	<link rel="stylesheet" media="all" href="css/screen.css" >
 	<link rel="stylesheet" media="all" href="css/person.css" >
 	<!--[if IE]><script src="js/html5shiv.js"></script><![endif]-->
+	<style>
+		.button { 
+			height: 40px;
+			width: 300px;
+			margin: 0 auto;
+			font-size: 24px;
+			border-radius: 5px;
+			border: 1px solid red;
+			background: white;
+			display: block;
+		}
+		.button:hover {
+			background: #ccc;
+		}
+	</style>
 </head>
 <body>
 	<!-- BEGIN  out-->
-	<div class="out" style="height: 1000px; background: linear-gradient(top, #fdb737 0%, #fff 100%); background: -webkit-linear-gradient(top, #fdb737 0%, #fff 100%);"></div>
+	<div class="out" style="height: 1000px; background: linear-gradient(top, #fdb737 0%, #fff 100%); background: -webkit-linear-gradient(top, #fdb737 0%, #fff 100%);">
+		<button type="button" class="button js-paid">Оплатить</button>
+	</div>
 	<!-- person -->
-	<div class="personage">
-		<div class="person js-person">
+	<div class="personage is-paid">
+		<div class="person js-person-paid">
 			<div class="person__img">
 				<div class="per">
-					<img src="img/gif/second.gif" alt="gif">
+					<img src="img/gif/first.gif" alt="gif">
 				</div>
 			</div>
-			<div class="person__text js-person-text">
-				<p>Эй, ты ещё тут?</p>
-				<p>Я тебя заждался!</p>
+			<div class="person__text js-person-paid-text">
+				<p>Ура! Вот это обрадуется виновник торжества!</p>
+				<p>Хорошего тебе дня!</p>
 				<div class="person__shad"></div>
 			</div>
 			<div class="wind"></div>
