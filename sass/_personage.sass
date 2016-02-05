@@ -1,25 +1,24 @@
 // personage
 .personage
 	position: fixed
-	left: 23px
+	right: 30px
 	bottom: 0
 	height: 350px
-	width: 375px
+	width: 500px
 	overflow: hidden
 	&.is-paid
-		width: 400px
 		.person__text
 			padding: 10px
 			width: 205px
 			&.is-active
-				left: 194px
+				right: -124px
 		.per
 			left: -27px
 
 // person
 .person
 	position: absolute
-	left: 0
+	right: 0
 	bottom: -100%
 	width: 285px
 	height: 323px
@@ -58,29 +57,29 @@
 		&.is-active
 			+scale(1)
 			top: -26px
-			left: 155px
+			left: -185px
 		&:before
 			position: absolute
 			content: ''
 			top: 100%
-			left: 33px
+			right: 33px
 			z-index: 1
-			+arr(28,20,#a6c3fc,tl)
+			+arr(28,20,#a6c3fc,tr)
 		&:after
 			position: absolute
 			content: ''
 			top: 100%
-			left: 37px
+			right: 37px
 			margin-top: -4px
 			z-index: 2
-			+arr(19,15,#fff,tl)
+			+arr(19,15,#fff,tr)
 	&__shad
 		position: absolute
 		top: 100%
-		left: 38px
+		right: 27px
 		margin-top: 12.5px
 		+box-shadow(0px -0.3px 0px rgba(77, 77, 77, 0.15))
-		+arr(25,17,rgba(77, 77, 77, 0.15),tl)
+		+arr(25,17,rgba(77, 77, 77, 0.15),tr)
 	p
 		padding: 0
 		margin: 0
